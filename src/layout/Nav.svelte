@@ -9,6 +9,7 @@
   export let version = false
   export let collapsible = false
   export let horizontal = false
+  export let brand = true
 
   $: showMenu = $headerIsOpen || !collapsible
   $: showIcon = collapsible && $$slots.default
@@ -17,7 +18,9 @@
 <!-- MARKUP -->
 <header class:sticky>
   <section class:constrained>
-    <Brand showVersion={version} />
+    {#if brand}
+      <Brand showVersion={version} />
+    {/if}
 
     <div class="menu" class:open={true}>
       {#if showIcon}

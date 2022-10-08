@@ -8,7 +8,7 @@
 <div class="brand">
   <a href="/">
     <slot>
-      SvelteKit Template
+      it<strike>t</strike>y<small>.sh</small>
     </slot>
   </a>
 
@@ -49,5 +49,13 @@
     &:hover {
       color: var(--accent-color);
     }
+  }
+
+  small {
+    font-size: 0.7em;
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: -0.05em;
+    color: var(--foreground-50);
   }
 </style>
