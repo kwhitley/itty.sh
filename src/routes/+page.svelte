@@ -24,18 +24,19 @@
 
   h1:hover {
     strike {
-      max-width: 0;
       opacity: 0;
+      width: 0;
+      margin-right: -0.01em;
     }
   }
 
   strike {
     overflow: hidden;
-    transition: opacity, max-width 0.15s ease;
+    transition: opacity 0.4s ease, width 0.2s ease, margin-right 0.3s ease;
     max-width: 0.3em;
     letter-spacing: 0;
-    margin-right: -0.05em;
-    // background-color: red;
+    margin-right: -0.07em;
+    width: 0.3em;
     display: inline-flex;
     line-height: 0.72em;
   }
