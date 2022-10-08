@@ -1,0 +1,13 @@
+.split {
+  display: flex;
+  gap: var(--default-gap);
+  flex-flow: row wrap;
+
+  &.vertical {
+    flex-flow: column;
+  }
+
+  & > * {
+    flex: 1;
+  }
+}
