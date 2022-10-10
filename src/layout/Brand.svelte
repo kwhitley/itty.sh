@@ -18,8 +18,6 @@
       <div class="secondary">link-shortening for the 21st century</div>
     </slot>
   </a>
-
-
 </div>
 
 <!-- STYLES -->

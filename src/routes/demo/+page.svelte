@@ -28,6 +28,7 @@
   ]
   let placeholder = placeholderOptions[0]
   let id = ''
+  let copied = false
   $: link = `${PREFIX}/${id}`
   $: fullLink = `${PROTOCOL}${PREFIX}/${id}`
 
@@ -68,6 +69,7 @@
   const submit = async () => {
     console.log('submitting')
     submitting = true
+    copied = false
     const response = await api
                             .post('/create', value, { headers: { 'itty-key-length': keyLength }})
                             .catch(err => {
@@ -83,6 +85,7 @@
     submitting = true
     value = ''
     placeholder = '(pasted image)'
+    copied = false
     stop()
 
     await fetch(`${PROTOCOL}${PREFIX}/create`, { method: 'POST', body: e.detail, headers: { 'itty-key-length': keyLength }})
@@ -100,6 +103,7 @@
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(fullLink)
+    copied = true
   }
 
   $: if (value) {
@@ -132,7 +136,15 @@
 
       {#if showPreview}
         <section class="preview" transition:slide={{ duration: 200 }}>
-          <a class="code" href={fullLink} target="_blank" class:submitting>{link}</a>
+          <a
+            class="code"
+            class:submitting
+            class:copied
+            href={fullLink}
+            target="_blank"
+            >
+            {link}
+          </a>
 
           <div on:click={copyToClipboard} class="copy">
             <Copy />
@@ -201,6 +213,10 @@
         left: calc(100% + 3.6em);
         top: 0.8em;
         font-size: 0.4em;
+      }
+
+      &.copied:after {
+        content: '<-- copied!';
       }
 
       &.submitting {
