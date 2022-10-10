@@ -34,6 +34,8 @@
   "type": "module",
   "dependencies": {
     "autosize": "^5.0.1",
+    "itty-fetcher": "^0.6.1",
+    "supergeneric": "^2.1.0",
     "svelte-navlink-action": "^0.1.4"
   }
 }

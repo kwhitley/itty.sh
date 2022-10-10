@@ -1358,6 +1358,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
+itty-fetcher@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/itty-fetcher/-/itty-fetcher-0.6.1.tgz#f4076649524cc87596111ad4a36b08f61aab2a30"
+  integrity sha512-LtTkeEDRP8Z9DQQrXxml2/LRk+y6uaRhcil9zEQjjomADqScICoNkZZXpKbYkYpC7fG7RL/xeACftrjYBu6geQ==
+
 js-sdsl@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/js-sdsl/-/js-sdsl-4.1.4.tgz#78793c90f80e8430b7d8dc94515b6c77d98a26a6"
@@ -1971,6 +1976,11 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+
+supergeneric@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/supergeneric/-/supergeneric-2.1.0.tgz#830254889e79de869dfddda90d9c03f0682ed74b"
+  integrity sha512-sWoMiLDWPbB/vdf0OTqRluzT9GaU7IMYHhe0wqNPALtIL2Z9GfSW22Xp/EaM2l9FVPyf+M1Ldb5TM8OhiViyjw==
 
 supports-color@^7.1.0:
   version "7.2.0"
