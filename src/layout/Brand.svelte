@@ -47,10 +47,6 @@
     align-self: center;
     margin-top: var(--version-offset);
     margin-bottom: calc(-1 * var(--version-offset));
-
-    &:hover {
-      opacity: 1;
-    }
   }
 
   a {
@@ -63,6 +59,8 @@
 
     &:hover {
       color: var(--accent-color);
+      text-decoration: none;
+      opacity: 0.8;
     }
   }
 
