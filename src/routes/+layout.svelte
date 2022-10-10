@@ -21,7 +21,7 @@
 </svelte:head>
 
 <main>
-  <Nav version horizontal constrained>
+  <Nav version horizontal constrained sticky>
     <div class="social">
       <a href="https://twitter.com/kevinrwhitley">
         <Twitter />
@@ -52,8 +52,8 @@
     section {
       flex: 1;
       display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
+      flex-flow: column;
+      // justify-content: center;
     }
   }
 

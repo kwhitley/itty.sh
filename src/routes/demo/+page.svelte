@@ -5,6 +5,7 @@
   import Editor from '~/components/Editor.svelte'
   import SearchInput from '~/components/SearchInput.svelte'
   import Copy from '~/components/icons/Copy.svelte'
+  import Intro from './Intro.svelte'
   import { randomItem } from 'supergeneric/randomItem'
   import { generateHash } from 'supergeneric/generateHash'
   import { random } from 'supergeneric/random'
@@ -105,33 +106,7 @@
 
 <Page splash>
   <main>
-    <section class="intro">
-      <!-- <h1><span class="colored accent">itty.sh</span> </h1>
-      <h2>link-shortening for the 21st century</h2> -->
-
-      <h2>So what is itty.sh?</h2>
-
-      <p>
-        This service is a fresh, new take on the traditional link-shortener.  While it always gives you back a link, it can:
-      </p>
-
-      <ul>
-        <li>Redirect to another page (just type the full link) - this is just like <a href="https://bit.ly">bit.ly</a></li>
-        <li>Store some content (whatever you type will come back out)</li>
-        <li>Save a snippet/screenshot from the clipboard (just paste into the box)</li>
-        <li>Store a file (just paste/drag a file onto it) ~24MB limit per file</li>
-        <li>Do this an unlimited number of times, with an unlimited amount of traffic.</li>
-        <li>Be programmed against via an <a href="/docs/api">open API</a> (developers, rejoice!)</li>
-      </ul>
-
-      <p>
-        ...all without requiring you to be signed in, tracking/selling any personal data (at all/ever), and being 100% free for basic usage.
-      </p>
-
-      <p>
-        Take that, <strong>bit.ly</strong>.
-      </p>
-    </section>
+    <Intro />
 
     <section class="form">
       <label>
@@ -164,26 +139,6 @@
   main {
     display: flex;
     flex-flow: column;
-  }
-
-  h1 {
-    margin-bottom: 0;
-    z-index: 1;
-    text-shadow: 0.01em 0.03em 0.04em rgba(0,0,0,0.2);
-  }
-
-  h2 {
-    margin-top: -0.5em;
-  }
-
-  li {
-    font-size: 1.1em;
-    margin-bottom: 0.2em;
-  }
-
-  .intro {
-    font-size: 1em;
-    margin-bottom: 5em;
   }
 
   .form {

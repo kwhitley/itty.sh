@@ -19,6 +19,7 @@
 <style lang="scss">
   main {
     width: 100%;
+    // flex: 1 100%;
     flex: 1 100%;
     padding:  calc(var(--page-gutter) * 1.5) var(--page-gutter) 2rem;
     display: flex;
@@ -26,22 +27,25 @@
     justify-content: center;
     margin-bottom: 2rem;
     min-height: 100%;
-
-    &.full, &.splash {
-      // min-height: 90vh;
-    }
+    height: 100%;
+    overflow: scroll;
+    // background-color: cyan;
 
     &.splash {
-      // background-color: pink;
-      // min-height: 90vh;
+      flex-flow: column;
+      align-content: stretch;
+      flex: 1;
+      justify-self: center;
+      align-self: center;
 
       & > div {
-        // background-color: cyan;
-        height: 80%;
+        align-self: center;
+        // background-color: pink;
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 6em;
       }
     }
   }
