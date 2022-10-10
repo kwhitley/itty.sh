@@ -28,7 +28,6 @@
     margin-bottom: 2rem;
     min-height: 100%;
     height: 100%;
-    overflow: scroll;
     // background-color: cyan;
 
     &.splash {

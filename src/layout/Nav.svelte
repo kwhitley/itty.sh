@@ -42,7 +42,7 @@
     z-index: 1;
     display: flex;
     justify-content: center;
-    backdrop-filter: blur(0.2em);
+    backdrop-filter: blur(0.3em);
   }
 
   section {

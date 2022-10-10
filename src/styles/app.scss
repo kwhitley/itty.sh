@@ -14,7 +14,9 @@
   --brand-color: var(--accent-color);
   --brand-size: 2.2em;
   --version-offset: 0rem;
-  --header-color: var(--foreground-5);
+  --header-color: var(--background-color);
+  --header-color: rgba(240,240,240,0.9);
+
   --footer-color: var(--background-color);
   --page-gutter: 2rem;
   --navlink-border: 2px;
@@ -59,6 +61,7 @@
   @media (prefers-color-scheme: dark) {
     --foreground-hue: var(--darkmode-foreground-hue);
     --background-hue: var(--darkmode-background-hue);
+    --header-color: rgba(12,12,12,0.9);
   }
 }
 
@@ -71,7 +74,6 @@
 html {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  margin-left: calc(100vw - 100%);
   background-color: var(--background-color);
 }
 

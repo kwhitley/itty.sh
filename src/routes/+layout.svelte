@@ -47,7 +47,7 @@
     display: flex;
     flex-flow: column;
     min-height: 100%;
-    overflow: scroll;
+    // overflow: scroll;
 
     section {
       flex: 1;
@@ -74,7 +74,7 @@
     font-size: 1rem;
 
     > * {
-      color: var(--foreground-50);
+      color: var(--foreground-75);
       display: block;
       height: 2em;
       width: 2em;
