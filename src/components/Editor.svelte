@@ -1,8 +1,7 @@
 <script>
-  import { autosize } from '~/actions/autosize'
   import { createEventDispatcher } from 'svelte'
-
-  const dispatch = createEventDispatcher()
+  import { autosize } from '~/actions/autosize'
+  import { onPaste } from '~/utils/onPaste'
 
   export let value = ''
   export let label = ''
@@ -11,19 +10,7 @@
   export let name = "editor"
   export let disabled = false
 
-  const onPaste = (e) => {
-    const item = e?.clipboardData?.items[0]
-    console.log('paste event detected', e)
-    console.log('paste item', item)
-
-    if (item.type.indexOf('image') === 0) {
-      var blob = item.getAsFile()
-
-      console.log('blob is', blob)
-
-      dispatch('image', blob)
-    }
-  }
+  const dispatch = createEventDispatcher()
 </script>
 
 <!-- MARKUP -->
@@ -37,7 +24,7 @@
     placeholder={placeholder}
     rows={rows}
     disabled={disabled}
-    on:paste={onPaste}
+    on:paste={onPaste(dispatch)}
     />
 </label>
 

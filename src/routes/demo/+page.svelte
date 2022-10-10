@@ -22,6 +22,7 @@
     'enter some text',
     'paste an image',
     'write a function*',
+    'drag a file*',
   ]
   let placeholder = placeholderOptions[0]
   let id = ''
@@ -67,8 +68,8 @@
     id = response.id
   }
 
-  const imagePasted = async e => {
-    console.log('detected image pasted', e.detail)
+  const filePasted = async e => {
+    console.log('detected file pasted', e.detail)
     submitting = true
     value = ''
     placeholder = '(pasted image)'
@@ -96,14 +97,13 @@
   } else {
     start()
   }
+
+  const dropped = () => {
+    console.log('something dropped')
+  }
 </script>
 
 <Page splash>
-
-
-
-
-
   <section class="form">
     <label>
       length of key ({keyLength})
@@ -113,7 +113,7 @@
     <SearchInput
       placeholder={placeholder}
       bind:value={value}
-      on:image={imagePasted}
+      on:file={filePasted}
       on:submit={submit}
       disabled={disabled}
       />
@@ -193,18 +193,11 @@
       &.submitting {
         pointer-events: none;
         color: var(--foreground-10);
-
-        // &:before {
-        //   opacity: 0;
-        // }
       }
-
-
     }
   }
 
   .copy {
-    // height:
     --dimensions: 0.6em;
     height: var(--dimensions);
     width: var(--dimensions);

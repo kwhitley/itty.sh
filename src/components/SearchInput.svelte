@@ -1,7 +1,8 @@
 <script>
   import { createEventDispatcher } from 'svelte'
+  import { onPaste } from '~/utils/onPaste'
+
   export let value = ''
-  export let label
   export let disabled
   export let placeholder = 'search'
   export let clearOnSubmit = false
@@ -17,18 +18,14 @@
     }
   }
 
-  const onPaste = (e) => {
-    const item = e?.clipboardData?.items[0]
-    console.log('paste event detected', e)
-    console.log('paste item', item)
+  const dropped = (e) => {
+    e.preventDefault()
+    console.log('something dropped', e)
 
-    if (item.type.indexOf('image') === 0) {
-      var blob = item.getAsFile()
+    const item = e.dataTransfer?.items[0]?.getAsFile()
+    console.log('item', item)
 
-      console.log('blob is', blob)
-
-      dispatch('image', blob)
-    }
+    dispatch('file', item)
   }
 </script>
 
@@ -39,7 +36,8 @@
     class="search"
     placeholder={placeholder}
     bind:value
-    on:paste={onPaste}
+    on:paste={onPaste(dispatch)}
+    on:drop={dropped}
     />
 
     <button type="submit" disabled={disabled}>Go</button>
