@@ -8,45 +8,48 @@
 <div class="brand">
   <a href="/">
     <slot>
-      <div class="main">it<strike>t</strike>y<small>.sh</small></div>
+      <div class="main">it<strike>t</strike>y<small>.sh</small>
+        {#if showVersion}
+          <span class="version">
+            v{VERSION}
+          </span>
+        {/if}
+      </div>
       <div class="secondary">link-shortening for the 21st century</div>
     </slot>
   </a>
 
-  {#if showVersion}
-    <div class="version">
-      v{VERSION}
-    </div>
-  {/if}
+
 </div>
 
 <!-- STYLES -->
 <style lang="scss">
   .brand {
     align-self: center;
-    padding: 0.15rem 0;
+    padding: 0.15rem 0 0.4rem;
   }
 
   .main {
     font-size: 1.5em;
-    z-index: 1;
+    z-index: -1;
     position: relative;
   }
 
   .secondary {
-    font-size: 0.5em;
+    font-size: 0.43em;
     letter-spacing: -0.02em;
     color: var(--foreground-color);
-    margin-top: -0.6em;
-    z-index: -1;
+    margin-top: -0.3em;
+    margin-top: -0.35em;
+    z-index: 2;
   }
 
   .version {
-    font-size: 0.75rem;
-    opacity: 0.6;
-    align-self: center;
-    margin-top: var(--version-offset);
-    margin-bottom: calc(-1 * var(--version-offset));
+    font-size: 0.4em;
+    font-size: 0.35em;
+    opacity: 0.7;
+    margin-left: -0.4rem;
+    letter-spacing: -0.03em;
   }
 
   a {

@@ -15,6 +15,7 @@
 
   const PREFIX = 'ity.sh'
   const PROTOCOL = 'https://'
+  const PLACEHOLDER_SHUFFLE_SPEED = 2000
 
   let keyLength = 7
   let value
@@ -52,9 +53,17 @@
   $: disabled = submitting || !value
 
   // shuffle function
-  const shuffle = () => placeholder = randomItem(placeholderOptions)
+  const shuffle = () => {
+    let next = placeholder
 
-  const { start, stop } = onInterval(shuffle, 1000)
+    while (next === placeholder) {
+      next = randomItem(placeholderOptions)
+    }
+
+    placeholder = next
+  }
+
+  const { start, stop } = onInterval(shuffle, PLACEHOLDER_SHUFFLE_SPEED)
 
   const submit = async () => {
     console.log('submitting')
