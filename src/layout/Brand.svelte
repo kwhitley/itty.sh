@@ -8,7 +8,8 @@
 <div class="brand">
   <a href="/">
     <slot>
-      it<strike>t</strike>y<small>.sh</small>
+      <div class="main">it<strike>t</strike>y<small>.sh</small></div>
+      <div class="secondary">link-shortening for the 21st century</div>
     </slot>
   </a>
 
@@ -26,9 +27,23 @@
     padding: 0.15rem 0;
   }
 
+  .main {
+    font-size: 1.5em;
+    z-index: 1;
+    position: relative;
+  }
+
+  .secondary {
+    font-size: 0.5em;
+    letter-spacing: -0.02em;
+    color: var(--foreground-color);
+    margin-top: -0.6em;
+    z-index: -1;
+  }
+
   .version {
     font-size: 0.75rem;
-    opacity: 0.7;
+    opacity: 0.6;
     align-self: center;
     margin-top: var(--version-offset);
     margin-bottom: calc(-1 * var(--version-offset));
@@ -56,6 +71,8 @@
     font-size: 1em;
     font-style: normal;
     letter-spacing: -0.05em;
-    color: var(--foreground-50);
+    display: inline-block;
+    margin-left: -0.1em;
+    color: var(--foreground-75);
   }
 </style>

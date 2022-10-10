@@ -6,15 +6,15 @@
 :root {
   --max-page-width: 800px;
   --transition-duration: 0.1s;
-  --border-radius: 0.6rem;
+  --border-radius: 1.2rem;
   --border-thickness: 2px;
   --accent-color: rgb(255, 0, 200);
 
   --link-color: var(--blue);
   --brand-color: var(--accent-color);
   --brand-size: 2.2em;
-  --version-offset: -0.3rem;
-  --header-color: var(--background-color);
+  --version-offset: 0rem;
+  --header-color: var(--foreground-5);
   --footer-color: var(--background-color);
   --page-gutter: 2rem;
   --navlink-border: 2px;

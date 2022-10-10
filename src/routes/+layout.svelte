@@ -21,7 +21,7 @@
 </svelte:head>
 
 <main>
-  <Nav version horizontal brand={false}>
+  <Nav version horizontal constrained>
     <div class="social">
       <a href="https://twitter.com/kevinrwhitley">
         <Twitter />

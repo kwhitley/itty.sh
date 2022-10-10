@@ -104,33 +104,88 @@
 </script>
 
 <Page splash>
-  <section class="form">
-    <label>
-      length of key ({keyLength})
-      <input type="range" min="2" max="15" bind:value={keyLength} />
-    </label>
+  <main>
+    <section class="intro">
+      <!-- <h1><span class="colored accent">itty.sh</span> </h1>
+      <h2>link-shortening for the 21st century</h2> -->
 
-    <SearchInput
-      placeholder={placeholder}
-      bind:value={value}
-      on:file={filePasted}
-      on:submit={submit}
-      disabled={disabled}
-      />
+      <h2>So what is itty.sh?</h2>
 
-    {#if showPreview}
-      <section class="preview" transition:slide={{ duration: 200 }}>
-        <a class="code" href={fullLink} target="_blank" class:submitting>{link}</a>
+      <p>
+        This service is a fresh, new take on the traditional link-shortener.  While it always gives you back a link, it can:
+      </p>
 
-        <div on:click={copyToClipboard} class="copy">
-          <Copy />
-        </div>
-      </section>
-    {/if}
-  </section>
+      <ul>
+        <li>Redirect to another page (just type the full link) - this is just like <a href="https://bit.ly">bit.ly</a></li>
+        <li>Store some content (whatever you type will come back out)</li>
+        <li>Save a snippet/screenshot from the clipboard (just paste into the box)</li>
+        <li>Store a file (just paste/drag a file onto it) ~24MB limit per file</li>
+        <li>Do this an unlimited number of times, with an unlimited amount of traffic.</li>
+        <li>Be programmed against via an <a href="/docs/api">open API</a> (developers, rejoice!)</li>
+      </ul>
+
+      <p>
+        ...all without requiring you to be signed in, tracking/selling any personal data (at all/ever), and being 100% free for basic usage.
+      </p>
+
+      <p>
+        Take that, <strong>bit.ly</strong>.
+      </p>
+    </section>
+
+    <section class="form">
+      <label>
+        length of key ({keyLength})
+        <input type="range" min="2" max="15" bind:value={keyLength} />
+      </label>
+
+      <SearchInput
+        placeholder={placeholder}
+        bind:value={value}
+        on:file={filePasted}
+        on:submit={submit}
+        disabled={disabled}
+        />
+
+      {#if showPreview}
+        <section class="preview" transition:slide={{ duration: 200 }}>
+          <a class="code" href={fullLink} target="_blank" class:submitting>{link}</a>
+
+          <div on:click={copyToClipboard} class="copy">
+            <Copy />
+          </div>
+        </section>
+      {/if}
+    </section>
+  </main>
 </Page>
 
 <style lang="scss">
+  main {
+    display: flex;
+    flex-flow: column;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    z-index: 1;
+    text-shadow: 0.01em 0.03em 0.04em rgba(0,0,0,0.2);
+  }
+
+  h2 {
+    margin-top: -0.5em;
+  }
+
+  li {
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+  }
+
+  .intro {
+    font-size: 1em;
+    margin-bottom: 5em;
+  }
+
   .form {
     font-size: 2.5em;
     font-size: clamp(1rem, 5vw, 2.5rem);
