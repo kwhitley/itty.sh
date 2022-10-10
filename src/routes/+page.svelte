@@ -226,7 +226,7 @@
 
       &.submitting {
         pointer-events: none;
-        color: var(--foreground-10);
+        color: var(--foreground-25);
       }
     }
   }
