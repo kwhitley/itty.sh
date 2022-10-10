@@ -12,7 +12,7 @@
 <!-- MARKUP -->
 <div class="split">
   {#if showingIntro}
-    <h2 transition:fade={{ duration: 100 }}>So what is itty.sh?</h2>
+    <h2 transition:fade={{ duration: 100 }}>So what is it<strike>t</strike>y.sh?</h2>
   {/if}
   <div class="right link" on:click={toggle}>
     {#if showingIntro}
