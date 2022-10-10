@@ -16,7 +16,7 @@ input, textarea, button {
   font-size: 1.1em;
   padding: 0.4em 0.65em;
   border-radius: calc(0.6 * var(--border-radius));
-  background: var(--input-background-color);
+  background: transparent;
   border: var(--input-border-thickness) solid var(--foreground-25);
   width: 100%;
   color: var(--foreground-color);
