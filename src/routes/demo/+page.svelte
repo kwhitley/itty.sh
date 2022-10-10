@@ -15,7 +15,7 @@
   const PREFIX = 'ity.sh'
   const PROTOCOL = 'https://'
 
-  let keyLength = 3
+  let keyLength = 7
   let value
   let placeholderOptions = [
     'enter a link',
@@ -23,7 +23,7 @@
     'paste an image',
     'write a function*',
   ]
-  let placeholder
+  let placeholder = placeholderOptions[0]
   let id = ''
   $: link = `${PREFIX}/${id}`
   $: fullLink = `${PROTOCOL}${PREFIX}/${id}`
