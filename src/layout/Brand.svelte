@@ -26,7 +26,7 @@
 <style lang="scss">
   .brand {
     align-self: center;
-    padding: 0.15rem 0 0.4rem;
+    padding: 0.15rem 0 0.6rem;
   }
 
   .main {
