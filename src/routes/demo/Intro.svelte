@@ -24,7 +24,7 @@
 </div>
 
 {#if showingIntro}
-  <section class="intro" transition:slide={{ duration: 200 }}>
+  <section class="intro" transition:slide={{ duration: 150 }}>
     <p>
       This service is a fresh, new take on the traditional link-shortener.  While it always gives you back a link, it can:
     </p>

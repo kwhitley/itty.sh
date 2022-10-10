@@ -43,8 +43,6 @@
         // background-color: pink;
         display: flex;
         flex-flow: column;
-        justify-content: center;
-        align-items: center;
         margin-bottom: 6em;
       }
     }
