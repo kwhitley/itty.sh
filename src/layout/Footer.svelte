@@ -20,7 +20,7 @@
     padding: 2.5rem var(--page-gutter) 2.5rem;
     display: flex;
     justify-content: center;
-    font-size: 0.85em;
+    font-size: 0.9em;
     color: var(--foreground-75);
 
     &.sticky {
