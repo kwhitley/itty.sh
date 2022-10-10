@@ -55,11 +55,13 @@
   form {
     margin-bottom: 1em;
     position: relative;
+    width: 100%;
 
     input {
       font-size: 1.4em;
       padding: 0.4em 2.5em 0.4em 0.4em;
       font-weight: 100;
+      width: 100%;
     }
 
     button {

@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     font-size: 0.85em;
-    color: var(--foreground-25);
+    color: var(--foreground-50);
 
     &.sticky {
       position: fixed;

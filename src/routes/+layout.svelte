@@ -71,7 +71,7 @@
     flex-flow: row wrap;
     align-items: center;
     gap: 1em;
-    font-size: 0.7rem;
+    font-size: 1rem;
 
     > * {
       color: var(--foreground-50);

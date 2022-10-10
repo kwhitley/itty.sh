@@ -4,6 +4,7 @@
   import Page from '~/layout/Page.svelte'
   import Editor from '~/components/Editor.svelte'
   import SearchInput from '~/components/SearchInput.svelte'
+  import Copy from '~/components/icons/Copy.svelte'
   import { randomItem } from 'supergeneric/randomItem'
   import { generateHash } from 'supergeneric/generateHash'
   import { random } from 'supergeneric/random'
@@ -14,6 +15,7 @@
   const PREFIX = 'ity.sh'
   const PROTOCOL = 'https://'
 
+  let keyLength = 3
   let value
   let placeholderOptions = [
     'enter a link',
@@ -35,7 +37,7 @@
     id = id.split('').map((v, i) => i === target ? newLetter : v).join('')
   }
 
-  const idShuffler = onInterval(obfuscate, 10)
+  const idShuffler = onInterval(obfuscate, 5)
 
   // side effect to shuffle id when submitting
   $: if (submitting && id) {
@@ -56,7 +58,7 @@
     console.log('submitting')
     submitting = true
     const response = await api
-                            .post('/create', value)
+                            .post('/create', value, { headers: { 'itty-key-length': keyLength }})
                             .catch(err => {
                               console.error('there was an error posting content')
                             })
@@ -72,7 +74,7 @@
     placeholder = '(pasted image)'
     stop()
 
-    await fetch(`${PROTOCOL}${PREFIX}/create`, { method: 'POST', body: e.detail })
+    await fetch(`${PROTOCOL}${PREFIX}/create`, { method: 'POST', body: e.detail, headers: { 'itty-key-length': keyLength }})
             .then(async response => {
               const json = await response.json()
               id = json.id
@@ -85,6 +87,10 @@
             })
   }
 
+  const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(fullLink)
+  }
+
   $: if (value) {
     stop()
   } else {
@@ -95,7 +101,15 @@
 <Page splash>
 
 
+
+
+
   <section class="form">
+    <label>
+      length of key ({keyLength})
+      <input type="range" min="2" max="15" bind:value={keyLength} />
+    </label>
+
     <SearchInput
       placeholder={placeholder}
       bind:value={value}
@@ -104,45 +118,25 @@
       disabled={disabled}
       />
 
-    <!-- <div class="editor-container">
-      <Editor
-        placeholder={placeholder}
-        bind:value={value}
-        on:image={imagePasted}
-        disabled={submitting}
-        />
+    {#if showPreview}
+      <section class="preview" transition:slide={{ duration: 200 }}>
+        <a class="code" href={fullLink} target="_blank" class:submitting>{link}</a>
 
-        <button
-          disabled={disabled}
-          on:click={submit}
-          >
-          {#if submitting}
-            Generating...
-          {:else}
-            generate a link
-          {/if}
-        </button>
-    </div> -->
-
-
-
+        <div on:click={copyToClipboard} class="copy">
+          <Copy />
+        </div>
+      </section>
+    {/if}
   </section>
-
-  {#if showPreview}
-    <section class="preview" transition:slide={{ duration: 200 }}>
-      <a class="code" href={fullLink} target="_blank" class:submitting>{link}</a>
-    </section>
-
-    <!-- <button on:click={obfuscate}>
-      obfuscate
-    </button> -->
-  {/if}
 </Page>
 
 <style lang="scss">
   .form {
     font-size: 2.5em;
     font-size: clamp(1rem, 5vw, 2.5rem);
+    display: flex;
+    flex-flow: column;
+    gap: 0.3em;
   }
 
   :global(label) {
@@ -158,36 +152,75 @@
   }
 
   .preview {
-    font-size: 3em;
+    font-size: clamp(1.3rem, 6vw, 3rem);
     margin-top: 0.5em;
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: -0.02em;
+    display: flex;
+    align-self: center;
+    gap: 0.5em;
 
     a {
       color: var(--accent-color);
-      transition: all 0.2s ease;
+      transition: color 0.2s ease;
       position: relative;
 
-      &:before {
+      &:before, &:after {
         content: 'here\'s your link --^';
         position: absolute;
+        white-space: nowrap;
         top: calc(100% + 1em);
-        right: 5em;
+        right: calc(50% - 2.5em);
         font-size: 0.5em;
         color: var(--foreground-75);
-        // transition: opacity 0.1s ease;
+      }
+
+      &:after {
+        content: '^-- copy to clipboard';
+        right: auto;
+        left: calc(100% + 1.6em);
+        top: 2.6em;
+        font-size: 0.45em;
+      }
+
+      &:after {
+        content: '<-- copy to clipboard';
+        left: calc(100% + 3.6em);
+        top: 0.8em;
+        font-size: 0.4em;
       }
 
       &.submitting {
         pointer-events: none;
         color: var(--foreground-10);
 
-        &:before {
-          opacity: 0;
-        }
+        // &:before {
+        //   opacity: 0;
+        // }
       }
 
 
     }
+  }
+
+  .copy {
+    // height:
+    --dimensions: 0.6em;
+    height: var(--dimensions);
+    width: var(--dimensions);
+    transition: transform 0.1s ease;
+    color: var(--foreground-50);
+    transform-origin: 50% 90%;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      color: var(--foreground-75);
+    }
+  }
+
+  label {
+    font-size: 1.3rem;
+    margin-bottom: 1em;
   }
 </style>
