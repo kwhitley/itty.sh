@@ -106,7 +106,6 @@
 
 <Page splash>
   <main>
-    <Intro />
 
     <section class="form">
       <label>
@@ -132,6 +131,8 @@
         </section>
       {/if}
     </section>
+
+    <Intro />
   </main>
 </Page>
 
@@ -147,6 +148,7 @@
     display: flex;
     flex-flow: column;
     gap: 0.3em;
+    margin-bottom: 0.1em;
   }
 
   :global(label) {
@@ -163,7 +165,7 @@
 
   .preview {
     font-size: clamp(1.3rem, 6vw, 3rem);
-    margin-top: 0.5em;
+    margin-bottom: 2.5em;
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: -0.02em;
     display: flex;
@@ -179,18 +181,10 @@
         content: 'here\'s your link --^';
         position: absolute;
         white-space: nowrap;
-        top: calc(100% + 1em);
+        top: calc(100% + 0.5em);
         right: calc(50% - 2.5em);
         font-size: 0.5em;
         color: var(--foreground-75);
-      }
-
-      &:after {
-        content: '^-- copy to clipboard';
-        right: auto;
-        left: calc(100% + 1.6em);
-        top: 2.6em;
-        font-size: 0.45em;
       }
 
       &:after {

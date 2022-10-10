@@ -12,7 +12,7 @@
 <!-- MARKUP -->
 <div class="split">
   {#if showingIntro}
-    <h2 transition:fade={{ duration: 100 }}>So what is it<strike>t</strike>y.sh?</h2>
+    <h2 transition:fade={{ duration: 100 }}>What is it<strike>t</strike>y.sh?</h2>
   {/if}
   <div class="right link" on:click={toggle}>
     {#if showingIntro}
@@ -26,7 +26,7 @@
 {#if showingIntro}
   <section class="intro" transition:slide={{ duration: 150 }}>
     <p>
-      This service is a fresh, new take on the traditional link-shortener.  While it always gives you back a link, it can:
+      This service is a fresh take on the traditional link-shortener.  It can:
     </p>
 
     <ul>
@@ -42,27 +42,42 @@
       ...all without requiring you to be signed in, tracking/selling any personal data (at all/ever), and being 100% free for basic usage.
     </p>
 
-    <p>
+    <p class="take-that">
       Take that, <strong>bit.ly</strong>.
     </p>
+
+    <h3>To get started:</h3>
+
+    <ol>
+      <li>Write something or drag/paste content into the box.  Hit Go or press Enter.
+        <ul>
+          <li>To create a redirect, use a full link (e.g. <strong>https://itty.cards</strong>).</li>
+          <li>Adjust the key length slider to make shorter or longer links. (early-access only).</li>
+        </ul>
+      </li>
+
+      <li>Get/copy/share the generated link.
+        <ul>
+          <li>
+            During early-access, these last for 24 hours.  In the final release, these can last forever.
+          </li>
+        </ul>
+      </li>
+    </ol>
   </section>
 {/if}
 
 <!-- STYLES -->
 <style lang="scss">
+  li {
+    font-size: 1.1em;
+  }
 
+  .split {
+    align-items: center;
+  }
 
-  .intro {
-    font-size: 1em;
-    margin-bottom: 5em;
-
-    h2 {
-      margin-top: -0.5em;
-    }
-
-    li {
-      font-size: 1.1em;
-      margin-bottom: 0.2em;
-    }
+  .take-that {
+    margin-bottom: 2em;
   }
 </style>

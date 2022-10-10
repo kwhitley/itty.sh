@@ -29,7 +29,7 @@
   --darkmode-background-hue: 4, 4, 4;
 
   // MISC SETTINGS
-  --ol-counter-size: 2rem;
+  --ol-counter-size: 1.4em;
   --image-border-radius: 0.3rem;
   --image-outline-thickness: 1px;
   --image-outline-color: var(--foreground-25);
@@ -170,7 +170,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.7em;
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -180,7 +180,13 @@ p, li, caption {
   font-weight: 100;
   font-size: 1.1em;
   line-height: 1.5em;
+}
 
+li {
+  margin-bottom: 0.2em;
+}
+
+p, ul, ol, caption {
   &:not(:last-child) {
     margin-bottom: 1.5em;
   }
@@ -209,25 +215,30 @@ ol {
   margin: 0;
   padding: 0;
   margin-left: 1em;
+  margin-top: 1.3em;
 }
 
 ul {
   margin-left: 2.7em;
 }
 
-ol li {
-  flex: 1;
+ol > li {
   counter-increment: ol-counter;
-  display: flex;
   margin-bottom: 0.5em;
 }
 
-ol li::before {
+ol > li::before {
   content: counter(ol-counter);
-  font-weight: bold;
+  font-weight: 200;
   font-size: var(--ol-counter-size);
-  margin: -0.1em 0.7em 0 0;
+  margin: -0.05em 0.7em 0 0;
   font-family: serif;
+}
+
+ol > li ul {
+  margin-top: 0.5em;
+  margin-left: 3em;
+  font-size: 0.85em;
 }
 
 figure {
