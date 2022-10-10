@@ -70,13 +70,18 @@
     console.log('submitting')
     submitting = true
     copied = false
+    const payload = value
+    value = ''
+    stop()
+    placeholder = 'generating...'
     const response = await api
-                            .post('/create', value, { headers: { 'itty-key-length': keyLength }})
+                            .post('/create', payload, { headers: { 'itty-key-length': keyLength }})
                             .catch(err => {
                               console.error('there was an error posting content')
                             })
     submitting = false
-    value = ''
+    shuffle()
+    start()
     id = response.id
   }
 
@@ -84,7 +89,7 @@
     console.log('detected file pasted', e.detail)
     submitting = true
     value = ''
-    placeholder = '(pasted image)'
+    placeholder = 'generating...'
     copied = false
     stop()
 
