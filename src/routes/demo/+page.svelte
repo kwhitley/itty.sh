@@ -24,7 +24,7 @@
   let placeholder
   let id = ''
   $: link = `${PREFIX}/${id}`
-  $: fullLink = `http://${PREFIX}/${id}`
+  $: fullLink = `${PROTOCOL}${PREFIX}/${id}`
 
   let submitting = false
 
@@ -72,7 +72,7 @@
     placeholder = '(pasted image)'
     stop()
 
-    await fetch('http://localhost:8787/create', { method: 'POST', body: e.detail })
+    await fetch(`${PROTOCOL}${PREFIX}/create`, { method: 'POST', body: e.detail })
             .then(async response => {
               const json = await response.json()
               id = json.id
