@@ -75,7 +75,7 @@
     stop()
     placeholder = 'generating...'
     const response = await api
-                            .post('/create', payload, { headers: { 'itty-key-length': keyLength }})
+                            .post(`/create?keyLength=${keyLength}`, payload)
                             .catch(err => {
                               console.error('there was an error posting content')
                             })
@@ -93,7 +93,7 @@
     copied = false
     stop()
 
-    await fetch(`${PROTOCOL}${PREFIX}/create`, { method: 'POST', body: e.detail, headers: { 'itty-key-length': keyLength }})
+    await fetch(`${PROTOCOL}${PREFIX}/create?keyLength=${keyLength}`, { method: 'POST', body: e.detail })
             .then(async response => {
               const json = await response.json()
               id = json.id
