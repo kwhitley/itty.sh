@@ -1358,10 +1358,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-itty-fetcher@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/itty-fetcher/-/itty-fetcher-0.6.1.tgz#f4076649524cc87596111ad4a36b08f61aab2a30"
-  integrity sha512-LtTkeEDRP8Z9DQQrXxml2/LRk+y6uaRhcil9zEQjjomADqScICoNkZZXpKbYkYpC7fG7RL/xeACftrjYBu6geQ==
+itty-fetcher@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/itty-fetcher/-/itty-fetcher-0.7.0.tgz#d6793771f4b523e2b4471dfe43bbe8c4fe73b5c4"
+  integrity sha512-mqrrxpFiwS3GwY1eolzOQ4MCoTO4IS6v1mA1PtQy2LcgGtu8X1A+HnhwNwvNvNJlGeVQkt1V08VwaJoY82jRTA==
 
 js-sdsl@^4.1.4:
   version "4.1.4"

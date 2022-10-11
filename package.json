@@ -1,6 +1,6 @@
 {
   "name": "template-sveltekit",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -34,7 +34,7 @@
   "type": "module",
   "dependencies": {
     "autosize": "^5.0.1",
-    "itty-fetcher": "^0.6.1",
+    "itty-fetcher": "^0.7.0",
     "supergeneric": "^2.1.0",
     "svelte-navlink-action": "^0.1.4"
   }

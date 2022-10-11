@@ -20,10 +20,7 @@
 
   const dropped = (e) => {
     e.preventDefault()
-    console.log('something dropped', e)
-
     const item = e.dataTransfer?.items[0]?.getAsFile()
-    console.log('item', item)
 
     dispatch('file', item)
   }
