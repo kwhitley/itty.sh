@@ -28,7 +28,7 @@
 
   // DARK MODE COLORS
   --darkmode-foreground-hue: 225, 225, 225;
-  --darkmode-background-hue: 4, 4, 4;
+  --darkmode-background-hue: 10, 10, 10;
 
   // MISC SETTINGS
   --ol-counter-size: 1.4em;
@@ -61,7 +61,7 @@
   @media (prefers-color-scheme: dark) {
     --foreground-hue: var(--darkmode-foreground-hue);
     --background-hue: var(--darkmode-background-hue);
-    --header-color: rgba(12,12,12,0.9);
+    --header-color: rgba(30,30,30,0.9);
   }
 }
 
