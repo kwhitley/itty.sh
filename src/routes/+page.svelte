@@ -43,14 +43,27 @@
     start()
   }
 
+  const detectType = payload => {
+    if (typeof payload !== 'string') return ''
+
+    if (payload.match(/(<html>)|(<\/?\w+>)/gi)) return 'text/html'
+
+    return ''
+  }
+
   // SAVE PAYLOAD
-  const save = async (payload) => {
+  const save = async (payload, as = '') => {
     submitting = true
     value = ''
     stop() // stop placeholder
     placeholder = 'generating...'
 
-    await api.post(`/create?length=${keyLength}`, payload)
+    // auto-detect type if not explicity passed
+    if (!as) {
+      as = detectType(payload)
+    }
+
+    await api.post(`/create?length=${keyLength}&as=${as}`, payload)
             .then(response => {
               id = response.id
             })
