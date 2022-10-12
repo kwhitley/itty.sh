@@ -20,9 +20,11 @@
   const detectType = payload => {
     if (typeof payload !== 'string') return ''
 
-    if (payload.match(/(<html>)|(<\/?\w+>)/gi)) return 'text/html'
+    if (payload.match(/(^<)|(<\w+>)|(<\/?\w+>)/gi)) return 'text/html'
 
-    if (payload.length) return 'function'
+    // if (payload.match(/^[\{\[]/)) return 'application/json'
+
+    // if (payload.length) return 'function'
 
     return ''
   }
@@ -80,16 +82,22 @@
     <h2>Advanced Editor</h2>
 
     <p>
-      In the beginning we allow exactly two types of content: HTML and JavaScript.
+      In the beginning, I'm allowing exactly two types of content: HTML and JSON.
     </p>
 
-    <h3>HTML Content</h3>
+    <h3>HTML</h3>
 
     <p>
-      HTML content will be served back out as an HTML page.  This can be as simple or elaborate as you like... use your imagination!
+      HTML content will be served back out as an HTML page.  This can be as simple or elaborate as you like (any valid HTML works)... use your imagination!
     </p>
 
-    <h3>Functions (JavaScript)</h3>
+    <h3>JSON</h3>
+
+    <p>
+      If you write perfectly-formed JSON, you can get properly encoded JSON back out.  I'm not sure why you'd want to do this, but hey... why not?
+    </p>
+
+    <!-- <h3>Functions (JavaScript)</h3>
 
     <p>
       With itty.sh, you can create a globally-available, low-latency edge function without *any* of the setup of traditional PaaS providers.
@@ -107,7 +115,7 @@
           <li><strong>json</strong> - helper function from <a href="https://npmjs.com/package/itty-router-extras">itty-router-extras</a>.  Accepts any standard object and returns a JSON Response.</li>
         </ul>
       </li>
-    </ul>
+    </ul> -->
   </main>
 </Page>
 

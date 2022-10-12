@@ -14,13 +14,9 @@
     if ($keyLength <= 3) {
       message += ' & high discovery risk'
     }
-
-    if ($keyLength >= 10) {
-      message = '- extremely low discovery risk'
-    }
   }
 
-  $: permutations = $keyLength < 12 ? `~${Math.pow(55, $keyLength).toLocaleString()}` : 'MANY'
+  $: permutations = $keyLength < 15 ? `~${Math.pow(55, $keyLength).toLocaleString()}` : 'MANY'
   $: example = `ity.sh/${generateHash($keyLength)}`
 </script>
 

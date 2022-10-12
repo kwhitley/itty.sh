@@ -4,17 +4,14 @@
   import { slide } from 'svelte/transition'
   import Copy from '~/components/icons/Copy.svelte'
   import { onInterval } from '~/utils/onInterval'
+  import { PREFIX, PATH } from '~/ity.sh/api'
 
   export let id
   export let submitting
   let copied = false
 
-  const PREFIX = 'ity.sh'
-  const PROTOCOL = 'https://'
-
   $: link = `${PREFIX}/${id}`
-  $: fullLink = `${PROTOCOL}${PREFIX}/${id}`
-
+  $: fullLink = `${PATH}/${id}`
 
   const obfuscate = () => {
     const newLetter = generateHash(1)
@@ -44,7 +41,7 @@
 
 <!-- MARKUP -->
 {#if id}
-  <section class="preview" transition:slide={{ duration: 200 }}>
+  <section class="preview" in:slide={{ duration: 100 }}>
     <a
       class="code"
       class:submitting
