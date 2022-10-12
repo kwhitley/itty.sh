@@ -59,7 +59,7 @@
       <li>Get/copy/share the generated link.
         <ul>
           <li>
-            During early-access, these last for 24 hours.  In the final release, these can last forever.
+            During early-access, <strong>these links last for 24 hours</strong>.  This is merely for my own sanity while testing.  In the final release, these can last up to forever!
           </li>
         </ul>
       </li>

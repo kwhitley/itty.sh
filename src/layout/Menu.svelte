@@ -26,17 +26,19 @@
 
   nav {
     display: flex;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     column-gap: 1.2em;
     row-gap: 0.8em;
     align-items: center;
-    justify-content: flex-end;
-    flex-flow: column;
-    align-items: flex-end;
+    // align-items: center;
+    // justify-content: flex-end;
+    // flex-flow: column;
+    // align-items: flex-end;
+    // justify-items: center;
     transition: all 0.2s ease-in-out;
 
     &.horizontal {
-      flex-flow: row wrap;
+      // flex-flow: row wrap;
       row-gap: 0.8em;
     }
   }

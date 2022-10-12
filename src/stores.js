@@ -5,4 +5,6 @@ import { writable } from 'svelte/store'
 export const headerIsOpen = writable(false)
 
 export const showIntro = persistable('show:intro', null)
+
+export const keyLength = writable(7)
 // export const hideIntro = writable()

@@ -53,13 +53,14 @@
     width: 100%;
 
     input {
-      font-size: 1.4em;
-      padding: 0.4em 2.5em 0.4em 0.4em;
+      font-size: 1em;
+      padding: 0.65em 2.5em 0.7em 0.7em;
       font-weight: 100;
       width: 100%;
     }
 
     button {
+      font-size: 0.8em;
       position: absolute;
       right: var(--search-button-inset);
       top: var(--search-button-inset);

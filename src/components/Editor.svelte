@@ -14,7 +14,7 @@
 </script>
 
 <!-- MARKUP -->
-<label>
+<label class="editor-label">
   {label}
   <textarea
     class="editor"
@@ -32,5 +32,9 @@
 <style lang="scss">
   textarea {
     resize: none;
+    font-family: monospace;
+    font-size: 0.9rem;
+    padding: 1em;
+    font-weight: 400;
   }
 </style>

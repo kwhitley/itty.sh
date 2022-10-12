@@ -1,15 +1,16 @@
 <script>
   import { randomItem } from 'supergeneric/randomItem'
   import SearchInput from '~/components/SearchInput.svelte'
+  import KeyLength from '~/components/KeyLength.svelte'
   import { api } from '~/ity.sh/api'
   import Page from '~/layout/Page.svelte'
   import { onInterval } from '~/utils/onInterval'
   import Intro from './Intro.svelte'
   import Preview from './Preview.svelte'
+  import { keyLength } from '~/stores'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
 
-  let keyLength = 7
   let value = ''
   let placeholderOptions = [
     'enter a link',
@@ -63,7 +64,7 @@
       as = detectType(payload)
     }
 
-    await api.post(`/create?length=${keyLength}&as=${as}`, payload)
+    await api.post(`/create?length=${$keyLength}&as=${as}`, payload)
             .then(response => {
               id = response.id
             })
@@ -80,12 +81,9 @@
 
 <Page splash>
   <main>
-    <section class="form">
-      <label>
-        length of key ({keyLength})
-        <input type="range" min="2" max="15" bind:value={keyLength} />
-      </label>
+    <KeyLength />
 
+    <section class="form">
       <SearchInput
         placeholder={placeholder}
         bind:value={value}
@@ -116,13 +114,13 @@
     margin-bottom: 0.1em;
   }
 
-  :global(label) {
-    margin-bottom: 0.2em !important;
-  }
+  // :global(label) {
+  //   margin-bottom: 0.2em !important;
+  // }
 
-  :global(.form button) {
-    font-size: 0.8em;
-  }
+  // :global(.form button) {
+  //   font-size: 0.8em;
+  // }
 
   .editor-container {
     font-size: 0.5em;
@@ -130,6 +128,6 @@
 
   label {
     font-size: 1.3rem;
-    margin-bottom: 1em;
+    margin-bottom: 0em;
   }
 </style>

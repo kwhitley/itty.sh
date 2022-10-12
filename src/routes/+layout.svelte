@@ -22,6 +22,9 @@
 
 <main>
   <Nav version horizontal constrained sticky>
+    <a href="/" use:navlink={{ exact: true }}>Simple</a>
+    <a href="/advanced" use:navlink>Advanced</a>
+
     <div class="social">
       <a href="https://twitter.com/kevinrwhitley">
         <Twitter />
@@ -71,7 +74,7 @@
     flex-flow: row wrap;
     align-items: center;
     gap: 1em;
-    font-size: 1rem;
+    font-size: 0.8rem;
 
     > * {
       color: var(--foreground-75);
