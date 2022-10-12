@@ -79,8 +79,8 @@
   }
 </script>
 
-<Page splash>
-  <main>
+<Page>
+  <main id="page-contents">
     <KeyLength />
 
     <section class="form">
@@ -103,6 +103,11 @@
   main {
     display: flex;
     flex-flow: column;
+    align-self: center;
+  }
+
+  :global(#page-contents) {
+    justify-self: center;
   }
 
   .form {
@@ -113,14 +118,6 @@
     gap: 0.3em;
     margin-bottom: 0.1em;
   }
-
-  // :global(label) {
-  //   margin-bottom: 0.2em !important;
-  // }
-
-  // :global(.form button) {
-  //   font-size: 0.8em;
-  // }
 
   .editor-container {
     font-size: 0.5em;

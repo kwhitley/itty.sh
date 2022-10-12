@@ -12,7 +12,7 @@
 <!-- MARKUP -->
 <div class="split">
   {#if showingIntro}
-    <h2 transition:fade={{ duration: 100 }}>What is it<strike>t</strike>y.sh?</h2>
+    <h2 transition:fade|local={{ duration: 100 }}>What is it<strike>t</strike>y.sh?</h2>
   {/if}
   <div class="right link" on:click={toggle}>
     {#if showingIntro}
@@ -24,7 +24,7 @@
 </div>
 
 {#if showingIntro}
-  <section class="intro" transition:slide={{ duration: 150 }}>
+  <section class="intro" transition:slide|local={{ duration: 150 }}>
     <p>
       This service is a fresh take on the traditional link-shortener.  It can:
     </p>
