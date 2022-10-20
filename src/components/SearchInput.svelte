@@ -1,7 +1,9 @@
 <script>
   import { createEventDispatcher } from 'svelte'
+  import { autofocus } from '~/actions/autofocus'
   import { onPaste } from '~/utils/onPaste'
 
+  let el
   export let value = ''
   export let disabled
   export let placeholder = 'search'
@@ -35,6 +37,8 @@
     bind:value
     on:paste={onPaste(dispatch)}
     on:drop={dropped}
+    bind:this={el}
+    use:autofocus
     />
 
     <button type="submit" disabled={disabled}>Go</button>
