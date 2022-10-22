@@ -41,7 +41,7 @@
 
     await api.post(`/create?length=${$keyLength}&as=${as}`, payload)
             .then(response => {
-              id = response.id
+              id = response.key
             })
             .catch(err => {
               submitting = false
