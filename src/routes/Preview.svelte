@@ -3,6 +3,7 @@
   import { random } from 'supergeneric/random'
   import { slide } from 'svelte/transition'
   import Copy from '~/components/icons/Copy.svelte'
+  import QRCode from '~/components/QRCode.svelte'
   import { onInterval } from '~/utils/onInterval'
   import { PREFIX, PATH } from '~/ity.sh/api'
 
@@ -41,28 +42,39 @@
 
 <!-- MARKUP -->
 {#if id}
-  <section class="preview" in:slide|local={{ duration: 100 }}>
-    <a
-      class="code"
-      class:submitting
-      class:copied
-      href={fullLink}
-      target="_blank"
-      >
-      {link}
-    </a>
+  <main class="preview">
+    <section class="preview-link" in:slide|local={{ duration: 100 }}>
+      <a
+        class="code"
+        class:submitting
+        class:copied
+        href={fullLink}
+        target="_blank"
+        >
+        {link}
+      </a>
 
-    <div on:click={copyToClipboard} class="copy">
-      <Copy />
-    </div>
-  </section>
+      <div on:click={copyToClipboard} class="copy">
+        <Copy />
+      </div>
+    </section>
+
+    <QRCode key={id} />
+</main>
 {/if}
 
 <!-- STYLES -->
 <style lang="scss">
   .preview {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  .preview-link {
     font-size: clamp(1.3rem, 6vw, 3rem);
-    margin-bottom: 2.5em;
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: -0.02em;
     display: flex;

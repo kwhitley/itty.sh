@@ -103,7 +103,7 @@
   main {
     display: flex;
     flex-flow: column;
-    align-self: center;
+    // align-self: center;
   }
 
   :global(#page-contents) {
