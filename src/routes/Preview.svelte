@@ -13,6 +13,7 @@
 
   $: link = `${PREFIX}/${id}`
   $: fullLink = `${PATH}/${id}`
+  $: finalKey = !submitting && id
 
   const obfuscate = () => {
     const newLetter = generateHash(1)
@@ -59,7 +60,7 @@
       </div>
     </section>
 
-    <QRCode key={id} />
+    <QRCode key={finalKey} />
 </main>
 {/if}
 

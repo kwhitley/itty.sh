@@ -2,15 +2,20 @@
   import { fade, slide } from 'svelte/transition'
   import { api } from '~/ity.sh/api'
   export let key
+  let qrcode
 
-  $: qrcode = api.get(`/${key}.QR?color=var(--foreground-color)&background=var(--background-color)`)
+  $: {
+    if (key) {
+      qrcode = api.get(`/${key}.QR?color=var(--foreground-color)&background=var(--background-color)`)
+    }
+  }
 </script>
 
 {#await qrcode}
 {:then value}
   <div
     class="qrcode"
-    in:fade={{ duration: 200 }}
+    in:fade={{ duration: 200, delay: 110 }}
     out:fade={{ duration: 100 }}
     >
     {@html value}
