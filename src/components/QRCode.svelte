@@ -3,14 +3,15 @@
   import { api } from '~/ity.sh/api'
   export let key
 
-  $: qrcode = api.get(`/${key}.QR`)
+  $: qrcode = api.get(`/${key}.QR?color=var(--foreground-color)&background=var(--background-color)`)
 </script>
 
 {#await qrcode}
 {:then value}
   <div
     class="qrcode"
-    in:fade={{ duration: 400, delay: 150 }}
+    in:fade={{ duration: 200 }}
+    out:fade={{ duration: 100 }}
     >
     {@html value}
   </div>
