@@ -1,6 +1,6 @@
 {
   "name": "template-sveltekit",
-  "version": "0.12.3",
+  "version": "0.13.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -44,6 +44,7 @@
     "highlight-javascript": "^0.0.3",
     "highlight-xml": "^0.0.1",
     "itty-fetcher": "^0.7.0",
+    "itty-time": "^0.2.0",
     "monaco-editor": "^0.34.0",
     "supergeneric": "^2.1.0",
     "svelte-codemirror-editor": "^1.1.0",

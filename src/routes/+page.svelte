@@ -2,12 +2,13 @@
   import { randomItem } from 'supergeneric/randomItem'
   import SearchInput from '~/components/SearchInput.svelte'
   import KeyLength from '~/components/KeyLength.svelte'
+  import TTL from '~/components/TTL.svelte'
   import { api } from '~/ity.sh/api'
   import Page from '~/layout/Page.svelte'
   import { onInterval } from '~/utils/onInterval'
   import Intro from './Intro.svelte'
   import Preview from './Preview.svelte'
-  import { keyLength } from '~/stores'
+  import { keyLength, ttl } from '~/stores'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
 
@@ -82,6 +83,7 @@
 <Page>
   <main id="page-contents">
     <KeyLength />
+    <TTL />
 
     <section class="form">
       <SearchInput

@@ -1,6 +1,7 @@
 <script>
   import Editor from '~/components/Editor.svelte'
   import KeyLength from '~/components/KeyLength.svelte'
+  import TTL from '~/components/TTL.svelte'
   import { api } from '~/ity.sh/api'
   import Page from '~/layout/Page.svelte'
   import { keyLength } from '~/stores'
@@ -55,6 +56,7 @@
 <Page>
   <main>
     <KeyLength />
+    <TTL />
 
     <section class="form">
       <div class="editor-and-submit">

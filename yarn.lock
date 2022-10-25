@@ -1584,6 +1584,11 @@ itty-fetcher@^0.7.0:
   resolved "https://registry.yarnpkg.com/itty-fetcher/-/itty-fetcher-0.7.0.tgz#d6793771f4b523e2b4471dfe43bbe8c4fe73b5c4"
   integrity sha512-mqrrxpFiwS3GwY1eolzOQ4MCoTO4IS6v1mA1PtQy2LcgGtu8X1A+HnhwNwvNvNJlGeVQkt1V08VwaJoY82jRTA==
 
+itty-time@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/itty-time/-/itty-time-0.2.0.tgz#f930ef78158ea757c5b16dc1948532acc2adaa37"
+  integrity sha512-5PTEaz6qrOU55w1NDTqmsCDz+UoTOoxLBojXoL2vBuGZLkzkcWKgHpINQ5ndMf+UTCbXfYigGBnwQFrncRIGlQ==
+
 js-sdsl@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/js-sdsl/-/js-sdsl-4.1.4.tgz#78793c90f80e8430b7d8dc94515b6c77d98a26a6"
