@@ -26,7 +26,7 @@
     '1 week',
     '1 month',
     '1 year',
-    'forever',
+    'until I unsubscribe',
   ]
 
   const additionalMessaging = {
@@ -34,7 +34,7 @@
     '1 minute': '*paid tier only',
     '1 month': '*paid tier only',
     '1 year': '*paid tier only',
-    'forever': '*paid tier only',
+    '30 years': '*paid tier only',
   }
 
   $: {
@@ -45,15 +45,23 @@
     }
   }
 
-  $: $textTTL = ttlLookup[$ttl-1]
+  $: {
+    let expires = ttlLookup[$ttl-1]
+    if (expires === 'until I unsubscribe') {
+      expires = '30 years'
+    }
+
+    $textTTL = expires
+  }
+
   $: additionalMessage = additionalMessaging[$textTTL] || ''
   console.log('setting additionalMessage', additionalMessage, 'from', $textTTL, additionalMessaging[$textTTL])
 </script>
 
 <!-- MARKUP -->
 <label class="range2">
-  How long should it be available? <span>{$textTTL} <em>{@html additionalMessage}</em></span>
-  <input type="range" min="1" max="6" bind:value={localTTL} />
+  How long should it be available? <span>{ttlLookup[$ttl-1]} <em>{@html additionalMessage}</em></span>
+  <input type="range" min="1" max="8" bind:value={localTTL} />
 </label>
 
 <style lang="scss">

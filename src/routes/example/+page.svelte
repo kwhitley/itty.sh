@@ -1,7 +1,12 @@
 <html>
 <head>
   <title>Demo</title>
-  <style>
+    <style>
+      html, * {
+        padding: 0;
+        margin: 0;
+      }
+
       html {
         background-color: #222;
       }
