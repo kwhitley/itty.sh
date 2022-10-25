@@ -8,7 +8,7 @@
   import { onInterval } from '~/utils/onInterval'
   import Intro from './Intro.svelte'
   import Preview from './Preview.svelte'
-  import { keyLength, ttl } from '~/stores'
+  import { keyLength, textTTL } from '~/stores'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
 
@@ -65,7 +65,7 @@
       as = detectType(payload)
     }
 
-    await api.post(`/create?length=${$keyLength}&as=${as}`, payload)
+    await api.post(`/create?length=${$keyLength}&as=${as}&ttl=${$textTTL}`, payload)
             .then(response => {
               id = response.key
             })

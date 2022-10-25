@@ -19,6 +19,7 @@
   }
 
   const ttlLookup = [
+    '10 seconds',
     '1 minute',
     '1 hour',
     '1 day',
@@ -29,6 +30,8 @@
   ]
 
   const additionalMessaging = {
+    '10 seconds': '*demo only',
+    '1 minute': '*paid tier only',
     '1 month': '*paid tier only',
     '1 year': '*paid tier only',
     'forever': '*paid tier only',

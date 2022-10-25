@@ -4,7 +4,7 @@
   import TTL from '~/components/TTL.svelte'
   import { api } from '~/ity.sh/api'
   import Page from '~/layout/Page.svelte'
-  import { keyLength } from '~/stores'
+  import { keyLength, textTTL } from '~/stores'
   import Preview from '../Preview.svelte'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
@@ -40,7 +40,7 @@
       as = detectType(payload)
     }
 
-    await api.post(`/create?length=${$keyLength}&as=${as}`, payload)
+    await api.post(`/create?length=${$keyLength}&as=${as}&ttl=${$textTTL}`, payload)
             .then(response => {
               id = response.key
             })

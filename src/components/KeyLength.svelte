@@ -6,7 +6,7 @@
     'very unsafe <em>paid tier only</em>',
     'very unsafe <em>paid tier only</em>',
     'pretty unsafe <em>paid tier only</em>',
-    'still pretty unsafe',
+    'moderately safe',
     'moderately safe',
     'very safe',
     'extremely safe',
