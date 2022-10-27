@@ -9,8 +9,6 @@
 
   let id = ''
   let submitting = false
-
-  $: console.log('submitting has changed', submitting)
 </script>
 
 <Page>
