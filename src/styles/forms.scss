@@ -30,6 +30,9 @@ input, textarea {
 }
 
 input[type=range], input[type=checkbox] {
+  padding: 0;
+  border: none;
+
   &:focus {
     outline: none;
   }
