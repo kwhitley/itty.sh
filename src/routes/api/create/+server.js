@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit'
-import { api } from '~/ity.sh/api'
+import { api } from '~/api'
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {

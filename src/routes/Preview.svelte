@@ -5,7 +5,7 @@
   import Copy from '~/components/icons/Copy.svelte'
   import QRCode from '~/components/QRCode.svelte'
   import { onInterval } from '~/utils/onInterval'
-  import { PREFIX, PATH } from '~/ity.sh/api'
+  import { PREFIX, PATH } from '~/api'
 
   export let id
   export let submitting

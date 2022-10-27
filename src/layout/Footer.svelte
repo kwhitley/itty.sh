@@ -1,15 +1,32 @@
 <script>
+  import GitHub from '~/components/icons/GitHub.svelte'
+  import Twitter from '~/components/icons/Twitter.svelte'
+
   export let constrained = false
   export let sticky = false
   export let centered = false
+
+  let year = new Date().getFullYear()
 </script>
 
 <!-- MARKUP -->
 <footer class:sticky>
-  <section class:constrained class:centered>
-    <slot>
-      Footer content goes here.
-    </slot>
+  <section class="split" class:constrained class:centered>
+    <div class="copywrite">
+      <slot>
+        &copy; {year} Itty Industries, Inc. All rights reserved.
+      </slot>
+    </div>
+
+    <div class="social">
+      <a href="https://twitter.com/kevinrwhitley">
+        <Twitter />
+      </a>
+
+      <a href="https://github.com/kwhitley">
+        <GitHub />
+      </a>
+    </div>
   </section>
 </footer>
 
@@ -17,11 +34,13 @@
 <style lang="scss">
   footer {
     position: relative;
-    padding: 2.5rem var(--page-gutter) 2.5rem;
+    padding: 2.5rem var(--page-inset) 2.5rem;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     font-size: 0.9em;
     color: var(--foreground-75);
+    // background-color: pink;
 
     &.sticky {
       position: fixed;
@@ -35,16 +54,46 @@
     flex: 1;
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    // align-items: space-between;
+    align-items:flex-end;
+    justify-content: space-between;
+    // background-color: cyan;
+    row-gap: 1.5em;
     column-gap: 2em;
+
+    & > * {
+      // background-color: red;
+      flex: 1 50%;
+    }
 
     &.constrained {
       max-width: var(--max-page-width);
     }
 
     &.centered {
-      text-align: center;
+      // text-align: center;
+      // display: block;
+    }
+  }
+
+  .social {
+    flex: 0 5em;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 1em;
+    font-size: 0.8rem;
+
+    > * {
+      color: var(--foreground-75);
       display: block;
+      height: 2em;
+      width: 2em;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: var(--foreground-color);
+      }
     }
   }
 </style>

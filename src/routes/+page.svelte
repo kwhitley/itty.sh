@@ -1,54 +1,51 @@
 <script>
   import KeyLength from '~/components/KeyLength.svelte'
   import TTL from '~/components/TTL.svelte'
-  import Page from '~/layout/Page.svelte'
   import Intro from './Intro.svelte'
   import Preview from './Preview.svelte'
   import SimpleInput from './SimpleInput.svelte'
-  import { textTTL } from '~/stores'
 
   let id = ''
   let submitting = false
 </script>
 
-<Page>
-  <main id="page-contents">
+<section class="form">
+  <section class="controls">
     <KeyLength />
     <TTL />
+  </section>
 
-    <section class="form">
-      <SimpleInput
-        bind:id={id}
-        bind:submitting={submitting}
-        />
+  <SimpleInput
+    bind:id={id}
+    bind:submitting={submitting}
+    />
+</section>
 
-      <Preview
-        id={id}
-        submitting={submitting}
-        />
-    </section>
-
-    <Intro />
-  </main>
-</Page>
+<Preview
+  id={id}
+  submitting={submitting}
+  />
 
 <style lang="scss">
   main {
     display: flex;
     flex-flow: column;
-    // align-self: center;
+  }
+
+  .controls {
+    margin-bottom: 1em;
   }
 
   :global(#page-contents) {
     justify-self: center;
+    gap: 1.3rem;
   }
 
   .form {
-    font-size: 2.5em;
-    font-size: clamp(1rem, 5vw, 2.5rem);
+    font-size: clamp(1rem, 2vw, 1.2rem);
     display: flex;
     flex-flow: column;
-    gap: 0.3em;
+    gap: 1rem;
     margin-bottom: 0.1em;
   }
 </style>

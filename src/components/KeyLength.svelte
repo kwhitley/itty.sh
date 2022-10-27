@@ -29,14 +29,16 @@
 <label class="range">
   How safe do you want it? <span>{@html message}</span>
   <!-- Length of {$keyLength} letters/numbers, with {permutations} possibilities {message} -->
-  <small>Example: {example}</small>
+  <dl>
+    <dt>Example:</dt>
+    <dd class="accent">{example}</dd>
+  </dl>
   <input type="range" min="2" max="15" bind:value={$keyLength} />
 </label>
 
 <style lang="scss">
   label {
-    font-size: 1.3em;
-    padding-bottom: 1em;
+    padding-bottom: 2em;
     display: flex;
     flex-flow: row wrap;
     align-items: baseline;
@@ -64,8 +66,13 @@
   }
 
   small {
-    margin: 0.4em 0;
+    margin: 0 0 0.4rem;
     font-weight: 100;
-    font-size: 0.9em;
+    font-size: 1em;
+  }
+
+  strong {
+    font-weight: 200;
+    color: var(--accent-color);
   }
 </style>

@@ -6,7 +6,7 @@
 
 <!-- MARKUP -->
 <div class="brand">
-  <a href="/">
+  <a href="/about">
     <slot>
       <div class="main">it<strike>t</strike>y<small>.sh</small>
         {#if showVersion}
@@ -15,7 +15,7 @@
           </span>
         {/if}
       </div>
-      <div class="secondary">link-shortening for the 21st century</div>
+      <div class="secondary">Planet Earth's virtual flash drive</div>
     </slot>
   </a>
 </div>
@@ -25,6 +25,7 @@
   .brand {
     align-self: center;
     padding: 0.15rem 0 0.6rem;
+    font-size: clamp(0.6rem, 2.5vw, 0.9rem);
   }
 
   .main {
@@ -34,11 +35,10 @@
   }
 
   .secondary {
-    font-size: 0.43em;
+    font-size: 0.55em;
     letter-spacing: -0.02em;
     color: var(--foreground-color);
-    margin-top: -0.3em;
-    margin-top: -0.35em;
+    margin-top: -0.25em;
     z-index: 2;
   }
 

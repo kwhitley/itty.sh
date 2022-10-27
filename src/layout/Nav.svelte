@@ -37,7 +37,7 @@
 <!-- STYLES -->
 <style lang="scss">
   header {
-    padding: 0.5em 1em 0.7em;
+    padding: 0.5em var(--page-inset) 0.7em;
     background-color: var(--header-color);
     z-index: 1;
     display: flex;
@@ -52,6 +52,7 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 2em;
+    row-gap: 1em;
 
     &.constrained {
       max-width: var(--max-page-width);

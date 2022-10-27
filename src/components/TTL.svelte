@@ -66,7 +66,6 @@
 
 <style lang="scss">
   label {
-    font-size: 1.3em;
     padding-bottom: 1em;
     display: flex;
     flex-flow: row wrap;

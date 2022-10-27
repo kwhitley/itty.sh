@@ -1,7 +1,7 @@
 <script>
   import { randomItem } from 'supergeneric/randomItem'
   import SearchInput from '~/components/SearchInput.svelte'
-  import { api } from '~/ity.sh/api'
+  import { api } from '~/api'
   import { keyLength, textTTL } from '~/stores'
   import { onInterval } from '~/utils/onInterval'
 
@@ -17,8 +17,7 @@
     'enter a link',
     'enter some text',
     'paste an image',
-    // 'write a function*',
-    'drag a file*',
+    'drag a file',
   ]
   let placeholder = placeholderOptions[0]
 

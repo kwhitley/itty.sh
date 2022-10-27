@@ -1,6 +1,6 @@
 <script>
   import { fade, slide } from 'svelte/transition'
-  import { api } from '~/ity.sh/api'
+  import { api } from '~/api'
   export let key
   let qrcode
 

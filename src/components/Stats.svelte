@@ -1,6 +1,6 @@
 <script>
   import { onInterval } from '~/utils/onInterval'
-  import { api } from '~/ity.sh/api'
+  import { api } from '~/api'
 
   let stats = ''
 

@@ -4,11 +4,12 @@
 @import './extras.scss';
 
 :root {
-  --max-page-width: 800px;
+  --max-page-width: 1200px;
   --transition-duration: 0.1s;
   --border-radius: 1.2rem;
   --border-thickness: 2px;
   --accent-color: rgb(255, 0, 200);
+  --page-inset: 2rem;
 
   --link-color: var(--blue);
   --brand-color: var(--accent-color);
@@ -63,7 +64,13 @@
     --background-hue: var(--darkmode-background-hue);
     --header-color: rgba(30,30,30,0.9);
   }
+
+
+  @media screen and (max-width: 600px) {
+    --page-inset: clamp(1rem, 6vw, 2rem);
+  }
 }
+
 
 * {
   margin: 0;
@@ -330,6 +337,21 @@ th {
 
 thead {
   background-color: var(--foreground-75);
-  color: var(--background-color)
+  color: var(--background-color);
+}
 
+// DEFINITION LISTS
+dl {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 100%;
+  gap: 0.4em;
+  align-items: baseline;
+  font-weight: 200;
+  margin-bottom: 0.3rem;
+}
+
+dt {
+  text-transform: uppercase;
+  font-size: 0.75em;
 }
