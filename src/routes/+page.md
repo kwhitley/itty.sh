@@ -1,4 +1,4 @@
-# Meet Itty,
+# Meet <span class="accent">It<strike>t</strike>y</span>,
 ## a flash drive for Planet Earth
 
 Itty is a platform for temporary file sharing & storage, focusing on utter and complete _simplicity of use_.
@@ -14,7 +14,7 @@ Today, we:
 
 > Itty solves this. <cite>probably someone at Itty</cite>
 
-So how do we address these concerns?
+### So how do we address these concerns?
 
 1. For general consumer use, we provide exactly one "form".
 
@@ -27,11 +27,10 @@ So how do we address these concerns?
 1. That's it!  You get a share link and a QR code in exchange.
 
   _(HINT: every Itty link can instantly be turned into a QR code for mobile sharing by adding **".QR"** to the end)_
-1. This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.
-1. Finally, once the expiration passes, every trace of this file, link, etc. will cease to exist.  There's no undelete here.
+1. This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  For developers, this is awesome.  It means they can use it like a lightweight Amazon S3, right from their browser.
+1. Finally, once the expiration passes (down to the second), every trace of this file, link, etc. will cease to exist on our servers.  No need to remember any sort of cleanup, we handle that for you.
 
-
-
+<!-- STYLES -->
 <style lang="scss">
   h2 {
     margin-top: -0.8em;
