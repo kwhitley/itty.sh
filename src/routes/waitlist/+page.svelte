@@ -31,20 +31,27 @@
 <h1>Join the Waitlist</h1>
 
 <p>
-  Thanks for your interest in participating in the private beta launch of <strong>itty.sh</strong>!
+  Thanks for your interest in participating in the private alpha launch of <strong>itty.sh</strong>!  Ultimately
+  during this test period, we'll be allowing participants to play and provide feedback, shaping the early direction
+  and feature-set for both the anonymous public as well as paid users.
 </p>
 
 <p>
-  In the next few weeks, we'll be contacting users from this list for early access to the platform, and given a private link to use it.
-  This is for the pioneering group of folks that are fine with (experiencing/reporting) bugs, offering feedback, and just in general,
-  playing with a thing.
+  In the next few weeks, we'll be contacting users from this list for early access to the platform.
 </p>
 
+<h3>In the meantime:</h3>
+
+<ul>
+  <li>Join us on the new <a href="https://discord.com/channels/832353585802903572/832353586234392609">Discord server</a>.</li>
+  <li><a href="https://twitter.com/kevinrwhitley">Follow me on Twitter</a> - this is where most announcements will occur!</li>
+</ul>
+<!--
 <p>
   <strong>NOTE: This is designed from the ground up to be an open and anonymous platform.  By that very nature, when the private beta is underway,
   in order to test certain features, the site/platform will technically be available and open to everyone in the world.  I merely ask that
   during this period, you refrain from sharing the private platform link.</strong>
-</p>
+</p> -->
 
 {#if !success}
   <div
@@ -53,7 +60,7 @@
     out:fly={{ x: -50, duration: 100 }}
     >
     <SearchInput
-      placeholder="your email address"
+      placeholder="yourname@wherever.com"
       buttonText="Join Waitlist"
       validate={validateEmail}
       submitHandler={addEmail}
