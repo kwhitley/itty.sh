@@ -4,7 +4,7 @@
 @import './extras.scss';
 
 :root {
-  --max-page-width: 1200px;
+  --max-page-width: 900px;
   --transition-duration: 0.1s;
   --border-radius: 1.2rem;
   --border-thickness: 2px;
@@ -115,25 +115,26 @@ blockquote {
   background: var(--foreground-5);
   border-left: 0.5rem solid var(--foreground-25);
   margin: 1.5em 0 1.5em 0;
-  padding: 1em 1em 0.6em;
+  padding: 0.7em 1em 0.6em 2.6em;
   quotes: "\201C""\201D""\2018""\2019";
-  font-size: 1.4em;
+  font-size: 1.6em;
   line-height: 1.4em;
   font-style: italic;
   letter-spacing: -0.01em;
+  position: relative;
 
   &:before {
     color: #ccc;
     color: var(--foreground-25);
     content: open-quote;
     font-size: 4em;
-    line-height: 0;
-    margin-right: 0.15em;
-    vertical-align: -0.4em;
+    position: absolute;
+    line-height: 0.8em;
+    left: 0.1em;
   }
 
   cite {
-    font-size: 0.65em;
+    font-size: 0.55em;
     text-transform: uppercase;
     opacity: 0.7;
     display: block;
@@ -154,17 +155,16 @@ hr {
 }
 
 h1, h2, h3 {
-  font-size: clamp(2.5em, 23vmin, 7em);
   font-weight: lighter;
   line-height: 1em;
   letter-spacing: -0.02em;
   padding-top: 0.09em;
-  padding-bottom: 0.26em;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
 }
 
 h1 {
-  line-height: 0.6em;
+  font-size: clamp(2.5em, 17vmin, 5em);
+  line-height: 0.8em;
   letter-spacing: -0.06em;
   font-weight: 400;
 }
@@ -197,7 +197,7 @@ li {
 
 p, ul, ol, caption {
   &:not(:last-child) {
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
   }
 }
 
@@ -206,7 +206,7 @@ p, ul, ol, caption {
 }
 
 li, caption {
-  font-size: 0.95em;
+  // font-size: 0.95em;
 }
 
 ul, ol {
@@ -222,7 +222,7 @@ ol {
   counter-reset: ol-counter;
   gap: 1em;
   margin: 0;
-  padding: 0;
+  padding: 0 2em 0 0;
   margin-left: 1em;
   margin-top: 1.3em;
 }
@@ -233,15 +233,20 @@ ul {
 
 ol > li {
   counter-increment: ol-counter;
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
+  padding-left: 2.5rem;
+  position: relative;
 }
 
 ol > li::before {
   content: counter(ol-counter);
   font-weight: 200;
-  font-size: var(--ol-counter-size);
+  font-size: 3rem;
   margin: -0.05em 0.7em 0 0;
   font-family: serif;
+  position: absolute;
+  line-height: 0.8em;
+  left: 0;
 }
 
 ol > li ul {

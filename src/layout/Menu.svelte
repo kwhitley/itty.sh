@@ -30,12 +30,10 @@
     column-gap: 1.2em;
     row-gap: 0.8em;
     align-items: center;
-    // align-items: center;
-    // justify-content: flex-end;
-    // flex-flow: column;
-    // align-items: flex-end;
-    // justify-items: center;
     transition: all 0.2s ease-in-out;
+
+    flex-flow: row wrap;
+    justify-content: flex-end;
 
     &.horizontal {
       // flex-flow: row wrap;
@@ -47,6 +45,8 @@
     color: var(--foreground-color);
     text-decoration: none !important;
     line-height: 0.9em;
+    text-align: right;
+    white-space: nowrap;
 
     &:hover:not(.active) {
       opacity: 0.7;

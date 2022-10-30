@@ -85,6 +85,7 @@
   on:file={e => save(e.detail)}
   on:submit={() => save(value)}
   disabled={disabled}
+  minHeight="6rem"
   />
 
 <!-- STYLES -->

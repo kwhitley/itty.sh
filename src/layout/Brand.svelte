@@ -1,12 +1,22 @@
 <script>
   import { VERSION } from '~/constants'
+  import { randomItem } from 'supergeneric/randomItem'
 
   export let showVersion = false
+
+  const taglines = [
+    'if a burner phone and Dropbox were to have a baby...',
+    'flash drive for Planet Earth',
+    'zero-step file-sharing',
+    'share files using disappearing ink'
+  ]
+
+  const tagline = randomItem(taglines) || ''
 </script>
 
 <!-- MARKUP -->
 <div class="brand">
-  <a href="/about">
+  <a href="/">
     <slot>
       <div class="main">it<strike>t</strike>y<small>.sh</small>
         {#if showVersion}
@@ -15,7 +25,7 @@
           </span>
         {/if}
       </div>
-      <div class="secondary">Planet Earth's virtual flash drive</div>
+      <div class="secondary">{tagline}</div>
     </slot>
   </a>
 </div>

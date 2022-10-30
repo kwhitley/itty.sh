@@ -3,7 +3,7 @@
   import TTL from '~/components/TTL.svelte'
   import { api } from '~/api'
   import { keyLength, textTTL } from '~/stores'
-  import Preview from '../Preview.svelte'
+  import Preview from '../create/Preview.svelte'
   import Editor from './Editor.svelte'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000

@@ -24,8 +24,10 @@
 
 <main>
   <Nav version horizontal constrained>
-    <a href="/" use:navlink={{ exact: true }}>Create</a>
-    <a href="/advanced" use:navlink>Editor</a>
+    <a href="/waitlist" use:navlink>Join the Waitlist</a>
+    <!-- <a href="/create" use:navlink>Create</a>
+    <a href="/advanced" use:navlink>Editor</a> -->
+    <!-- <a href="/about" use:navlink>What is This?</a> -->
   </Nav>
 
   <section class="page-container" class:constrained>
