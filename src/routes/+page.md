@@ -1,4 +1,4 @@
-# Meet <span class="accent">It<strike>t</strike>y</span>,
+# Meet <span class="accent">it<strike>t</strike>y</span>,
 ## a flash drive for Planet Earth
 
 Itty is a platform for temporary file sharing & storage, focusing on utter and complete _simplicity of use_.
