@@ -6,7 +6,7 @@
 
   const taglines = [
     'if a burner phone and Dropbox were to have a baby...',
-    'flash drive for Planet Earth',
+    'a flash drive for Planet Earth',
     'zero-step file-sharing',
     'share files using disappearing ink'
   ]
