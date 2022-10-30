@@ -65,9 +65,9 @@
     class="confirmation"
     in:fly={{ x: 100, duration: 200, delay: 110 }}
     >
-    <h2>Thanks for signing up</h2>
+    <h2>Thanks for signing up!</h2>
     <p>
-      Expect an email soon(ish) with instructions on accessing the alpha.
+      Expect an email soon(ish) with instructions on accessing the alpha.  Until then, hang tight!
     </p>
   </div>
 
