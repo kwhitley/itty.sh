@@ -100,7 +100,8 @@
         right: auto;
         left: auto;
         width: 100%;
-        min-height: 3rem;
+        min-height: 3.5rem;
+        font-weight: 100;
       }
     }
   }

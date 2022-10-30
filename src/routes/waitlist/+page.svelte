@@ -60,7 +60,7 @@
     out:fly={{ x: -50, duration: 100 }}
     >
     <SearchInput
-      placeholder="yourname@wherever.com"
+      placeholder="you@somewhere.com"
       buttonText="Join Waitlist"
       validate={validateEmail}
       submitHandler={addEmail}

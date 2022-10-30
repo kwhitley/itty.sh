@@ -16,16 +16,17 @@ input, textarea, button {
   font-size: 1.1em;
   padding: 0.4em 0.65em;
   border-radius: calc(0.6 * var(--border-radius));
+  -webkit-border-radius: calc(0.6 * var(--border-radius));
   background: transparent;
   border: var(--input-border-thickness) solid var(--foreground-25);
   width: 100%;
   color: var(--foreground-color);
+  outline-offset: calc(-1 * var(--input-border-thickness));
 }
 
 input, textarea {
   &:focus {
     outline: 2px solid var(--input-focus-color);
-    outline-offset: calc(-1 * var(--input-border-thickness));
   }
 }
 
