@@ -65,7 +65,7 @@
 
     &.open {
       @media (max-width: 400px) {
-        flex: 1 100%;
+        // flex: 1 100%;
         padding-top: 0;
       }
     }
