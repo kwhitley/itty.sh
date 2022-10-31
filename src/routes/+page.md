@@ -1,5 +1,13 @@
+<script>
+  export let data
+
+  let { quote } = data
+</script>
+
 # Meet <span class="accent">it<strike>t</strike>y</span>,
 ## a flash drive for Planet Earth
+
+> {quote.text}<cite>{quote.author}</cite>
 
 Itty is a platform for temporary file sharing & storage, focusing on utter and complete _simplicity of use_.
 Sometimes we need to temporarily hold onto a file.  Sometimes we need to save a screenshot.  Sometimes we want to send something to an entire group.  Even more challenging for developers, sometimes we just need to throw content up on the web as quickly as possible, without trying to find a happy temporary home for the mess.
