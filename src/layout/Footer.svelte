@@ -40,7 +40,6 @@
     justify-content: center;
     font-size: 0.9em;
     color: var(--foreground-75);
-    // background-color: pink;
 
     &.sticky {
       position: fixed;
