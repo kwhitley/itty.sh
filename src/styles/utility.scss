@@ -11,3 +11,12 @@
     flex: 1;
   }
 }
+
+.right { text-align: right; }
+
+.accent { color: var(--accent-color); }
+
+.fill {
+  width: 100%;
+  flex: 1 100%;
+}

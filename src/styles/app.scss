@@ -4,17 +4,20 @@
 @import './extras.scss';
 
 :root {
-  --max-page-width: 800px;
+  --max-page-width: 900px;
   --transition-duration: 0.1s;
-  --border-radius: 0.6rem;
+  --border-radius: 1.2rem;
   --border-thickness: 2px;
   --accent-color: rgb(255, 0, 200);
+  --page-inset: 2rem;
 
   --link-color: var(--blue);
   --brand-color: var(--accent-color);
   --brand-size: 2.2em;
-  --version-offset: -0.3rem;
+  --version-offset: 0rem;
   --header-color: var(--background-color);
+  --header-color: rgba(240,240,240,0.9);
+
   --footer-color: var(--background-color);
   --page-gutter: 2rem;
   --navlink-border: 2px;
@@ -26,10 +29,10 @@
 
   // DARK MODE COLORS
   --darkmode-foreground-hue: 225, 225, 225;
-  --darkmode-background-hue: 4, 4, 4;
+  --darkmode-background-hue: 10, 10, 10;
 
   // MISC SETTINGS
-  --ol-counter-size: 2rem;
+  --ol-counter-size: 1.4em;
   --image-border-radius: 0.3rem;
   --image-outline-thickness: 1px;
   --image-outline-color: var(--foreground-25);
@@ -59,8 +62,15 @@
   @media (prefers-color-scheme: dark) {
     --foreground-hue: var(--darkmode-foreground-hue);
     --background-hue: var(--darkmode-background-hue);
+    --header-color: rgba(30,30,30,0.9);
+  }
+
+
+  @media screen and (max-width: 600px) {
+    --page-inset: clamp(1rem, 6vw, 2rem);
   }
 }
+
 
 * {
   margin: 0;
@@ -71,7 +81,6 @@
 html {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  margin-left: calc(100vw - 100%);
   background-color: var(--background-color);
 }
 
@@ -90,10 +99,11 @@ li {
   margin-bottom: 0.5em;
 }
 
-a {
+a, .link {
   color: inherit;
   text-decoration: none;
   color: var(--link-color);
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
@@ -105,25 +115,26 @@ blockquote {
   background: var(--foreground-5);
   border-left: 0.5rem solid var(--foreground-25);
   margin: 1.5em 0 1.5em 0;
-  padding: 1em 1em 0.6em;
+  padding: 0.7em 1em 0.6em 2.6em;
   quotes: "\201C""\201D""\2018""\2019";
-  font-size: 1.4em;
+  font-size: 1.6em;
   line-height: 1.4em;
   font-style: italic;
   letter-spacing: -0.01em;
+  position: relative;
 
   &:before {
     color: #ccc;
     color: var(--foreground-25);
     content: open-quote;
     font-size: 4em;
-    line-height: 0;
-    margin-right: 0.15em;
-    vertical-align: -0.4em;
+    position: absolute;
+    line-height: 0.8em;
+    left: 0.1em;
   }
 
   cite {
-    font-size: 0.65em;
+    font-size: 0.55em;
     text-transform: uppercase;
     opacity: 0.7;
     display: block;
@@ -144,17 +155,16 @@ hr {
 }
 
 h1, h2, h3 {
-  font-size: clamp(2.5em, 23vmin, 7em);
   font-weight: lighter;
   line-height: 1em;
   letter-spacing: -0.02em;
   padding-top: 0.09em;
-  padding-bottom: 0.26em;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
 }
 
 h1 {
-  line-height: 0.6em;
+  font-size: clamp(2.5em, 17vmin, 5em);
+  line-height: 0.8em;
   letter-spacing: -0.06em;
   font-weight: 400;
 }
@@ -169,8 +179,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1.4em;
-  margin-bottom: 0.5rem;
+  font-size: 1.6em;
+  margin-bottom: 2rem;
   font-weight: 400;
 }
 
@@ -179,9 +189,15 @@ p, li, caption {
   font-weight: 100;
   font-size: 1.1em;
   line-height: 1.5em;
+}
 
+li {
+  margin-bottom: 0.2em;
+}
+
+p, ul, ol, caption {
   &:not(:last-child) {
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
   }
 }
 
@@ -190,7 +206,7 @@ p, li, caption {
 }
 
 li, caption {
-  font-size: 0.95em;
+  // font-size: 0.95em;
 }
 
 ul, ol {
@@ -206,27 +222,37 @@ ol {
   counter-reset: ol-counter;
   gap: 1em;
   margin: 0;
-  padding: 0;
+  padding: 0 2em 0 0;
   margin-left: 1em;
+  margin-top: 1.3em;
 }
 
 ul {
   margin-left: 2.7em;
 }
 
-ol li {
-  flex: 1;
+ol > li {
   counter-increment: ol-counter;
-  display: flex;
-  margin-bottom: 0.5em;
+  margin-bottom: 2em;
+  padding-left: 2.5rem;
+  position: relative;
 }
 
-ol li::before {
+ol > li::before {
   content: counter(ol-counter);
-  font-weight: bold;
-  font-size: var(--ol-counter-size);
-  margin: -0.1em 0.7em 0 0;
+  font-weight: 200;
+  font-size: 3rem;
+  margin: -0.05em 0.7em 0 0;
   font-family: serif;
+  position: absolute;
+  line-height: 0.8em;
+  left: 0;
+}
+
+ol > li ul {
+  margin-top: 0.5em;
+  margin-left: 3em;
+  font-size: 0.85em;
 }
 
 figure {
@@ -293,4 +319,44 @@ caption {
   @media (max-width: 500px) {
     --page-gutter: 1em;
   }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: var(--border-thickness) solid var(--background-color);
+  padding: 0.7em 1em;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--foreground-10);
+}
+
+th {
+  font-size: 1.2em;
+  font-weight: 400;
+  padding: 0.5em 1em;
+}
+
+thead {
+  background-color: var(--foreground-75);
+  color: var(--background-color);
+}
+
+// DEFINITION LISTS
+dl {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 100%;
+  gap: 0.4em;
+  align-items: baseline;
+  font-weight: 200;
+  margin-bottom: 0.3rem;
+}
+
+dt {
+  text-transform: uppercase;
+  font-size: 0.75em;
 }

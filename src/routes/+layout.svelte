@@ -1,14 +1,16 @@
 <script>
   import { navlink } from 'svelte-navlink-action'
+  import { fly } from 'svelte/transition'
   import Footer from '~/layout/Footer.svelte'
   import Nav from '~/layout/Nav.svelte'
-  import GitHub from '~/components/icons/GitHub.svelte'
-  import Twitter from '~/components/icons/Twitter.svelte'
   import '~/styles/app.scss'
 
   // DEFINES IF THE PAGE IS WIDTH-CONSTRAINED
   let constrained = true
   let year = new Date().getFullYear()
+
+  // DATA FROM +layout.js
+  export let data
 </script>
 
 <svelte:head>
@@ -21,25 +23,26 @@
 </svelte:head>
 
 <main>
-  <Nav version horizontal brand={false}>
-    <div class="social">
-      <a href="https://twitter.com/kevinrwhitley">
-        <Twitter />
-      </a>
-
-      <a href="https://github.com/kwhitley">
-        <GitHub />
-      </a>
-    </div>
+  <Nav version horizontal constrained>
+    <a href="/waitlist" use:navlink>Join the Waitlist</a>
+    <!-- <a href="/create" use:navlink>Create</a>
+    <a href="/advanced" use:navlink>Editor</a> -->
+    <!-- <a href="/about" use:navlink>What is This?</a> -->
   </Nav>
 
-  <section class:constrained>
-    <slot />
+  <section class="page-container" class:constrained>
+    {#key data.pathname}
+      <div
+        class="page"
+        in:fly={{ x: 100, duration: 200, delay: 110 }}
+        out:fly={{ x: -100, duration: 100 }}
+        >
+        <slot />
+      </div>
+    {/key}
   </section>
 
-  <Footer constrained={constrained} centered>
-    &copy; {year} itty, LLC. All rights reserved.
-  </Footer>
+  <Footer constrained={constrained} centered />
 </main>
 
 <style lang="scss">
@@ -47,13 +50,22 @@
     display: flex;
     flex-flow: column;
     min-height: 100%;
-    overflow: scroll;
 
     section {
       flex: 1;
       display: flex;
       flex-flow: row wrap;
+      align-self: center;
+      max-width: var(--max-width);
+      width: 100%;
       justify-content: center;
+      padding: 3rem var(--page-inset);
+      overflow-x: hidden;
+    }
+
+    .page {
+      flex: 1;
+      max-width: var(--max-page-width);
     }
   }
 
@@ -63,26 +75,5 @@
     color: var(--foreground-25);
     top: -0.4rem;
     position: relative;
-  }
-
-  .social {
-    flex: 0 5em;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    gap: 1em;
-    font-size: 0.7rem;
-
-    > * {
-      color: var(--foreground-50);
-      display: block;
-      height: 2em;
-      width: 2em;
-      transition: all 0.2s ease;
-
-      &:hover {
-        color: var(--foreground-color);
-      }
-    }
   }
 </style>

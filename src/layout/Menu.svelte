@@ -26,17 +26,17 @@
 
   nav {
     display: flex;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     column-gap: 1.2em;
     row-gap: 0.8em;
     align-items: center;
-    justify-content: flex-end;
-    flex-flow: column;
-    align-items: flex-end;
     transition: all 0.2s ease-in-out;
 
+    flex-flow: row wrap;
+    justify-content: flex-end;
+
     &.horizontal {
-      flex-flow: row wrap;
+      // flex-flow: row wrap;
       row-gap: 0.8em;
     }
   }
@@ -45,6 +45,8 @@
     color: var(--foreground-color);
     text-decoration: none !important;
     line-height: 0.9em;
+    text-align: right;
+    white-space: nowrap;
 
     &:hover:not(.active) {
       opacity: 0.7;

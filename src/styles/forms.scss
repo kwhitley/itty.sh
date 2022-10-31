@@ -13,21 +13,27 @@
 
 input, textarea, button {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
-  padding: 0.4rem 0.65rem;
+  font-size: 1.1em;
+  padding: 0.4em 0.65em;
   border-radius: calc(0.6 * var(--border-radius));
-  background: var(--input-background-color);
+  -webkit-border-radius: calc(0.6 * var(--border-radius));
+  background: transparent;
   border: var(--input-border-thickness) solid var(--foreground-25);
   width: 100%;
   color: var(--foreground-color);
+  outline-offset: calc(-1 * var(--input-border-thickness));
+}
 
+input, textarea {
   &:focus {
     outline: 2px solid var(--input-focus-color);
-    outline-offset: calc(-1 * var(--input-border-thickness));
   }
 }
 
 input[type=range], input[type=checkbox] {
+  padding: 0;
+  border: none;
+
   &:focus {
     outline: none;
   }
@@ -59,21 +65,9 @@ label {
     align-items: center;
     text-align: right;
     display: grid;
-    // width: 100%;
     grid-template-columns: var(--label-width) 1fr;
     gap: 0.8rem;
-
-    input {
-      // max-width: calc(100% - var(--label-width));
-      // width: calc(100% - var(--label-width));
-      // flex: 1 calc(100% - var(--label-width)) calc(100% - var(--label-width));
-    }
   }
-
-  &:not(:last-child) {
-    margin-bottom: 1.5em;
-  }
-
 }
 
 input::placeholder, textarea::placeholder {
@@ -85,6 +79,7 @@ button {
   color: var(--button-foreground-primary);
   border-color: var(--foreground-10);
   border-radius: calc(0.6 * var(--button-border-radius));
+  transition: opacity 0.3s ease;
 
   &.secondary {
     background-color: var(--button-background-secondary);
@@ -102,4 +97,34 @@ button {
     pointer-events: none;
     cursor: default;
   }
+}
+
+.shaking {
+  -webkit-animation: kf_shake 0.35s 1 linear;
+  -moz-animation: kf_shake 0.35s 1 linear;
+  -o-animation: kf_shake 0.35s 1 linear;
+}
+@-webkit-keyframes kf_shake {
+  0% { -webkit-transform: translate(30px); }
+  20% { -webkit-transform: translate(-30px); }
+  40% { -webkit-transform: translate(15px); }
+  60% { -webkit-transform: translate(-15px); }
+  80% { -webkit-transform: translate(8px); }
+  100% { -webkit-transform: translate(0px); }
+}
+@-moz-keyframes kf_shake {
+  0% { -moz-transform: translate(30px); }
+  20% { -moz-transform: translate(-30px); }
+  40% { -moz-transform: translate(15px); }
+  60% { -moz-transform: translate(-15px); }
+  80% { -moz-transform: translate(8px); }
+  100% { -moz-transform: translate(0px); }
+}
+@-o-keyframes kf_shake {
+  0% { -o-transform: translate(30px); }
+  20% { -o-transform: translate(-30px); }
+  40% { -o-transform: translate(15px); }
+  60% { -o-transform: translate(-15px); }
+  80% { -o-transform: translate(8px); }
+  100% { -o-origin-transform: translate(0px); }
 }
