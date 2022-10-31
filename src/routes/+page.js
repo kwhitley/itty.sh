@@ -23,7 +23,7 @@ export const load = async () => {
       author: 'Isaac Newton',
     },
     {
-      text: `I do believe in simplicity. It is astonishing as well as sad, how many trivial affairs even the wisest thinks he must attend to in a day; how singular an affair he thinks he must omit. When the mathematician would solve a difficult problem, he first frees the equation of all incumbrances, and reduces it to its simplest terms. So simplify the problem of life, distinguish the necessary and the real. Probe the earth to see where your main roots run.`,
+      text: `I do believe in simplicity. It is astonishing as well as sad, how many trivial affairs even the wisest thinks he must attend to in a day; When the mathematician would solve a difficult problem, he first frees the equation of all incumbrances, and reduces it to its simplest terms.`,
       author: 'Henry David Thoreau',
     },
   ]
