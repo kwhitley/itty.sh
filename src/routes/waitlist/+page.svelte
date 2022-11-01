@@ -3,7 +3,7 @@
   import SearchInput from '~/components/SearchInput.svelte'
   import { api } from '~/api'
 
-  const validateEmail = str => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(str)
+  const validateEmail = str => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/.test(str)
   let submitting
   let error = false
 
