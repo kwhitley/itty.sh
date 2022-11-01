@@ -21,6 +21,9 @@
   const ttlLookup = [
     '10 seconds',
     '1 minute',
+    '5 minutes',
+    '10 minutes',
+    '30 minutes',
     '1 hour',
     '1 day',
     '1 week',
@@ -61,7 +64,7 @@
 <!-- MARKUP -->
 <label class="range2">
   How long should it be available? <span>{ttlLookup[$ttl-1]} <em>{@html additionalMessage}</em></span>
-  <input type="range" min="1" max="8" bind:value={localTTL} />
+  <input type="range" min="1" max={ttlLookup.length} bind:value={localTTL} />
 </label>
 
 <style lang="scss">
