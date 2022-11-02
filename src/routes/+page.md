@@ -71,7 +71,7 @@ Today, we:
     }
 
     img {
-      opacity: 0.9;
+      opacity: 0.85;
       z-index: -1;
       margin-top: -5rem;
       transition: opacity 1s ease;
@@ -80,6 +80,20 @@ Today, we:
     &:hover {
       img {
         opacity: 1;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      img {
+        filter: invert(0.95);
+      }
+    }
+
+    @media screen and (max-width: 35em) {
+      max-width: 100%;
+
+      img {
+        margin-top: -7em;
       }
     }
   }
