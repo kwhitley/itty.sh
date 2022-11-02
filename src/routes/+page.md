@@ -1,5 +1,6 @@
 <script>
   export let data
+  import earth from '$lib/assets/earth-art.png'
 
   let { quote } = data
 </script>
@@ -9,6 +10,14 @@
 
 > {quote.text}
   <cite>{quote.author}</cite>
+
+<figure id="earth" class="float-right">
+  <img src={earth} class="right" />
+  <caption>Midjourney's artistic vision 
+  of an itty-powered Earth. 
+  
+  I could do far worse.</caption>
+</figure>
 
 Itty is a platform for temporary file sharing & storage, focusing on utter and complete _simplicity of use_.
 Sometimes we need to temporarily hold onto a file.  Sometimes we need to save a screenshot.  Sometimes we want to send something to an entire group.  Even more challenging for developers, sometimes we just need to throw content up on the web as quickly as possible, without trying to find a happy temporary home for the mess.
@@ -51,5 +60,27 @@ Today, we:
   h2 {
     margin-top: -0.8em;
     margin-bottom: 1em;
+  }
+
+
+  #earth {
+    max-width: clamp(10em, 50vw, 30em);
+
+    caption {
+      margin-top: -1em;
+    }
+
+    img {
+      opacity: 0.9;
+      z-index: -1;
+      margin-top: -5rem;
+      transition: opacity 1s ease;
+    }
+
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
   }
 </style>

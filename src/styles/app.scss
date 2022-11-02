@@ -278,14 +278,17 @@ figure {
   }
 
   img {
-    width: 100%;
     height: auto;
     object-fit: cover;
 
-    &:not(.fullwidth) {
-      outline: var(--image-outline-thickness) solid  var(--image-outline-color);
-      outline-offset: calc(-1 * var(--image-outline-thickness));
-      border-radius: var(--image-border-radius);
+    // &:not(.fullwidth) {
+    //   // outline: var(--image-outline-thickness) solid  var(--image-outline-color);
+    //   // outline-offset: calc(-1 * var(--image-outline-thickness));
+    //   // border-radius: var(--image-border-radius);
+    // }
+
+    &:not([width]) {
+      width: 100%;
     }
   }
 
@@ -318,8 +321,10 @@ figure {
 
 caption {
   font-size: 0.85em;
-  line-height: 1.3em;
-  color: var(--foreground-75);
+  line-height: 1.2em;
+  font-weight: 400;
+  color: var(--accent-color);
+  white-space: pre-line;
 
   a {
     font-weight: 400;
