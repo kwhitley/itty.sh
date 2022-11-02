@@ -43,7 +43,7 @@
 <h3>In the meantime:</h3>
 
 <ul>
-  <li>Join us on the new <a href="https://discord.com/channels/832353585802903572/832353586234392609">Discord server</a>.</li>
+  <li>Join us on the new <a href="https://discord.gg/aTunhByeNY">Discord server</a>.</li>
   <li><a href="https://twitter.com/kevinrwhitley">Follow me on Twitter</a> - this is where most announcements will occur!</li>
 </ul>
 <!--
@@ -60,6 +60,7 @@
     out:fly={{ x: -50, duration: 100 }}
     >
     <SearchInput
+      type="email"
       placeholder="you@somewhere.com"
       buttonText="Join Waitlist"
       validate={validateEmail}
