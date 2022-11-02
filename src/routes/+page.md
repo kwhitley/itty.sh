@@ -24,21 +24,27 @@ Today, we:
 > Itty solves this. 
   <cite>probably someone at Itty</cite>
 
-### So how do we address these concerns?
+### So how does itty address these concerns?
 
-1. For general consumer use, we provide exactly one "form".
+1. For general use, we provide exactly one "form".
 
   It's really just a box.
 
-  You can type stuff into the box.  Like a link.  Or a secret message.  
+  You can type stuff into the box.  Like a link.  Or even HTML/JSON.  
   You can paste stuff (including screenshots from your clipboard) into the box.  
-  You can even drag files into the box! (one file per link in early-access)
-1. While you do this, you also set how secure (vs. short) you want the link, and how long you want it to exist.  Most people can ignore this.
+  You can even drag files into the box!
+
+  **Optionally:** You can set how secure you want it, and how long you want it to exist.
+
 1. That's it!  You get a share link and a QR code in exchange.
 
-  _(HINT: every Itty link can instantly be turned into a QR code for mobile sharing by adding **".QR"** to the end)_
-1. This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  For developers, this is awesome.  It means they can use it like a lightweight Amazon S3, right from their browser.
-1. Finally, once the expiration passes (down to the second), every trace of this file, link, etc. will cease to exist on our servers.  No need to remember any sort of cleanup, we handle that for you.
+  _(HINT: every itty link can instantly be turned into a QR code for mobile sharing by adding **".QR"** to the end)_
+
+1. This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  
+
+  **For Developers:** This means you can use it like a lightweight Amazon S3, right from your browser.  Fetch statements in one line?  Yes please.
+
+1. Finally, once the expiration passes (down to the second), every trace of this file, link, etc. will cease to exist on our servers all around the world.  No need to remember any sort of cleanup, we handle that for you.
 
 <!-- STYLES -->
 <style lang="scss">

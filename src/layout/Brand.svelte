@@ -1,17 +1,18 @@
 <script>
   import { VERSION } from '~/constants'
-  import { randomItem } from 'supergeneric/randomItem'
+  import weighted from 'weighted'
 
   export let showVersion = false
 
-  const taglines = [
-    'if a burner phone and Dropbox were to have a baby...',
-    'a flash drive for Planet Earth',
-    'zero-step file-sharing',
-    'share files using disappearing ink'
-  ]
+  const taglines = {
+    'a flash drive for Planet Earth': 50,
+    'single-step file-sharing': 20,
+    'burner phone meets Dropbox': 10,
+    'the way Kevin goes rapidly bankrupt': 1,
+    'another cool excuse to use magenta': 1,
+  }
 
-  const tagline = randomItem(taglines) || ''
+  const tagline = weighted.select(taglines) || ''
 </script>
 
 <!-- MARKUP -->
