@@ -82,14 +82,14 @@ Today, we:
 
   @media screen and (max-width: 35em) {
     main {
-      margin-top: 28em;
+      margin-top: 27em;
     }
 
     #earth {
       position: absolute;
       max-width: inherit;
-      left: -5em;
-      right: -20em;
+      left: -4em;
+      right: -21em;
       top: 0;
       z-index: -1;
       opacity: 0.95;
