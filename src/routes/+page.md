@@ -19,15 +19,19 @@
   I could do far worse.</caption>
 </figure>
 
-Itty is a platform for temporary file sharing & storage, focusing on utter and complete _simplicity of use_.
-Sometimes we need to temporarily hold onto a file.  Sometimes we need to save a screenshot.  Sometimes we want to send something to an entire group.  Even more challenging for developers, sometimes we just need to throw content up on the web as quickly as possible, without trying to find a happy temporary home for the mess.
+Itty is a platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
+
+
+Sometimes we need to temporarily hold onto a file.  
+Sometimes we need to save a screenshot.  
+Sometimes we want to send something to an entire group.  
 
 Today, we:
 
 - Each pick a random tool to send the file(s).  A flavor for everyone!  Chaos for the win.
 - Usually have to be logged in to something, or pass credentials = extra steps
 - Usually have to navigate pages, forms, complicated APIs, etc. to put the file(s) somewhere = extra steps
-- Only then can we finally try to find a share link for our target audience.
+- Only then can we finally try to find a share link, which is all we wanted in the first place.
 - Later on, usually years later, we remember to delete the thing.
 
 > Itty solves this. 
