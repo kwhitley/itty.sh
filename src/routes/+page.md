@@ -63,7 +63,8 @@ Today, we:
 
 
   #earth {
-    max-width: clamp(10em, 50vw, 30em);
+    max-width: clamp(10em, 60vw, 30em);
+    margin-right: -4em;
 
     caption {
       margin-top: -1em;
