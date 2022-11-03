@@ -5,7 +5,7 @@
   export let showVersion = false
 
   const taglines = {
-    'a flash drive for Planet Earth': 50,
+    'a flash drive for Planet Earth': 200,
     'single-step file-sharing': 20,
     'a burner phone meets Dropbox': 10,
     'the way Kevin goes rapidly bankrupt': 1,
