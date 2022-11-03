@@ -9,8 +9,8 @@
 
 <figure id="earth" class="float-right">
   <img src={earth} class="right" />
-  <caption>Midjourney's artistic vision 
-  of an itty-powered Earth.</caption>
+  <caption>Midjourney's artistic vision of 
+  an itty-powered Earth.</caption>
 </figure>
 
 Itty is a platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
