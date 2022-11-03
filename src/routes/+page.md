@@ -61,10 +61,13 @@ Today, we:
     margin-bottom: 1em;
   }
 
+  :global
+
 
   #earth {
     max-width: clamp(10em, 60vw, 30em);
     margin-right: -3em;
+    margin-left: 0;
 
     caption {
       margin-top: -1em;
@@ -88,13 +91,21 @@ Today, we:
         filter: invert(0.95);
       }
     }
-
-    
   }
 
   @media screen and (max-width: 35em) {
     #earth {
-      display: none;
+      position: fixed;
+      max-width: inherit;
+      left: -5em;
+      right: -20em;
+      top: 0;
+      z-index: -1;
+      opacity: 0.1;
+
+      caption {
+        display: none;
+      }
     }      
   }
 </style>
