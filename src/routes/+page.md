@@ -67,16 +67,10 @@ Today, we:
     margin-right: -5em;
     margin-left: 0;
     margin-bottom: 0;
+    margin-top: -1rem;
 
     img {
       z-index: -1;
-      margin-top: -6rem;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      img {
-        filter: invert(0.95);
-      }
     }
   }
 
@@ -94,9 +88,23 @@ Today, we:
       z-index: -1;
       opacity: 0.95;
 
-      caption {
-        display: none;
+      img {
+        filter: none;
       }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    main {
+      margin-top: 0;
+    }
+
+    #earth {
+      display: none;
+
+      /* img {
+        filter: invert(0.94) hue-rotate(180deg) saturate(200%) brightness(0.85);
+      } */
     }
   }
 </style>
