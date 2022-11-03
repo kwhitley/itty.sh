@@ -1,6 +1,7 @@
 <script>
   import GitHub from '~/components/icons/GitHub.svelte'
   import Twitter from '~/components/icons/Twitter.svelte'
+  import Discord from '~/components/icons/Discord.svelte'
 
   export let constrained = false
   export let sticky = false
@@ -21,6 +22,10 @@
     <div class="social">
       <a href="https://twitter.com/kevinrwhitley">
         <Twitter />
+      </a>
+
+      <a href="https://discord.gg/aTunhByeNY">
+        <Discord />
       </a>
 
       <a href="https://github.com/kwhitley">
@@ -47,6 +52,10 @@
       width: 100%;
       border-top: 1px solid var(--foreground-25);
     }
+  }
+
+  .copywrite {
+    font-size: 0.9em;
   }
 
   section {
@@ -76,7 +85,7 @@
   }
 
   .social {
-    flex: 0 5em;
+    flex: 0 10em;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
