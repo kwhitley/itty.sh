@@ -29,8 +29,8 @@
   - Only then can we finally try to find a share link, which is all we wanted in the first place.
   - Later on, usually years later, we remember to delete the thing.
 
-  > Itty solves this. 
-    <cite>probably someone at Itty</cite>
+> Itty solves this. 
+  <cite>probably someone at Itty</cite>
 
   ### So how does itty address these concerns?
 
@@ -44,11 +44,9 @@
 
     **Optionally:** You can set how secure you want it, and how long you want it to exist.
 
-  1. That's it!  You get a share link and a QR code in exchange.
+  1. That's it!  You get a share link and a QR code in exchange.  
 
-    _(HINT: every itty link can instantly be turned into a QR code for mobile sharing by adding **".QR"** to the end)_
-
-  1. This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  
+    This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  
 
     **For Developers:** This means you can use it like a lightweight Amazon S3, right from your browser.  Fetch statements in one line?  Yes please.
 
