@@ -1,16 +1,16 @@
 <script>
   export let data
-  import earth from '$lib/assets/earth-art.png'
+  import earth from '$lib/assets/itty-usb-earth.jpg'
 
   // let { quote } = data
 </script>
+
+<main>
 
 # Meet <span class="accent">it<strike>t</strike>y</span>.
 
 <figure id="earth" class="float-right">
   <img src={earth} class="right" />
-  <caption>Midjourney's artistic vision of 
-  an itty-powered Earth.</caption>
 </figure>
 
 Itty is a platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
@@ -52,7 +52,8 @@ Today, we:
 1. Finally, once the expiration passes (down to the second), every trace of this file, link, etc. will cease to exist 
   on our servers all around the world.  No need to remember any sort of cleanup, we handle that for you.
 
-### Curious? <a href="/waitlist">Join the Waitlist</a>!
+### <a href="/waitlist">Join the waitlist</a> today!
+</main>
 
 <!-- STYLES -->
 <style lang="scss">
@@ -61,29 +62,15 @@ Today, we:
     margin-bottom: 1em;
   }
 
-  :global
-
-
   #earth {
-    max-width: clamp(10em, 60vw, 30em);
-    margin-right: -3em;
+    max-width: clamp(15em, 70vw, 40em);
+    margin-right: -5em;
     margin-left: 0;
-
-    caption {
-      margin-top: -1em;
-    }
+    margin-bottom: 0;
 
     img {
-      opacity: 0.85;
       z-index: -1;
-      margin-top: -5rem;
-      transition: opacity 1s ease;
-    }
-
-    &:hover {
-      img {
-        opacity: 1;
-      }
+      margin-top: -6rem;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -94,18 +81,22 @@ Today, we:
   }
 
   @media screen and (max-width: 35em) {
+    main {
+      margin-top: 28em;
+    }
+
     #earth {
-      position: fixed;
+      position: absolute;
       max-width: inherit;
       left: -5em;
       right: -20em;
       top: 0;
       z-index: -1;
-      opacity: 0.1;
+      opacity: 1;
 
       caption {
         display: none;
       }
-    }      
+    }
   }
 </style>
