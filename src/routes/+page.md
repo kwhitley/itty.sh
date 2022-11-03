@@ -92,7 +92,7 @@ Today, we:
       right: -20em;
       top: 0;
       z-index: -1;
-      opacity: 1;
+      opacity: 0.95;
 
       caption {
         display: none;
