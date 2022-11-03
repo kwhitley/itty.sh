@@ -9,7 +9,7 @@
     'single-step file-sharing': 20,
     'a burner phone meets Dropbox': 10,
     'the way Kevin goes rapidly bankrupt': 1,
-    'just an excuse to use magenta': 1,
+    'just another excuse to use magenta': 1,
   }
 
   const tagline = weighted.select(taglines) || ''
