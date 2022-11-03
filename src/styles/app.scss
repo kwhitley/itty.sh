@@ -87,7 +87,7 @@ html {
 body {
   height: 100%;
   color: var(--foreground-color);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 ul, ol {
@@ -160,6 +160,21 @@ blockquote {
   }
 }
 
+@media screen and (max-width: 35em) {
+  blockquote {
+    padding: 1rem 1.3rem;
+    font-size: 1.3em;
+
+    &:before {
+      display: none;
+    }
+
+    cite {
+      font-size: 0.5em;
+    }
+  }
+}
+
 hr {
   border: 0;
   height: 2px;
@@ -200,7 +215,7 @@ h3 {
 p, li, caption {
   font-family: sans-serif;
   font-weight: 100;
-  font-size: 1.1em;
+  // font-size: 1.1em;
   line-height: 1.5em;
 }
 

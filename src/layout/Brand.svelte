@@ -7,9 +7,9 @@
   const taglines = {
     'a flash drive for Planet Earth': 50,
     'single-step file-sharing': 20,
-    'burner phone meets Dropbox': 10,
+    'a burner phone meets Dropbox': 10,
     'the way Kevin goes rapidly bankrupt': 1,
-    'another cool excuse to use magenta': 1,
+    'just an excuse to use magenta': 1,
   }
 
   const tagline = weighted.select(taglines) || ''
@@ -36,7 +36,7 @@
   .brand {
     align-self: center;
     padding: 0.15rem 0 0.6rem;
-    font-size: clamp(0.6rem, 2.5vw, 0.9rem);
+    font-size: clamp(0.6rem, 1vw, 0.9rem);
   }
 
   .main {
@@ -46,7 +46,7 @@
   }
 
   .secondary {
-    font-size: 0.55em;
+    font-size: 0.5em;
     letter-spacing: -0.02em;
     color: var(--foreground-color);
     margin-top: -0.25em;
