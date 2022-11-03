@@ -2,21 +2,15 @@
   export let data
   import earth from '$lib/assets/earth-art.png'
 
-  let { quote } = data
+  // let { quote } = data
 </script>
 
-# Meet <span class="accent">it<strike>t</strike>y</span>,
-## a flash drive for Planet Earth
-
-> {quote.text}
-  <cite>{quote.author}</cite>
+# Meet <span class="accent">it<strike>t</strike>y</span>.
 
 <figure id="earth" class="float-right">
   <img src={earth} class="right" />
   <caption>Midjourney's artistic vision 
-  of an itty-powered Earth. 
-  
-  I could do far worse.</caption>
+  of an itty-powered Earth.</caption>
 </figure>
 
 Itty is a platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
