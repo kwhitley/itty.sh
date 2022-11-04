@@ -87,6 +87,7 @@
     font-size: 0.7em;
     padding-right: 0;
     line-height: 0em;
+    white-space: nowrap;
   }
 
   dd {
