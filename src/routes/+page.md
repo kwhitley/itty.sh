@@ -77,6 +77,7 @@ Today, we:
   @media screen and (max-width: 35em) {
     main {
       margin-top: 27em;
+      margin-top: 105vw;
     }
 
     #earth {
