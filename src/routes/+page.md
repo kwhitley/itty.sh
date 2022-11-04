@@ -95,7 +95,7 @@ Today, we:
       opacity: 0.95;
 
       img {
-        filter: none;
+        /* filter: contrast(110%); */
       }
     }
   }
