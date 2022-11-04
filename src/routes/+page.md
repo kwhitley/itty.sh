@@ -57,6 +57,11 @@ Today, we:
 
 <!-- STYLES -->
 <style lang="scss">
+  /* main {
+    position: relative;
+    overflow: hidden;
+  } */
+
   h2 {
     margin-top: -0.8em;
     margin-bottom: 1em;
@@ -77,7 +82,7 @@ Today, we:
   @media screen and (max-width: 35em) {
     main {
       margin-top: 27em;
-      margin-top: 105vw;
+      margin-top: 90vw;
     }
 
     #earth {

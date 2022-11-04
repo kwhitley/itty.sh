@@ -16,7 +16,7 @@
   --brand-size: 2.2em;
   --version-offset: 0rem;
   --header-color: var(--background-color);
-  --header-color: rgba(240,240,240,0.9);
+  --header-color: rgba(240,240,240,0.8);
 
   --footer-color: var(--background-color);
   --page-gutter: 2rem;
@@ -351,6 +351,18 @@ caption {
 :root {
   @media (max-width: 500px) {
     --page-gutter: 1em;
+
+    .page-container {
+      font-size: 0.9rem;
+    }
+
+    ol > li {
+      padding-left: 2em;
+
+      &::before {
+        font-size: 2.5em;
+      }
+    }
   }
 }
 

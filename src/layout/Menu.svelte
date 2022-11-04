@@ -22,18 +22,21 @@
     display: flex;
     flex-flow: column;
     align-items: flex-end;
+
+    @media screen and (max-width: 500px) {
+      font-size: 0.9em;
+    }
   }
 
   nav {
     display: flex;
-    font-size: 1.2rem;
     column-gap: 1.2em;
     row-gap: 0.8em;
     align-items: center;
     transition: all 0.2s ease-in-out;
-
     flex-flow: row wrap;
     justify-content: flex-end;
+
 
     &.horizontal {
       // flex-flow: row wrap;

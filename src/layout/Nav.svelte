@@ -42,7 +42,8 @@
     z-index: 1;
     display: flex;
     justify-content: center;
-    backdrop-filter: blur(0.3em);
+    backdrop-filter: blur(0.2em);
+    border-bottom: 1px solid var(--background-50);
   }
 
   section {
@@ -61,7 +62,11 @@
 
   div.menu {
     flex: 1;
-    padding: 0.8em 0;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
+
+    // padding: 0.8em 0;
 
     &.open {
       @media (max-width: 400px) {

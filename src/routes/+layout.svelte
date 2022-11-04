@@ -50,6 +50,8 @@
     display: flex;
     flex-flow: column;
     min-height: 100%;
+    position: relative;
+    overflow: hidden;
 
     section {
       flex: 1;
