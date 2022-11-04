@@ -392,31 +392,16 @@ thead {
 
 // DEFINITION LISTS
 dl {
-  display: grid;
-  grid-template-columns: auto 4fr;
-  font-weight: 200;
-}
-
-dt, dd {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  min-height: 2rem;
-  vertical-align: top;
-  line-height: 1em;
-}
-
-dt, dd {
-  padding: 1px 0.7em 0 0.7em;
-}
-
-dt:nth-child(4n+1),
-dt:nth-child(4n+1) + dd {
-  // border-bottom: 1px solid red;
-  background-color: var(--foreground-10);
+  flex-flow: row wrap;
+  flex: 1 100%;
+  gap: 0.4em;
+  align-items: baseline;
+  font-weight: 200;
+  margin-bottom: 0.3rem;
 }
 
 dt {
   text-transform: uppercase;
-  font-size: 0.6em;
+  font-size: 0.75em;
 }
