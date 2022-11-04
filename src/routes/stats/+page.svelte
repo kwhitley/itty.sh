@@ -76,11 +76,11 @@
 
   dd, dt {
     display: flex;
-    flex-flow: row;
-    gap: 0.4em;
+    flex-flow: row wrap;
+    column-gap: 0.4em;
     align-items: center;
     padding: 0.4em 1em;
-    min-height: 2.5rem;
+    height: 100%;
   }
 
   dt:nth-child(4n + 1), dt:nth-child(4n + 1) + dd {
@@ -104,7 +104,7 @@
     font-family: sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: var(--accent-color);
   }
 
