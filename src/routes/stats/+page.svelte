@@ -1,4 +1,5 @@
 <script>
+  import { fade } from 'svelte/transition'
   import { round } from 'supergeneric/round'
   import { onMount } from 'svelte'
   import { api } from '~/api'
@@ -26,34 +27,38 @@
 <h1>itty stats</h1>
 
 {#if loaded}
-  <h3>Users</h3>
-  <dl>
-    <dt>Waitlist Users</dt>
-    <dd><em>{waitlistUsers}</em></dd>
-  </dl>
+  <section in:fade={{ duration: 400 }}>
+    <h3>Users</h3>
+    <dl>
+      <dt>Waitlist Users</dt>
+      <dd><em>{waitlistUsers}</em></dd>
+    </dl>
 
-  <h3>Current Volume</h3>
-  <dl>
-    <dt>total</dt>
-    <dd><em>{round(stats.current.GB, 4)}<small>GB</small></em> in {stats.current.entries} entries</dd>
-  </dl>
+    <h3>Current Volume</h3>
+    <dl>
+      <dt>total</dt>
+      <dd><em>{round(stats.current.GB, 4)}<small>GB</small></em> in {stats.current.entries} entries</dd>
+    </dl>
 
-  <h3>Lifetime</h3>
-  <dl>
-    <dt>created</dt>
-    <dd><em>{round(stats.lifetime.stored.GB, 4)}<small>GB</small></em> in {stats.lifetime.stored.entries} entries</dd>
+    <h3>Lifetime</h3>
+    <dl>
+      <dt>created</dt>
+      <dd><em>{round(stats.lifetime.stored.GB, 4)}<small>GB</small></em> in {stats.lifetime.stored.entries} entries</dd>
 
-    <dt>served</dt>
-    <dd>
-      <em>{round(stats.lifetime.served.GB, 4)}<small>GB</small></em>
-      in {stats.lifetime.served.entries} entries
-    </dd>
+      <dt>served</dt>
+      <dd>
+        <em>{round(stats.lifetime.served.GB, 4)}<small>GB</small></em>
+        in {stats.lifetime.served.entries} entries
+      </dd>
 
-    <dt>qr served</dt>
-    <dd>
-      <em>{stats.lifetime.served.qrCodes}</em> codes
-    </dd>
-  </dl>
+      <dt>qr served</dt>
+      <dd>
+        <em>{stats.lifetime.served.qrCodes}</em> codes
+      </dd>
+    </dl>
+  </section>
+{:else}
+  <div class="loading">Loading...</div>
 {/if}
 
 <!-- STLYES -->
@@ -106,5 +111,12 @@
   small {
     font-size: 0.65em;
     margin-left: 0.2em;
+  }
+
+  .loading {
+    color: var(--foreground-10);
+    font-size: 1.5em;
+    font-weight: 100;
+    font-family: sans-serif;
   }
 </style>
