@@ -3,20 +3,20 @@
   import { generateHash } from 'supergeneric/generateHash'
 
   const messaging = [
-    'very unsafe <em>paid tier only</em>',
+    'just asking to be discovered <em>paid tier only</em>',
     'very unsafe <em>paid tier only</em>',
     'pretty unsafe <em>paid tier only</em>',
     'moderately safe',
-    'moderately safe',
+    'balanced',
     'very safe',
-    'extremely safe',
     'overkill',
     'overkill',
     'overkill',
     'overkill',
     'overkill',
-    'extreme-overkill',
-    'extreme-overkill',
+    'overkill',
+    'extreme overkill',
+    'a needle in the universe',
   ]
 
   $: message = messaging[$keyLength-2]

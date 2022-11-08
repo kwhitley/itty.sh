@@ -124,6 +124,7 @@
     row-gap: 0.2em;
     column-gap: 1em;
     cursor: pointer;
+    min-height: 2.5rem;
 
     &:not(:last-child) {
       border-bottom: 1px solid var(--foreground-10);
