@@ -1,6 +1,7 @@
+import { datePlus, getSeconds } from 'itty-time'
 import { random } from 'supergeneric/random'
 import { postResults } from '~/stores'
-import { PATH, PREFIX, api } from '.'
+import { api, PATH } from '.'
 
 type PostConfig = {
   ttl?: string,
@@ -36,6 +37,7 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
     entries,
     submitting: true,
     success: false,
+    ttl,
   })
 
   const promises = entries.map((item, index) => {
@@ -57,6 +59,7 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
                   entry.key = response.key
                   entry.type = response.type
                   entry.url =`${PATH}/${entry.key}`
+                  entry.expires = datePlus(ttl)
 
                   return p
                 })
@@ -81,5 +84,7 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
 
       return p
     })
+  }).then(() => {
+    setTimeout(() => postResults.update(p => ({ ...p, expired: true })), getSeconds(ttl) * 1000)
   })
 }

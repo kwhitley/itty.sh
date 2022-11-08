@@ -1,10 +1,11 @@
 <script>
-  import { fade, slide } from 'svelte/transition'
-  import { postResults } from '~/stores'
-  import Preview from './Preview.svelte'
-  import { PREFIX, PATH } from '~/api'
+  import { fade, fly } from 'svelte/transition'
+  import { PATH } from '~/api'
   import CopyToClipboard from '~/components/CopyToClipboard.svelte'
   import Progress from '~/components/Progress.svelte'
+  import { postResults } from '~/stores'
+  import Preview from './Preview.svelte'
+  import { random } from 'supergeneric/random'
 
   let expandedIndex = undefined
 
@@ -14,6 +15,7 @@
   $: error = $postResults?.errors?.length
   $: expandedItem = entries[expandedIndex]
   $: completed = entries.filter(e => !e.submitting && !e.error)
+  $: expired = $postResults.expired
 
   const toggleExpanded = (index) => () => { expandedIndex = (expandedIndex === index) ? undefined : index }
 </script>
@@ -30,27 +32,29 @@
   {#key singleEntry.key}
     <Preview id={singleEntry.key} />
   {/key}
-{:else}
-  <Progress min={0} max={entries.length} value={completed.length} />
+{:else if !expired}
+  <main out:fade={{ duration: 300, delay: 400 }}>
+    <Progress min={0} max={entries.length} value={completed.length} />
 
-  <section>
-    {#each entries as { filename, url, submitting, isDone, key, error }, index}
-      <article on:click={toggleExpanded(index)}>
+    <section>
+      {#each entries as { filename, url, submitting, isDone, key, error, expires }, index}
+        <article on:click={toggleExpanded(index)} class:expired>
 
-        <!-- <div
-          class="expander"
-          class:expanded={expandedIndex === index}
-          >
-        </div> -->
-        <div class="filename">{filename || ''}</div>
+          <!-- <div
+            class="expander"
+            class:expanded={expandedIndex === index}
+            >
+          </div> -->
+          <div class="filename" out:fly={{ x: -100, duration: random(150, 250), delay: random(0, 200) }}>{filename}</div>
 
-        {#if submitting}
-          <div class="loading">sending...</div>
-        {:else}
-          {#if error}
-            <div class="loading">{error || 'Something went wrong...'}</div>
+          {#if submitting}
+            <div class="loading">sending...</div>
           {:else}
-            <div class="link" in:fade={{ duration: 100 }}>
+            {#if error}
+              <div class="loading">{error || 'Something went wrong...'}</div>
+            {/if}
+
+            <div class="link" in:fade={{ duration: 100 }} out:fly={{ x: 100, duration: random(100, 200), delay: random(50, 250) }}>
               <a
                 href={url}
                 target="_blank"
@@ -58,20 +62,20 @@
                 {shortPath}/{key}
               </a>
             </div>
-            <div class="copy" in:fade={{ duration: 100 }}>
+            <div class="copy" in:fade={{ duration: 100 }} out:fade={{ duration: random(100, 200), delay: random(0, 100) }}>
               <CopyToClipboard content={url} />
             </div>
           {/if}
-        {/if}
 
-        {#if expandedIndex === index}
-          <!-- <div in:slide={{ duration: 100 }}>
-            <Preview id={key} />
-          </div> -->
-        {/if}
-      </article>
-    {/each}
-  </section>
+          {#if expandedIndex === index}
+            <!-- <div in:slide={{ duration: 100 }}>
+              <Preview id={key} />
+            </div> -->
+          {/if}
+        </article>
+      {/each}
+    </section>
+  </main>
 {/if}
 
 
@@ -114,6 +118,10 @@
     display: flex;
     flex-flow: column;
     margin-top: 1.5em;
+
+    &.expired {
+      pointer-events: none;
+    }
   }
 
   article {
@@ -125,6 +133,10 @@
     column-gap: 1em;
     cursor: pointer;
     min-height: 2.5rem;
+
+    &.expired {
+      pointer-events: none;
+    }
 
     &:not(:last-child) {
       border-bottom: 1px solid var(--foreground-10);
