@@ -1,6 +1,6 @@
 import { random } from 'supergeneric/random'
 import { postResults } from '~/stores'
-import { api } from '.'
+import { PATH, PREFIX, api } from '.'
 
 type PostConfig = {
   ttl?: string,
@@ -56,7 +56,7 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
                   entry.submitting = false
                   entry.key = response.key
                   entry.type = response.type
-                  entry.url = response.url
+                  entry.url =`${PATH}/${entry.key}`
 
                   return p
                 })
