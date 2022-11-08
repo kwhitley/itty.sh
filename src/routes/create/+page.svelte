@@ -4,6 +4,8 @@
   import Intro from './Intro.svelte'
   import Preview from './Preview.svelte'
   import SimpleInput from './SimpleInput.svelte'
+  import PostResults from './PostResults.svelte'
+  import { postResults } from '~/stores'
 
   let id = ''
   let submitting = false
@@ -20,6 +22,10 @@
     bind:submitting={submitting}
     />
 </section>
+
+{#if $postResults?.entries}
+  <PostResults />
+{/if}
 
 <Preview
   id={id}

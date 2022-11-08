@@ -44,7 +44,7 @@
 <!-- MARKUP -->
 {#if id}
   <main class="preview">
-    <section class="preview-link" in:slide|local={{ duration: 100 }}>
+    <section class="preview-link">
       <a
         class="code"
         class:submitting

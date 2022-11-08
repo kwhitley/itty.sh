@@ -2,11 +2,12 @@
   import { fade, slide } from 'svelte/transition'
   import { api } from '~/api'
   export let key
-  let qrcode
+  export let background = 'transparent'
 
+  let qrcode
   $: {
     if (key) {
-      qrcode = api.get(`/${key}.QR?color=var(--foreground-color)&background=var(--background-color)`)
+      qrcode = api.get(`/${key}.QR?color=var(--foreground-color)&background=${background}`)
     }
   }
 </script>

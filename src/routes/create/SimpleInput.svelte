@@ -2,6 +2,7 @@
   import { randomItem } from 'supergeneric/randomItem'
   import SearchInput from '~/components/SearchInput.svelte'
   import { api } from '~/api'
+  import { post } from '~/api/post'
   import { keyLength, textTTL } from '~/stores'
   import { onInterval } from '~/utils/onInterval'
 
@@ -53,28 +54,51 @@
 
   // SAVE PAYLOAD
   const save = async (payload, as = '') => {
-    submitting = true
+    const isArrayOfFiles = Array.isArray(payload) && payload[0] instanceof File
+
+    console.log('SAVING', payload)
+    // submitting = true
     value = ''
     stop() // stop placeholder
     placeholder = 'generating...'
 
+    // const extra = {
+    //   headers: {}
+    // }
+
+    // // add filename to headers
+    // if (payload instanceof File && payload.name) {
+    //   extra.headers.filename = payload.name
+    // }
+
+    console.log('payload', payload)
+
+
     // auto-detect type if not explicity passed
     if (!as) {
       as = detectType(payload)
+
+      as = as ? `&as=${as}` : ''
     }
 
-    await api.post(`/create?length=${$keyLength}&as=${as}&ttl=${$textTTL}`, payload)
-            .then(response => {
-              id = response.key
-            })
-            .catch(err => {
-              submitting = false
-              console.error('ERROR: There was an error creating a link.', err.stack)
-            })
+    post(isArrayOfFiles ? payload : [payload], {
+      ttl: $textTTL.replace(/\s/, ''),
+      length: $keyLength,
+      as,
+    })
 
-    shuffle()
+    // await api.post(`/create?length=${$keyLength}&ttl=${$textTTL.replace(/\s/,'')}${as}`, payload, extra)
+    //         .then(response => {
+    //           id = response.key
+    //         })
+    //         .catch(err => {
+    //           submitting = false
+    //           console.error('ERROR: There was an error creating a link.', err.stack)
+    //         })
+
+    // shuffle()
     start() // resume placeholder shuffle
-    submitting = false
+    // submitting = false
   }
 </script>
 
@@ -82,7 +106,7 @@
 <SearchInput
   placeholder={placeholder}
   bind:value={value}
-  on:file={e => save(e.detail)}
+  on:files={e => save(e.detail)}
   on:submit={() => save(value)}
   disabled={disabled}
   minHeight="6rem"

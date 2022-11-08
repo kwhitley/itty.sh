@@ -37,9 +37,12 @@
 
   const dropped = (e) => {
     e.preventDefault()
-    const item = e.dataTransfer?.items[0]?.getAsFile()
 
-    dispatch('file', item)
+    const items = [...e.dataTransfer?.items]
+    const item = e.dataTransfer?.items[0]?.getAsFile()
+    console.log('dropped', items)
+
+    dispatch('files', items.map(i => i.getAsFile()))
   }
 </script>
 

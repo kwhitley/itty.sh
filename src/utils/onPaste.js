@@ -4,6 +4,6 @@ export const onPaste = (dispatch) => (e) => {
   if (item.kind === 'file') {
     const blob = item.getAsFile()
 
-    dispatch('file', blob)
+    dispatch('files', [blob])
   }
 }
