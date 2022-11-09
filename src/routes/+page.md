@@ -1,9 +1,16 @@
 <script>
   export let data
   import earth from '$lib/assets/itty-usb-earth.jpg'
+  import { pageTitle } from '~/utils/pageTitle'
 
   // let { quote } = data
 </script>
+
+<!-- HEAD -->
+<svelte:head>
+  <title>{pageTitle('a flashdrive for Planet Earth')}</title>
+  <meta name="description" content="Itty is a next-gen platform for temporary storage & file sharing, focusing on utter and complete simplicity of use." />
+</svelte:head>
 
 <main>
 
@@ -13,7 +20,7 @@
   <img src={earth} class="right" />
 </figure>
 
-Itty is a platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
+Itty is a next-gen platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
 
 
 Sometimes we need to temporarily hold onto a file.  

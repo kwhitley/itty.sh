@@ -34,17 +34,15 @@
   {/key}
 {:else if !expired}
   <main out:fade={{ duration: 300, delay: 400 }}>
-    <Progress min={0} max={entries.length} value={completed.length} />
+    {#if $postResults.submitting}
+      <div class="progress" out:fly={{ x: 200, duration: 300, delay: 600 }}>
+        <Progress min={0} max={entries.length} value={completed.length} />
+      </div>
+    {/if}
 
     <section>
       {#each entries as { filename, url, submitting, isDone, key, error, expires }, index}
         <article on:click={toggleExpanded(index)} class:expired>
-
-          <!-- <div
-            class="expander"
-            class:expanded={expandedIndex === index}
-            >
-          </div> -->
           <div class="filename" out:fly={{ x: -100, duration: random(150, 250), delay: random(0, 200) }}>{filename}</div>
 
           {#if submitting}

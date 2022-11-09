@@ -2,6 +2,7 @@
   import { fly } from 'svelte/transition'
   import SearchInput from '~/components/SearchInput.svelte'
   import { api } from '~/api'
+  import { pageTitle } from '~/utils/pageTitle'
 
   const validateEmail = str => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/.test(str)
   let submitting
@@ -26,6 +27,12 @@
 
   let success = false
 </script>
+
+<!-- HEAD -->
+<svelte:head>
+  <title>{pageTitle('join the waitlist')}</title>
+  <meta name="description" content="Sign up for the early-access launch, kicking off November 15th." />
+</svelte:head>
 
 <!-- MARKUP -->
 <h1>Join the Waitlist</h1>

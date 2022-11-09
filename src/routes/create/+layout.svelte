@@ -4,7 +4,7 @@
 
 <svelte:head>
   <title>{pageTitle('create')}</title>
-  <meta name="description" content="Snapshot stats for the itty engine." />
+  <meta name="description" content="This is where the magic happens!" />
 </svelte:head>
 
 <!-- MARKUP -->
