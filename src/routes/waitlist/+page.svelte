@@ -1,7 +1,7 @@
 <script>
   import { fly } from 'svelte/transition'
-  import SearchInput from '~/components/SearchInput.svelte'
   import { api } from '~/api'
+  import SearchInput from '~/components/SearchInput.svelte'
   import { pageTitle } from '~/utils/pageTitle'
 
   const validateEmail = str => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/.test(str)

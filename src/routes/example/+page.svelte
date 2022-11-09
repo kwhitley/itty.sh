@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Demo</title>
+  <title>Itty Welcome Demo</title>
     <style>
       html, * {
         padding: 0;

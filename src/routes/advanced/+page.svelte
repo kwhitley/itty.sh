@@ -1,17 +1,19 @@
 <script>
+  import { post } from '~/api/post'
   import KeyLength from '~/components/KeyLength.svelte'
   import TTL from '~/components/TTL.svelte'
-  import { api } from '~/api'
-  import { keyLength, textTTL } from '~/stores'
-  import Preview from '../create/Preview.svelte'
+  import { keyLength, postResults, textTTL } from '~/stores'
+  import { pageTitle } from '~/utils/pageTitle'
+  import PostResults from '../create/PostResults.svelte'
   import Editor from './Editor.svelte'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
+  const DEFAULT_PLACEHOLDER = '// advanced editor'
 
   let value = ''
-  let placeholder = '// advanced editor'
+  let placeholder = DEFAULT_PLACEHOLDER
   let id = ''
-  let submitting = false
+  $: submitting = $postResults?.submitting
 
   // REACTIVE BITS
   $: disabled = submitting || !value
@@ -21,36 +23,36 @@
     if (typeof payload !== 'string') return ''
 
     if (payload.match(/(^<)|(<\w+>)|(<\/?\w+>)/gi)) return 'text/html'
-
-    // if (payload.match(/^[\{\[]/)) return 'application/json'
-
-    // if (payload.length) return 'function'
-
-    return ''
   }
 
   // SAVE PAYLOAD
   const save = async (payload, as = '') => {
-    submitting = true
+    const isArrayOfFiles = Array.isArray(payload) && payload[0] instanceof File
     value = ''
+    placeholder = 'sending...'
 
     // auto-detect type if not explicity passed
     if (!as) {
       as = detectType(payload)
+
+      as = as ? `&as=${as}` : ''
     }
 
-    await api.post(`/create?length=${$keyLength}&as=${as}&ttl=${$textTTL}`, payload)
-            .then(response => {
-              id = response.key
-            })
-            .catch(err => {
-              submitting = false
-              console.error('ERROR: There was an error creating a link.', err.stack)
-            })
-
-    submitting = false
+    post(isArrayOfFiles ? payload : [payload], {
+      ttl: $textTTL.replace(/\s/, ''),
+      length: $keyLength,
+      as,
+    }).then(
+      () => placeholder = DEFAULT_PLACEHOLDER
+    )
   }
 </script>
+
+<!-- HEAD -->
+<svelte:head>
+  <title>{pageTitle('advanced editor')}</title>
+  <meta name="description" content="Write your own content, then get it live on the web in under a second!" />
+</svelte:head>
 
 <!-- MARKUP -->
 <section class="form">
@@ -60,16 +62,18 @@
   </section>
 
   <div class="editor-and-submit">
-    <Editor
-      placeholder={placeholder}
-      bind:value={value}
-      on:file={e => save(e.detail)}
-      on:submit={() => save(value)}
-      rows={10}
-      disabled={submitting}
-      />
+    {#key submitting}
+      <Editor
+        placeholder={placeholder}
+        bind:value={value}
+        on:files={e => save(e.detail)}
+        on:submit={() => save(value)}
+        rows={6}
+        disabled={submitting}
+        />
+    {/key}
 
-    <button type="submit" disabled={disabled} on:click={() => save(value)}>
+    <button type="submit" disabled={disabled || submitting} on:click={() => save(value)}>
       Submit
       {#if detectedType}
         (as {detectedType})
@@ -78,7 +82,9 @@
   </div>
 </section>
 
-<Preview id={id} submitting={submitting} />
+{#if $postResults?.entries}
+  <PostResults />
+{/if}
 
 <!--
 <h2>Advanced Editor</h2>

@@ -79,7 +79,7 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
               })
   })
 
-  Promise.allSettled(promises).then(() => {
+  return Promise.allSettled(promises).then(() => {
     postResults.update(p => {
       p.submitting = false
       p.success = !p.entries.find(e => e.error)

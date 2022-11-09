@@ -11,6 +11,16 @@
   export let disabled = false
 
   const dispatch = createEventDispatcher()
+
+  const dropped = (e) => {
+    e.preventDefault()
+
+    const items = [...e.dataTransfer?.items]
+    const item = e.dataTransfer?.items[0]?.getAsFile()
+    console.log('dropped', items)
+
+    dispatch('files', items.map(i => i.getAsFile()))
+  }
 </script>
 
 <!-- MARKUP -->
@@ -25,6 +35,7 @@
     rows={rows}
     disabled={disabled}
     on:paste={onPaste(dispatch)}
+    on:drop={dropped}
     />
 </label>
 
