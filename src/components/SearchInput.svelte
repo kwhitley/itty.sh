@@ -10,9 +10,9 @@
   export let validate = value => Boolean(value)
   export let minHeight = '2rem'
   export let type = "text"
+  export let disabled = false
 
   $: isValid = validate(value)
-  $: disabled = !isValid
 
   const dispatch = createEventDispatcher()
 
@@ -56,9 +56,10 @@
     on:drop={dropped}
     use:autofocus
     style="min-height:{minHeight};"
+    disabled={disabled}
     />
 
-    <button type="submit" disabled={disabled}>
+    <button type="submit" disabled={!isValid || disabled}>
       {buttonText}
     </button>
 </form>

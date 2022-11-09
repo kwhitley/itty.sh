@@ -4,6 +4,8 @@
   import Footer from '~/layout/Footer.svelte'
   import Nav from '~/layout/Nav.svelte'
   import '~/styles/app.scss'
+  import { DEV } from '~/constants'
+	import { pageTitle } from '~/utils/pageTitle'
 
   // DEFINES IF THE PAGE IS WIDTH-CONSTRAINED
   let constrained = true
@@ -16,7 +18,7 @@
 <svelte:head>
   <link rel="icon" type="image/svg" href="/favicon.png">
   <link rel="preconnect" href="https://api.itty.cards" crossorigin>
-  <title>itty.sh</title>
+  <title>{pageTitle()}</title>
   <meta name="description" content="Super-secret, secret project that shall remain secret until it's no longer a secret." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <html lang="en" />

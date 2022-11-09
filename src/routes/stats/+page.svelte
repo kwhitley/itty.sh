@@ -1,8 +1,10 @@
 <script>
-  import { fade } from 'svelte/transition'
   import { round } from 'supergeneric/round'
   import { onMount } from 'svelte'
+  import { fade } from 'svelte/transition'
   import { api } from '~/api'
+  import { DEV } from '~/constants'
+	import { pageTitle } from '~/utils/pageTitle'
 
   let waitlistUsers = ''
   let stats = ''
@@ -19,9 +21,12 @@
 
     loaded = true
   })
-
-  $: console.log('stats', stats)
 </script>
+
+<svelte:head>
+  <title>{pageTitle('stats')}</title>
+  <meta name="description" content="Snapshot stats for the itty engine." />
+</svelte:head>
 
 <!-- MARKUP -->
 <h1>itty stats</h1>

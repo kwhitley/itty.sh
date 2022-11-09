@@ -5,6 +5,7 @@
   import { post } from '~/api/post'
   import { keyLength, textTTL } from '~/stores'
   import { onInterval } from '~/utils/onInterval'
+  import { postResults } from '~/stores'
 
   // CONSTANTS
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
@@ -38,9 +39,10 @@
 
   // REACTIVE BITS
   $: disabled = submitting || !value
-  $: if (value) {
+  $: if ($postResults?.submitting) {
     stop()
   } else {
+    shuffle()
     start()
   }
 
@@ -59,20 +61,7 @@
     console.log('SAVING', payload)
     // submitting = true
     value = ''
-    stop() // stop placeholder
-    placeholder = 'generating...'
-
-    // const extra = {
-    //   headers: {}
-    // }
-
-    // // add filename to headers
-    // if (payload instanceof File && payload.name) {
-    //   extra.headers.filename = payload.name
-    // }
-
-    console.log('payload', payload)
-
+    placeholder = 'sending...'
 
     // auto-detect type if not explicity passed
     if (!as) {
@@ -87,18 +76,7 @@
       as,
     })
 
-    // await api.post(`/create?length=${$keyLength}&ttl=${$textTTL.replace(/\s/,'')}${as}`, payload, extra)
-    //         .then(response => {
-    //           id = response.key
-    //         })
-    //         .catch(err => {
-    //           submitting = false
-    //           console.error('ERROR: There was an error creating a link.', err.stack)
-    //         })
-
-    // shuffle()
     start() // resume placeholder shuffle
-    // submitting = false
   }
 </script>
 
@@ -108,7 +86,7 @@
   bind:value={value}
   on:files={e => save(e.detail)}
   on:submit={() => save(value)}
-  disabled={disabled}
+  disabled={$postResults?.submitting}
   minHeight="6rem"
   />
 
