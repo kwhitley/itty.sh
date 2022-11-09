@@ -9,6 +9,8 @@ type PostConfig = {
   length?: number,
 }
 
+let timer = undefined
+
 const randomDelay = response => new Promise(resolve => setTimeout(() => resolve(response), random(0,0)))
 
 const randomError = response => {
@@ -21,6 +23,7 @@ const randomError = response => {
 
 export const post = (payloads: any[], config: PostConfig = {}) => {
   const { ttl, as = '', length } = config
+  clearTimeout(timer) // clear any existing timer that may exist
 
   const entries = payloads.map(p => {
     const entry = {
@@ -85,6 +88,6 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
       return p
     })
   }).then(() => {
-    setTimeout(() => postResults.update(p => ({ ...p, expired: true })), getSeconds(ttl) * 1000)
+    timer = setTimeout(() => postResults.update(p => ({ ...p, expired: true })), getSeconds(ttl) * 1000)
   })
 }
