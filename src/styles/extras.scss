@@ -11,3 +11,30 @@
   // TILES
   --tile-gap: var(--default-gap);
 }
+
+
+.default-tip {
+  color: var(--background-color) !important;
+  letter-spacing: 0em;
+  font-weight: 100;
+  background: var(--foreground-color);
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  border-radius: 0.4rem;
+  box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.1);
+  position: relative;
+  bottom: 1em;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 0.6rem;
+    width: 0.6rem;
+    background-color: var(--foreground-color);
+    position: absolute;
+    bottom: -0.1rem;
+    left: 50%;
+    rotate: 45deg;
+    z-index: 0;
+  }
+}

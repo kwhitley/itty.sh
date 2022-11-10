@@ -1,6 +1,6 @@
 {
   "name": "template-sveltekit",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -50,6 +50,7 @@
     "supergeneric": "^2.1.0",
     "svelte-codemirror-editor": "^1.1.0",
     "svelte-navlink-action": "^0.1.4",
+    "svelte-tooltip": "^1.2.0",
     "weighted": "^1.0.0"
   }
 }

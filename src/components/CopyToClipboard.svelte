@@ -1,27 +1,41 @@
 <script>
   import Copy from '~/components/icons/Copy.svelte'
+  import SvelteTooltip from 'svelte-tooltip'
+  import { tooltip } from '~/actions/tooltip'
+  import { toast } from '~/services/toast'
 
   export let content
   let copied = false
 
   // utility function to copy full link to clipboard
-  const copyToClipboard = async () => {
+  const copyToClipboard = async (e) => {
+    e.stopPropagation()
     await navigator.clipboard.writeText(content)
     copied = true
+
+    toast(`Copied link to clipboard.`, { duration: '2 seconds' })
   }
 </script>
 
 <!-- MARKUP -->
-<div
-  on:click={copyToClipboard}
-  class="copy"
-  class:copied
-  >
-  <Copy />
-</div>
+<section>
+  <div on:click={copyToClipboard} class="copy" class:copied>
+    <Copy />
+  </div>
+
+  <div class="copy-slot">
+    <slot />
+  </div>
+</section>
 
 <!-- STYLES -->
 <style lang="scss">
+  section {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
   .copy {
     --dimensions: 0.6em;
     height: var(--dimensions);
@@ -37,19 +51,14 @@
       transform: scale(1.1);
       color: var(--foreground-75);
     }
+  }
 
-    &.copied {
+  .copy-slot {
+    font-size: 1.1rem;
+    white-space: nowrap;
 
-      &::after {
-
-      color: var(--green);
-        position: absolute;
-        content: '✔︎';
-        font-size: 1rem;
-        left: 0.4em;
-        top: -0.05em;
-        text-shadow: 0 0 2px rgba(255,255,255,1);
-      }
+    @media screen and (max-width: 35em) {
+      display: none;
     }
   }
 </style>

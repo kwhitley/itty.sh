@@ -1,11 +1,12 @@
 <script>
-  import { fade, fly } from 'svelte/transition'
+  import { random } from 'supergeneric/random'
+  import { fade, fly, slide } from 'svelte/transition'
   import { PATH } from '~/api'
   import CopyToClipboard from '~/components/CopyToClipboard.svelte'
   import Progress from '~/components/Progress.svelte'
+  import QRCode from '~/components/QRCode.svelte'
   import { postResults } from '~/stores'
   import Preview from './Preview.svelte'
-  import { random } from 'supergeneric/random'
 
   let expandedIndex = undefined
 
@@ -13,29 +14,29 @@
   $: shortPath = PATH.replace(/https?:\/\//, '')
   $: singleEntry = entries.length === 1 ? entries[0] : false
   $: error = $postResults?.errors?.length
-  $: expandedItem = entries[expandedIndex]
   $: completed = entries.filter(e => !e.submitting && !e.error)
   $: expired = $postResults.expired
+  $: submitting = $postResults.submitting
+  $: expandedItem = entries[expandedIndex]
+
+  $: {
+    if (expired || submitting) {
+      expandedIndex = undefined
+    }
+  }
 
   const toggleExpanded = (index) => () => { expandedIndex = (expandedIndex === index) ? undefined : index }
 </script>
 
 <!-- MARKUP -->
-
-{#if error}
-  <h3 class:error>
-    Oops, something went wrong...
-  </h3>
-{/if}
-
 {#if singleEntry}
   {#key singleEntry.key}
-    <Preview id={singleEntry.key} />
+    <Preview key={singleEntry.key} />
   {/key}
 {:else if !expired}
   <main out:fade={{ duration: 300, delay: 400 }}>
     {#if $postResults.submitting}
-      <div class="progress" out:fly={{ x: 200, duration: 300, delay: 600 }}>
+      <div class="progress" out:fly={{ x: 400, duration: 300, delay: 600 }}>
         <Progress min={0} max={entries.length} value={completed.length} />
       </div>
     {/if}
@@ -50,26 +51,27 @@
           {:else}
             {#if error}
               <div class="loading">{error || 'Something went wrong...'}</div>
+            {:else}
+              <div class="link" in:fade={{ duration: 100 }} out:fly={{ x: 100, duration: random(100, 200), delay: random(50, 250) }}>
+                <a
+                  href={url}
+                  target="_blank"
+                  on:click={(e) => e.stopPropagation()}
+                  >
+                  {shortPath}/{key}
+                </a>
+              </div>
+              <div class="copy" in:fade={{ duration: 100 }} out:fade={{ duration: random(100, 200), delay: random(0, 100) }}>
+                <CopyToClipboard content={url} />
+              </div>
             {/if}
-
-            <div class="link" in:fade={{ duration: 100 }} out:fly={{ x: 100, duration: random(100, 200), delay: random(50, 250) }}>
-              <a
-                href={url}
-                target="_blank"
-                >
-                {shortPath}/{key}
-              </a>
-            </div>
-            <div class="copy" in:fade={{ duration: 100 }} out:fade={{ duration: random(100, 200), delay: random(0, 100) }}>
-              <CopyToClipboard content={url} />
-            </div>
           {/if}
 
-          {#if expandedIndex === index}
-            <!-- <div in:slide={{ duration: 100 }}>
-              <Preview id={key} />
-            </div> -->
-          {/if}
+          <div class="details" class:open={expandedIndex === index}>
+            {#if expandedIndex === index}
+              <QRCode key={key} />
+            {/if}
+          </div>
         </article>
       {/each}
     </section>
@@ -187,5 +189,16 @@
 
   .loading {
     color: var(--foreground-25);
+  }
+
+  .details {
+    flex: 1 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.1s ease;
+
+    &.open {
+      height: 20em;
+    }
   }
 </style>

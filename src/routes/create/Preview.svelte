@@ -4,45 +4,21 @@
   import { slide } from 'svelte/transition'
   import Copy from '~/components/icons/Copy.svelte'
   import QRCode from '~/components/QRCode.svelte'
+  import CopyToClipboard from '~/components/CopyToClipboard.svelte'
   import { onInterval } from '~/utils/onInterval'
-  import { PREFIX, PATH } from '~/api'
+  import { DOMAIN, PATH } from '~/api'
 
-  export let id
+  export let key
   export let submitting
   let copied = false
 
-  $: link = `${PREFIX}/${id}`
-  $: fullLink = `${PATH}/${id}`
-  $: finalKey = !submitting && id
-
-  const obfuscate = () => {
-    const newLetter = generateHash(1)
-    const target = random(0, id.length - 1)
-
-    id = id.split('').map((v, i) => i === target ? newLetter : v).join('')
-  }
-
-  // id shuffler
-  const idShuffler = onInterval(obfuscate, 5)
-  $: if (submitting && id) {
-    idShuffler.start()
-  } else {
-    idShuffler.stop()
-  }
-
-  $: if (id) {
-    copied = false
-  }
-
-  // utility function to copy full link to clipboard
-  const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(fullLink)
-    copied = true
-  }
+  $: link = `${DOMAIN}/${key}`
+  $: fullLink = `${PATH}/${key}`
+  $: finalKey = !submitting && key
 </script>
 
 <!-- MARKUP -->
-{#if id}
+{#if key}
   <main class="preview">
     <section class="preview-link">
       <a
@@ -52,12 +28,12 @@
         href={fullLink}
         target="_blank"
         >
-        {link}
+        <span class:hideOnMobile={link.length > 20}>{DOMAIN + '/'}</span>{key}
       </a>
 
-      <div on:click={copyToClipboard} class="copy">
-        <Copy />
-      </div>
+      <CopyToClipboard content={fullLink}>
+        &lt;-- copy
+      </CopyToClipboard>
     </section>
 
     <QRCode key={finalKey} />
@@ -72,6 +48,7 @@
     align-items: center;
     gap: 1.5em;
     margin-bottom: 1em;
+    height: clamp(10em, 100vw, 26em);
   }
 
   .preview-link {
@@ -79,8 +56,10 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: -0.02em;
     display: flex;
+    align-items: center;
     align-self: center;
     gap: 0.5em;
+    margin-bottom: 0.4em;
 
     a {
       color: var(--accent-color);
@@ -93,25 +72,20 @@
         white-space: nowrap;
         top: calc(100% + 0.5em);
         right: calc(50% - 2.5em);
-        font-size: 0.5em;
+        font-size: clamp(1rem, 0.5em, 2rem);
         color: var(--foreground-75);
-      }
-
-      &:after {
-        content: '<-- copy to clipboard';
-        left: calc(100% + 3.6em);
-        top: 0.8em;
-        font-size: 0.4em;
-      }
-
-      &.copied:after {
-        content: '<-- copied!';
       }
 
       &.submitting {
         pointer-events: none;
         color: var(--foreground-25);
       }
+    }
+  }
+
+  :global(.preview-link .copied a) {
+    &::after {
+      content: '<-- copied!';
     }
   }
 
@@ -127,6 +101,12 @@
     &:hover {
       transform: scale(1.1);
       color: var(--foreground-75);
+    }
+  }
+
+  @media screen and (max-width: 35em) {
+    .hideOnMobile {
+      display: none;
     }
   }
 </style>

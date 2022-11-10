@@ -16,8 +16,8 @@
 {:then value}
   <div
     class="qrcode"
-    in:fade={{ duration: 200, delay: 110 }}
-    out:fade={{ duration: 100 }}
+    in:fade|local={{ duration: 200, delay: 110 }}
+    out:fade|local={{ duration: 100 }}
     >
     {@html value}
   </div>
@@ -26,6 +26,8 @@
 <style lang="scss">
   .qrcode {
     flex: 1;
+    height: 100%;
+    width: 100%;
   }
 
   :global(.qrcode svg) {

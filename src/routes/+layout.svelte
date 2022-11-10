@@ -6,6 +6,7 @@
   import '~/styles/app.scss'
   import { DEV } from '~/constants'
 	import { pageTitle } from '~/utils/pageTitle'
+	import Toaster from '~/components/Toaster.svelte'
 
   // DEFINES IF THE PAGE IS WIDTH-CONSTRAINED
   let constrained = true
@@ -46,6 +47,8 @@
 
   <Footer constrained={constrained} centered />
 </main>
+
+<Toaster />
 
 <style lang="scss">
   main {

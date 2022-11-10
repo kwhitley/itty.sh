@@ -2,6 +2,7 @@ import { datePlus, getSeconds } from 'itty-time'
 import { random } from 'supergeneric/random'
 import { postResults } from '~/stores'
 import { api, PATH } from '.'
+import { toast } from '~/services/toast'
 
 type PostConfig = {
   ttl?: string,
@@ -84,6 +85,10 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
       p.submitting = false
       p.success = !p.entries.find(e => e.error)
       p.errors = p.entries.map(e => e.error).filter(v => v)
+
+      if (p.errors.length) {
+        toast('Oops, something went wrong with the uploads!', { type: 'error', duration: '5 seconds' })
+      }
 
       return p
     })

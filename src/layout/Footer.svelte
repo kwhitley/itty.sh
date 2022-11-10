@@ -13,12 +13,6 @@
 <!-- MARKUP -->
 <footer class:sticky>
   <section class="split" class:constrained class:centered>
-    <div class="copywrite">
-      <slot>
-        &copy; {year} Itty Industries, Inc. All rights reserved.
-      </slot>
-    </div>
-
     <div class="social">
       <a href="https://twitter.com/kevinrwhitley">
         <Twitter />
@@ -32,6 +26,12 @@
         <GitHub />
       </a>
     </div>
+
+    <div class="copywrite">
+      <slot>
+        &copy; {year} Itty Industries, Inc. All rights reserved.
+      </slot>
+    </div>
   </section>
 </footer>
 
@@ -43,7 +43,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: var(--foreground-75);
 
     &.sticky {
@@ -56,6 +56,10 @@
 
   .copywrite {
     font-size: 0.9em;
+  }
+
+  .split {
+    flex-flow: row-reverse wrap;
   }
 
   section {
@@ -85,9 +89,9 @@
   }
 
   .social {
-    flex: 0 10em;
+    flex: 0;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     align-items: center;
     gap: 1em;
     font-size: 0.8rem;
