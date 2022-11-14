@@ -69,6 +69,7 @@
 
   @media screen and (max-width: 600px) {
     --page-inset: clamp(1rem, 6vw, 2rem);
+    --border-radius: 0.6rem;
   }
 }
 
