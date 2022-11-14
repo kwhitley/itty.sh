@@ -69,7 +69,7 @@
     <SearchInput
       type="email"
       placeholder="you@somewhere.com"
-      buttonText="Join Waitlist"
+      buttonText={`Join\nWaitlist`}
       validate={validateEmail}
       submitHandler={addEmail}
       clearOnSubmit
@@ -94,4 +94,15 @@
     font-weight: 400;
     letter-spacing: -0.02em;
   }
+
+  // @media screen and (max-width: 50em) {
+  //   :root {
+  //     --search-button-inset: 0.3em;
+  //     --search-input-font-size: 1.5em;
+  //   }
+
+  //   :global(button) {
+  //     background-color: red;
+  //   }
+  // }
 </style>

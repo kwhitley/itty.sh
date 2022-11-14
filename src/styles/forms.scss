@@ -8,15 +8,14 @@
   --button-foreground-primary: var(--white);
   --button-background-secondary: var(--background-color);
   --button-foreground-secondary: var(--foreground-color);
-  --button-border-radius: var(--border-radius);
 }
 
 input, textarea, button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   padding: 0.4em 0.65em;
-  border-radius: calc(0.6 * var(--border-radius));
-  -webkit-border-radius: calc(0.6 * var(--border-radius));
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
   background: transparent;
   border: var(--input-border-thickness) solid var(--foreground-25);
   width: 100%;
@@ -78,7 +77,7 @@ button {
   background-color: var(--button-background-primary);
   color: var(--button-foreground-primary);
   border-color: var(--foreground-10);
-  border-radius: calc(0.6 * var(--button-border-radius));
+  border-radius: var(--border-radius);
   transition: opacity 0.3s ease;
 
   &.secondary {

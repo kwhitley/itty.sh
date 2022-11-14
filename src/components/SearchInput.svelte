@@ -47,7 +47,7 @@
 </script>
 
 <!-- MARKUP -->
-<form on:submit={submitWrapper} disabled={disabled}>
+<form class="search-input" on:submit={submitWrapper} disabled={disabled}>
   <input
     use:typeAction
     placeholder={placeholder}
@@ -67,20 +67,22 @@
 <!-- STYLES -->
 <style lang="scss">
   :root {
-    --search-button-inset: 0.5em;
+    --search-button-inset: 0.4em;
     --search-button-padding: 0.9em;
     --input-padding: 0.65em;
+    --search-input-font-size: 2em;
+    --search-input-button-font-size: 0.8em;
   }
 
   form {
     margin-bottom: 1em;
     position: relative;
     width: 100%;
-    font-size: 2em;
+    font-size: var(--search-input-font-size);
 
     input {
-      font-size: clamp(1.4rem, 5vw, 1em);
-      padding: var(--input-padding) 7.5em var(--input-padding) 0.7em;
+      font-size: clamp(1.2rem, 5vw, 1em);
+      padding: var(--input-padding) 0.7em;
       font-weight: 100;
       width: 100%;
 
@@ -94,7 +96,7 @@
     }
 
     button {
-      font-size: 0.8em;
+      font-size: var(--search-input-button-font-size);
       position: absolute;
       right: var(--search-button-inset);
       top: var(--search-button-inset);
@@ -104,14 +106,42 @@
       border-radius: calc(0.5 * var(--border-radius));
       letter-spacing: 0.02em;
 
-      @media screen and (max-width: 400px) {
+      @media screen and (max-width: 55em) {
+        font-size: calc(0.8 * var(--search-input-button-font-size));
+        text-align: left;
+        white-space: pre-line;
+      }
+
+      @media screen and (max-width: 35em) {
+        font-size: calc(0.8 * var(--search-input-button-font-size));
+
+      }
+
+      @media screen and (max-width: 40em) {
+        white-space: normal;
         position: relative;
         right: auto;
         left: auto;
         width: 100%;
-        min-height: 3.5rem;
+        font-size: 0.85em;
+        text-align: center;
+        min-height: 3.2rem;
         font-weight: 100;
+        border-radius: var(--border-radius);
       }
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    :root {
+      --search-button-inset: 0.4em;
+      --search-input-font-size: 1.5em;
+    }
+  }
+
+  @media screen and (max-width: 40em) {
+    :root {
+      --search-button-inset: 0.3em;
     }
   }
 </style>
