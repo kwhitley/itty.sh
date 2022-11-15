@@ -1,6 +1,6 @@
 {
   "name": "template-sveltekit",
-  "version": "0.18.10",
+  "version": "0.18.11",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -16,14 +16,14 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1",
-    "eslint": "^8.24.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "mdsvex": "^0.10.6",
     "prettier": "^2.7.1",
-    "prettier-plugin-svelte": "^2.7.1",
+    "prettier-plugin-svelte": "^2.8.0",
     "sass": "^1.55.0",
     "svelte": "^3.50.1",
     "svelte-check": "^2.9.1",
@@ -40,7 +40,7 @@
     "itty-fetcher": "^0.7.5",
     "itty-time": "^0.2.0",
     "supergeneric": "^2.1.0",
-    "svelte-navlink-action": "^0.1.4",
+    "svelte-navlink-action": "^0.1.5",
     "svelte-tooltip": "^1.2.0",
     "weighted": "^1.0.0"
   }
