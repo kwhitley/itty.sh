@@ -3,6 +3,7 @@ import { random } from 'supergeneric/random'
 import { postResults } from '~/stores'
 import { api, PATH } from '.'
 import { toast } from '~/services/toast'
+import { MAX_UPLOADS_PERMITTED } from '~/constants'
 
 type PostConfig = {
   ttl?: string,
@@ -25,6 +26,10 @@ const randomError = response => {
 export const post = (payloads: any[], config: PostConfig = {}) => {
   const { ttl, as = '', length } = config
   clearTimeout(timer) // clear any existing timer that may exist
+
+  if (payloads.length > MAX_UPLOADS_PERMITTED) {
+    return toast(`For now, bulk uploads are limited to ${MAX_UPLOADS_PERMITTED} files at a time.  Please try again with fewer!`, { type: 'error', duration: '5 seconds' })
+  }
 
   const entries = payloads.map(p => {
     const entry = {

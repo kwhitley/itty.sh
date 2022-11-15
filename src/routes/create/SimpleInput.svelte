@@ -87,7 +87,7 @@
   on:files={e => save(e.detail)}
   on:submit={() => save(value)}
   disabled={$postResults?.submitting}
-  minHeight="6rem"
+  minHeight="3.5rem"
   />
 
 <!-- STYLES -->
