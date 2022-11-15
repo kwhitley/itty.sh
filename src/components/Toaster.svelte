@@ -38,5 +38,6 @@
   .inner {
     width: 100%;
     max-width: var(--max-page-width);
+    line-height: 1.4em;
   }
 </style>

@@ -1,9 +1,10 @@
 import { datePlus, getSeconds } from 'itty-time'
 import { random } from 'supergeneric/random'
+import { round } from 'supergeneric/round'
 import { postResults } from '~/stores'
 import { api, PATH } from '.'
 import { toast } from '~/services/toast'
-import { MAX_UPLOADS_PERMITTED } from '~/constants'
+import { MAX_FILESIZE, MAX_UPLOADS } from '~/constants'
 
 type PostConfig = {
   ttl?: string,
@@ -27,8 +28,8 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
   const { ttl, as = '', length } = config
   clearTimeout(timer) // clear any existing timer that may exist
 
-  if (payloads.length > MAX_UPLOADS_PERMITTED) {
-    return toast(`For now, bulk uploads are limited to ${MAX_UPLOADS_PERMITTED} files at a time.  Please try again with fewer!`, { type: 'error', duration: '5 seconds' })
+  if (payloads.length > MAX_UPLOADS) {
+    return toast(`For now, bulk uploads are limited to ${MAX_UPLOADS} files at a time.  Please try again with fewer items!`, { type: 'error', duration: '6 seconds' })
   }
 
   const entries = payloads.map(p => {
@@ -42,6 +43,12 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
     return entry
   })
 
+  for (const entry of entries) {
+    if (entry.isFile && entry.content.size > MAX_FILESIZE) {
+      return toast(`For now, the max file size permitted is ${round(MAX_FILESIZE / 1024 / 1024, 2)}MB.  Please try again with smaller files!`, { type: 'error', duration: '6 seconds' })
+    }
+  }
+
   postResults.set({
     entries,
     submitting: true,
@@ -54,6 +61,7 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
 
     // add filename to headers
     if (item.isFile) {
+      console.log('posting file:', item)
       extra.headers.filename = item.filename
     }
 

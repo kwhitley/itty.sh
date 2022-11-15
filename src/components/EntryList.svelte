@@ -20,14 +20,18 @@
       expandedIndex = undefined
     }
 
-  const toggleExpanded = (index) => () => { expandedIndex = (expandedIndex === index) ? undefined : index }
+  const toggleExpanded = (key) => (index) => () => {
+    if (key) {
+      expandedIndex = (expandedIndex === index) ? undefined : index
+    }
+  }
 </script>
 
 <!-- MARKUP -->
 {#if !expired}
   <section>
     {#each items as { filename, url, submitting, key, error, expires }, index}
-      <article on:click={toggleExpanded(index)} class:expired>
+      <article on:click={toggleExpanded(key)(index)} class:expired>
         <div class="filename" out:fly={{ x: -100, duration: random(150, 250), delay: random(0, 200) }}>{filename}</div>
 
         {#if submitting}

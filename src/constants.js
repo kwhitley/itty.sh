@@ -5,4 +5,5 @@ export const VERSION = __VERSION__
 export const DEV = import.meta.env.DEV
 
 // APP SETTINGS
-export const MAX_UPLOADS_PERMITTED = 20
+export const MAX_UPLOADS = 20
+export const MAX_FILESIZE = 1024 * 1024 * 50 // 25 MB
