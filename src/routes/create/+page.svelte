@@ -27,17 +27,7 @@
   <PostResults />
 {/if}
 
-<Preview
-  id={id}
-  submitting={submitting}
-  />
-
 <style lang="scss">
-  main {
-    display: flex;
-    flex-flow: column;
-  }
-
   .controls {
     margin-bottom: 1em;
   }

@@ -1,5 +1,4 @@
 <script>
-  export let data
   import earth from '$lib/assets/itty-usb-earth.jpg'
   import { pageTitle } from '~/utils/pageTitle'
 
@@ -17,7 +16,7 @@
 # Meet <span class="accent">it<strike>t</strike>y</span>.
 
 <figure id="earth" class="float-right">
-  <img src={earth} class="right" />
+  <img src={earth} class="right" alt="Earth, connected to a usb-drive, against a field of pink." />
 </figure>
 
 Itty is a next-gen platform for temporary storage & file sharing, focusing on utter and complete _simplicity of use_.
@@ -64,16 +63,6 @@ Today, we:
 
 <!-- STYLES -->
 <style lang="scss">
-  /* main {
-    position: relative;
-    overflow: hidden;
-  } */
-
-  h2 {
-    margin-top: -0.8em;
-    margin-bottom: 1em;
-  }
-
   #earth {
     max-width: clamp(15em, 70vw, 40em);
     margin-right: -5em;

@@ -6,7 +6,7 @@
 
 <!-- MARKUP -->
 <div class="progress">
-  <section style={`width: ${100 / max * value}%;`}>
+  <section style={`width: ${100 / (max - min) * value}%;`}>
     <em class="progress-bar-message" class:first={value===0}>
       <slot />
     </em>
@@ -72,10 +72,5 @@
       color: rgba(0,0,0,0.6);
       text-shadow: none;
     }
-  }
-
-  main {
-    // background-color: pink;
-    overflow: hidden;
   }
 </style>

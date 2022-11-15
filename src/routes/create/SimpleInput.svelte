@@ -11,7 +11,6 @@
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
 
   // external variables
-  export let id = ''
   export let submitting = false
 
   let value = ''

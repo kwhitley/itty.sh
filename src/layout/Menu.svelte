@@ -65,8 +65,4 @@
     cursor: default;
     pointer-events: none;
   }
-
-  div {
-    cursor: pointer;
-  }
 </style>

@@ -43,7 +43,7 @@
     flex-flow: row wrap;
     align-items: baseline;
 
-    input, small {
+    input {
       flex: 1 100%;
     }
   }
@@ -63,16 +63,5 @@
     font-weight: 200;
     margin-left: 0.2em;
     color: var(--blue);
-  }
-
-  small {
-    margin: 0 0 0.4rem;
-    font-weight: 100;
-    font-size: 1em;
-  }
-
-  strong {
-    font-weight: 200;
-    color: var(--accent-color);
   }
 </style>

@@ -67,18 +67,10 @@
 
 <!-- STYLES -->
 <style lang="scss">
-  .error {
-    color: var(--red);
-  }
-
   section {
     display: flex;
     flex-flow: column;
     margin-top: 1.5em;
-
-    &.expired {
-      pointer-events: none;
-    }
   }
 
   article {

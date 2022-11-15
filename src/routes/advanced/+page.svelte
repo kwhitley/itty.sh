@@ -107,7 +107,6 @@
 
 <!-- STYLES -->
 <style lang="scss">
-
   :global(label) {
     margin-bottom: 0 !important;
   }
@@ -132,19 +131,6 @@
     display: flex;
     flex-flow: column;
     margin-bottom: 0.7em;
-
-    & .editor {
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  .editor-container {
-    font-size: 0.5em;
-  }
-
-  label {
-    font-size: 1.3rem;
-    margin-bottom: 1em;
   }
 
   .form {

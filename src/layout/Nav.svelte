@@ -52,7 +52,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    column-gap: 2em;
+    column-gap: 1em;
     row-gap: 1em;
 
     &.constrained {

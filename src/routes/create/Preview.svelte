@@ -83,27 +83,6 @@
     }
   }
 
-  :global(.preview-link .copied a) {
-    &::after {
-      content: '<-- copied!';
-    }
-  }
-
-  .copy {
-    --dimensions: 0.6em;
-    height: var(--dimensions);
-    width: var(--dimensions);
-    transition: transform 0.1s ease;
-    color: var(--foreground-50);
-    transform-origin: 50% 90%;
-    cursor: pointer;
-
-    &:hover {
-      transform: scale(1.1);
-      color: var(--foreground-75);
-    }
-  }
-
   @media screen and (max-width: 35em) {
     .hideOnMobile {
       display: none;

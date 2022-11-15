@@ -75,12 +75,4 @@
       max-width: var(--max-page-width);
     }
   }
-
-  small {
-    font-size: 0.5em;
-    letter-spacing: 0em;
-    color: var(--foreground-25);
-    top: -0.4rem;
-    position: relative;
-  }
 </style>

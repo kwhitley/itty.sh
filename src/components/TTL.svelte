@@ -92,9 +92,4 @@
     margin-left: 0.2em;
     color: var(--blue);
   }
-
-  small {
-    margin: 0.4em 0;
-    font-weight: 100;
-  }
 </style>
