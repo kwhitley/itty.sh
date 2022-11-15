@@ -1,6 +1,6 @@
 {
   "name": "template-sveltekit",
-  "version": "0.18.11",
+  "version": "0.18.12",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -26,7 +26,7 @@
     "prettier-plugin-svelte": "^2.8.0",
     "sass": "^1.55.0",
     "svelte": "^3.50.1",
-    "svelte-check": "^2.9.1",
+    "svelte-check": "^2.9.2",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.1",
     "typescript": "^4.8.4",
