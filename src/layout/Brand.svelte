@@ -5,7 +5,8 @@
   export let showVersion = false
 
   const taglines = {
-    'a flash drive for Planet Earth': 200,
+    // 'flash drive for Planet Earth': 200,
+    [`Planet Earth's new flash drive`]: 200,
     'single-step file-sharing': 20,
     'a burner phone meets Dropbox': 10,
     'the way Kevin goes rapidly bankrupt': 1,
@@ -54,11 +55,10 @@
   }
 
   .version {
-    font-size: 0.4em;
-    font-size: 0.35em;
-    opacity: 0.7;
+    font-size: 0.3em;
     margin-left: -0.4rem;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
+    color: var(--foreground-25);
   }
 
   a {
