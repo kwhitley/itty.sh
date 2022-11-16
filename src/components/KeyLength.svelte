@@ -3,10 +3,10 @@
   import { generateHash } from 'supergeneric/generateHash'
 
   const messaging = [
-    'just asking to be discovered <em>paid tier only</em>',
-    'very unsafe <em>paid tier only</em>',
-    'pretty unsafe <em>paid tier only</em>',
-    'moderately safe',
+    'just asking to be discovered <em>requires subscription</em>',
+    'very unsafe <em>requires subscription</em>',
+    'pretty unsafe <em>requires subscription</em>',
+    'moderately safe <em>requires subscription</em>',
     'balanced',
     'very safe',
     'overkill',
@@ -42,6 +42,7 @@
     display: flex;
     flex-flow: row wrap;
     align-items: baseline;
+    column-gap: 0.4em;
 
     input {
       flex: 1 100%;
@@ -61,7 +62,18 @@
   span {
     font-size: 1.8em;
     font-weight: 200;
-    margin-left: 0.2em;
+    line-height: 1em;
     color: var(--blue);
+  }
+
+  :global(.range em) {
+    white-space: nowrap;
+    line-height: 0;
+  }
+
+  @media screen and (max-width: 35em) {
+    span {
+    flex: 1 100%;
+    }
   }
 </style>

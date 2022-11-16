@@ -30,15 +30,15 @@
     '1 week',
     '1 month',
     '1 year',
-    'until I unsubscribe',
+    'until I unsubscribe*',
   ]
 
   const additionalMessaging = {
     '10 seconds': '*demo only',
-    '1 minute': '*paid tier only',
-    '1 month': '*paid tier only',
-    '1 year': '*paid tier only',
-    '30 years': '*paid tier only',
+    '1 week': '*requires subscription',
+    '1 month': '*requires subscription',
+    '1 year': '*requires subscription',
+    // '30 years': '*requires subscription',
   }
 
   $: {
@@ -74,6 +74,7 @@
     display: flex;
     flex-flow: row wrap;
     align-items: baseline;
+    column-gap: 0.4em;
 
     input {
       flex: 1 100%;
@@ -89,7 +90,18 @@
   span {
     font-size: 1.8em;
     font-weight: 200;
-    margin-left: 0.2em;
+    line-height: 1em;
     color: var(--blue);
+  }
+
+  em {
+    white-space: nowrap;
+    line-height: 0;
+  }
+
+  @media screen and (max-width: 35em) {
+    span {
+    flex: 1 100%;
+    }
   }
 </style>
