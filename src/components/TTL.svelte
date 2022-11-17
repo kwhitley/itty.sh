@@ -2,6 +2,7 @@
   import { getSeconds } from 'itty-time'
   import { ttl, textTTL } from '~/stores'
   import { generateHash } from 'supergeneric/generateHash'
+  import RangeSlider from 'svelte-range-slider-pips'
 
   let message
   let localTTL = undefined
@@ -17,6 +18,8 @@
       message += ' & high discovery risk'
     }
   }
+
+  let values = [$ttl]
 
   const ttlLookup = [
     '10 seconds',
@@ -59,13 +62,21 @@
   }
 
   $: additionalMessage = additionalMessaging[$textTTL] || ''
-  console.log('setting additionalMessage', additionalMessage, 'from', $textTTL, additionalMessaging[$textTTL])
+
+  const changeHandler = e => localTTL = e.detail.value
 </script>
 
 <!-- MARKUP -->
 <label class="range2">
   How long should it be available? <span>{ttlLookup[$ttl-1]} <em>{@html additionalMessage}</em></span>
-  <input type="range" min="1" max={ttlLookup.length} bind:value={localTTL} />
+
+  <RangeSlider
+    bind:values
+    on:change={changeHandler}
+    min={1}
+    max={ttlLookup.length}
+    pips
+    />
 </label>
 
 <style lang="scss">

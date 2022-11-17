@@ -1,6 +1,7 @@
 <script>
   import { keyLength, ttl } from '~/stores'
   import { generateHash } from 'supergeneric/generateHash'
+  import RangeSlider from 'svelte-range-slider-pips'
 
   const messaging = [
     'just asking to be discovered <em>requires subscription</em>',
@@ -19,30 +20,47 @@
     'a needle in the universe',
   ]
 
-  $: message = messaging[$keyLength-2]
+  let values = [$keyLength]
 
+  $: message = messaging[$keyLength-2]
   $: permutations = $keyLength < 15 ? `~${Math.pow(55, $keyLength).toLocaleString()}` : 'MANY'
   $: example = `ity.sh/${generateHash($keyLength)}`
+
+  const changeHandler = e => $keyLength = e.detail.value
+
+  // colors
+  let hue = [244]
+  $: lightColor = `hsl(${Math.round(hue[0]) - 10}, 65%, 70%)`
+  $: color = `hsl(${Math.round(hue[0])}, 63%, 54%)`
 </script>
 
 <!-- MARKUP -->
-<label class="range">
+<section class="range">
   How safe do you want it? <span>{@html message}</span>
-  <!-- Length of {$keyLength} letters/numbers, with {permutations} possibilities {message} -->
   <dl>
     <dt>Example:</dt>
     <dd class="accent">{example}</dd>
   </dl>
-  <input type="range" min="2" max="15" bind:value={$keyLength} />
-</label>
+
+  <RangeSlider
+    bind:values
+    on:change={changeHandler}
+    min={2}
+    max={15}
+    pips
+    />
+</section>
 
 <style lang="scss">
-  label {
+  section {
     padding-bottom: 2em;
     display: flex;
     flex-flow: row wrap;
     align-items: baseline;
     column-gap: 0.4em;
+    row-gap: 0.5em;
+    display: flex;
+    font-weight: 600;
 
     input {
       flex: 1 100%;
@@ -75,5 +93,21 @@
     span {
     flex: 1 100%;
     }
+  }
+
+  :global(.rangeSlider) {
+    flex: 1 100%;
+    margin: 0.5em;
+
+    --range-handle-focus: var(--blue);
+  }
+
+  :global(.rangeSlider .rangeHandle) {
+    height: 25px;
+    width: 25px;
+  }
+
+  :global(.rangeNub) {
+    border: 3px solid var(--background-color);
   }
 </style>
