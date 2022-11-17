@@ -58,7 +58,7 @@ Today, we:
 1. Finally, once the expiration passes (down to the second), every trace of this file, link, etc. will cease to exist 
   on our servers all around the world.  No need to remember any sort of cleanup, we handle that for you.
 
-### <a href="/waitlist">Join the waitlist</a> today!
+### Sound good? <a href="/create">Start creating</a> today!
 </main>
 
 <!-- STYLES -->

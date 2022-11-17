@@ -44,8 +44,14 @@
   textarea {
     resize: none;
     font-family: monospace;
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 1em;
     font-weight: 400;
+
+    &::placeholder {
+      font-weight: 600;
+      color: var(--foreground-50);
+      font-size: 0.9em;
+    }
   }
 </style>
