@@ -61,11 +61,10 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
 
     // add filename to headers
     if (item.isFile) {
-      console.log('posting file:', item)
       extra.headers.filename = item.filename
     }
 
-    return api.post(`/create?length=${length}&ttl=${ttl.replace(/\s/,'')}${as}`, item.content, extra)
+    return api.post(`?length=${length}&ttl=${ttl.replace(/\s/,'')}${as}`, item.content, extra)
               // .then(randomDelay)
               // .then(randomError)
               .then(response => {

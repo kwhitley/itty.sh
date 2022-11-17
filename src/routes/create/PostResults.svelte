@@ -26,7 +26,10 @@
 <!-- MARKUP -->
 {#if singleEntry}
   {#key singleEntry.key}
-    <Preview key={singleEntry.key} />
+    <Preview
+      key={singleEntry.key}
+      submitting={submitting}
+      />
   {/key}
 {:else if !expired}
   <main out:fade={{ duration: 300, delay: 400 }}>

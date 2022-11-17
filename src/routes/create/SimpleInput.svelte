@@ -57,7 +57,6 @@
   const save = async (payload, as = '') => {
     const isArrayOfFiles = Array.isArray(payload) && payload[0] instanceof File
 
-    console.log('SAVING', payload)
     // submitting = true
     value = ''
     placeholder = 'sending...'

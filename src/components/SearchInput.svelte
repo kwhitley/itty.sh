@@ -20,10 +20,7 @@
 		node.type = type
 	}
 
-  export let submitHandler = value => {
-    console.log('calling onSubmit with', value)
-    dispatch('submit', value)
-  }
+  export let submitHandler = value => dispatch('submit', value)
 
   const submitWrapper = async (e) => {
     e.preventDefault()
@@ -37,10 +34,8 @@
 
   const dropped = (e) => {
     e.preventDefault()
-
     const items = [...e.dataTransfer?.items]
     const item = e.dataTransfer?.items[0]?.getAsFile()
-    console.log('dropped', items)
 
     dispatch('files', items.map(i => i.getAsFile()))
   }
