@@ -56,8 +56,8 @@
 
 <!-- HEAD -->
 <svelte:head>
-  <title>{pageTitle('advanced editor')}</title>
-  <meta name="description" content="Write your own content, then get it live on the web in under a second!" />
+  <title>{pageTitle('create')}</title>
+  <meta name="description" content="Create itty links by dragging files, pasting from the clipboard, or writing content from scratch.  Try it today!" />
 </svelte:head>
 
 <!-- MARKUP -->
@@ -136,14 +136,14 @@
   .editor-and-submit {
     display: flex;
     flex-flow: column;
-    margin-bottom: 0.7em;
+    margin-bottom: 2em;
   }
 
   .form {
     font-size: clamp(1rem, 2vw, 1.2rem);
     display: flex;
     flex-flow: column;
-    gap: 0.3em;
+    gap: 1.5em;
     margin-bottom: 0.1em;
   }
 </style>
