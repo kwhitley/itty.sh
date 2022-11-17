@@ -47,7 +47,6 @@
     on:change={changeHandler}
     min={2}
     max={15}
-    pips
     />
 </section>
 

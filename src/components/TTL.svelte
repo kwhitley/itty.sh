@@ -33,7 +33,7 @@
     '1 week',
     '1 month',
     '1 year',
-    'until I unsubscribe*',
+    'until I unsubscribe',
   ]
 
   const additionalMessaging = {
@@ -75,7 +75,6 @@
     on:change={changeHandler}
     min={1}
     max={ttlLookup.length}
-    pips
     />
 </label>
 
