@@ -75,6 +75,7 @@
     on:change={changeHandler}
     min={1}
     max={ttlLookup.length}
+    pips
     />
 </label>
 
