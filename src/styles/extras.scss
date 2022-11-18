@@ -38,3 +38,21 @@
     z-index: 0;
   }
 }
+
+@-webkit-keyframes jiggle {
+  0% {
+    -webkit-transform: rotate(-0.5deg);
+  }
+  50% {
+    -webkit-transform: rotate(0.5deg);
+  }
+}
+
+@-moz-keyframes jiggle {
+  0% {
+    -moz-transform: rotate(-0.5deg);
+  }
+  50% {
+    -moz-transform: rotate(0.5deg);
+  }
+}
