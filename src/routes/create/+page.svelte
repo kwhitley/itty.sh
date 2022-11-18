@@ -28,7 +28,6 @@
     if (typeof payload !== 'string') return ''
 
     if (payload.match(/(^<)|(<\w+>)|(<\/?\w+>)/gi)) return 'text/html'
-    if (payload.match(/^https?:\/\//gi)) return 'link'
   }
 
   // SAVE PAYLOAD
