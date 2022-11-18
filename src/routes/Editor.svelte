@@ -2,6 +2,8 @@
   import { createEventDispatcher } from 'svelte'
   import { autosize } from '~/actions/autosize'
   import { onPaste } from '~/utils/onPaste'
+  import { PATH } from '~/api'
+  import { toast } from '~/services/toast'
 
   export let value = ''
   export let label = ''
@@ -12,14 +14,40 @@
 
   const dispatch = createEventDispatcher()
 
-  const dropped = (e) => {
+  const downloadImage = async url => new Promise(resolve => {
+    const imageURL = `${PATH}/fetch/${url}`
+    const image = new Image()
+    image.crossOrigin = 'Anonymous'
+    image.addEventListener('load', () => resolve(image), false)
+    image.src = imageURL
+  })
+
+  const dropped = async (e) => {
     e.preventDefault()
+
+    const dt = e.dataTransfer
+
+    var html = dt.getData('text/html'),
+        match = html && /\bsrc="?([^"\s]+)"?\s*/.exec(html),
+        url = match && match[1]
 
     const items = [...e.dataTransfer?.items]
     const item = e.dataTransfer?.items[0]?.getAsFile()
-    console.log('dropped', items)
 
-    dispatch('files', items.map(i => i.getAsFile()))
+    if (url) {
+      const img = await downloadImage(url)
+      const canvas = document.createElement('canvas')
+      const context = canvas.getContext('2d')
+      canvas.width = img.width
+      canvas.height = img.height
+      context.drawImage(img, 0, 0)
+      canvas.toBlob(function(blob) {
+        dispatch('files', blob)
+      }, 'image/png')
+    } else {
+      // we assume files were dropped
+      dispatch('files', items.map(i => i.getAsFile()))
+    }
   }
 </script>
 
