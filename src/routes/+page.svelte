@@ -74,7 +74,7 @@
 
 <!-- HEAD -->
 <svelte:head>
-  <title>{pageTitle('create')}</title>
+  <title>{pageTitle('single-step file sharing')}</title>
   <meta name="description" content="Create itty links by dragging files, pasting from the clipboard, or writing content from scratch.  Try it today!" />
 </svelte:head>
 
