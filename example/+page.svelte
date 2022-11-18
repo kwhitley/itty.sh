@@ -21,6 +21,7 @@
         height: 100%;
         text-align: center;
         line-height: 1.8em;
+        padding: 0 2em;
       }
 
       h1 {
