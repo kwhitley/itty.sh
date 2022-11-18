@@ -20,12 +20,17 @@
 <div class="brand">
   <a href="/">
     <slot>
-      <div class="main">it<strike>t</strike>y<small>.sh</small>
-        {#if showVersion}
+      <div class="main">
+        <span>it<strike>t</strike>y<small>.sh</small></span>
+        <strong class="alpha">
+          alpha
+          {#if showVersion}
           <span class="version">
             v{VERSION}
           </span>
         {/if}
+        </strong>
+
       </div>
       <div class="secondary">{tagline}</div>
     </slot>
@@ -44,6 +49,9 @@
     font-size: 1.5em;
     z-index: -1;
     position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1em;
   }
 
   .secondary {
@@ -54,12 +62,11 @@
     z-index: 2;
   }
 
-  .version {
-    font-size: 0.3em;
-    margin-left: -0.4rem;
-    letter-spacing: -0.01em;
-    color: var(--foreground-25);
-  }
+  // .version {
+  //   font-size: 0.3em;
+  //   letter-spacing: -0.01em;
+  //   color: var(--foreground-25);
+  // }
 
   a {
     font-size: var(--brand-size);
@@ -84,5 +91,22 @@
     display: inline-block;
     margin-left: -0.1em;
     color: var(--foreground-75);
+  }
+
+  .alpha {
+    // font-size: 0.4em;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    // text-transform: uppercase;
+    color: var(--foreground-75);
+    font-size: 0.56em;
+
+    background-color: var(--foreground-75);
+    color: var(--background-95);
+    padding: 0.2em 0.4em;
+    font-size: 0.22em;
+    border-radius: 0.2em;
+    position: relative;
+    bottom: 0.3em;
   }
 </style>
