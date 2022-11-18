@@ -38,6 +38,8 @@
     value = ''
     dragOver = false
 
+    console.log('payload', payload)
+
     // auto-detect type if not explicity passed
     if (!as) {
       as = detectType(payload)
@@ -93,7 +95,7 @@
         placeholder={placeholder}
         bind:value={value}
         on:files={e => save(e.detail)}
-        on:submit={() => save(value)}
+        on:submit={(e) => save(e?.detail || value)}
         rows={6}
         disabled={submitting}
         />

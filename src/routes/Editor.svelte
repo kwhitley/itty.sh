@@ -19,6 +19,9 @@
     const image = new Image()
     image.crossOrigin = 'Anonymous'
     image.addEventListener('load', () => resolve(image), false)
+    image.onerror = () => {
+      toast('There was an issue loading this image...', { type: 'error', duration: '2 seconds' })
+    }
     image.src = imageURL
   })
 
@@ -27,23 +30,37 @@
 
     const dt = e.dataTransfer
 
-    var html = dt.getData('text/html'),
+    let html = dt.getData('text/html'),
         match = html && /\bsrc="?([^"\s]+)"?\s*/.exec(html),
         url = match && match[1]
 
+    // try second pass as href
+    if (html && !url) {
+      match = html && /\href="?([^"\s]+)"?\s*/.exec(html),
+      url = match && match[1]
+    }
+
+    console.log('e', e)
+    console.log('test', e.dataTransfer)
+    console.log('html', dt.getData('text/html'))
+    console.log('match', match)
+    console.log('url', url)
+
     const items = [...e.dataTransfer?.items]
     const item = e.dataTransfer?.items[0]?.getAsFile()
+    console.log('dropped', items)
 
     if (url) {
-      const img = await downloadImage(url)
-      const canvas = document.createElement('canvas')
-      const context = canvas.getContext('2d')
-      canvas.width = img.width
-      canvas.height = img.height
-      context.drawImage(img, 0, 0)
-      canvas.toBlob(function(blob) {
-        dispatch('files', blob)
-      }, 'image/png')
+      dispatch('submit', url)
+      // const img = await downloadImage(url)
+      // const canvas = document.createElement('canvas')
+      // const context = canvas.getContext('2d')
+      // canvas.width = img.width
+      // canvas.height = img.height
+      // context.drawImage(img, 0, 0)
+      // canvas.toBlob(function(blob) {
+      //   dispatch('files', blob)
+      // }, 'image/png')
     } else {
       // we assume files were dropped
       dispatch('files', items.map(i => i.getAsFile()))
