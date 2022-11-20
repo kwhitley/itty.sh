@@ -172,7 +172,7 @@
   }
 
   :global(.editor-and-submit.over) {
-    scale: 1.02;
+    scale: 1.03;
 
     animation: jiggle 0.25s infinite;
     -webkit-animation: jiggle 0.25s infinite;
