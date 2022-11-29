@@ -38,9 +38,9 @@
 
   const additionalMessaging = {
     '10 seconds': '*demo only',
-    '1 week': '*requires subscription',
-    '1 month': '*requires subscription',
-    '1 year': '*requires subscription',
+    // '1 week': '*requires subscription',
+    // '1 month': '*requires subscription',
+    // '1 year': '*requires subscription',
     // '30 years': '*requires subscription',
   }
 

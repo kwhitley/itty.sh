@@ -4,10 +4,10 @@
   import RangeSlider from 'svelte-range-slider-pips'
 
   const messaging = [
-    'just asking to be discovered <em>requires subscription</em>',
-    'very unsafe <em>requires subscription</em>',
-    'pretty unsafe <em>requires subscription</em>',
-    'moderately safe <em>requires subscription</em>',
+    'just asking to be discovered', //<em>requires subscription</em>',
+    'very unsafe', //<em>requires subscription</em>',
+    'pretty unsafe',// <em>requires subscription</em>',
+    'moderately safe',// <em>requires subscription</em>',
     'balanced',
     'very safe',
     'overkill',
