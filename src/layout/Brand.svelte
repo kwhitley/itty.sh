@@ -1,4 +1,6 @@
 <script>
+  import Logo from './Logo.svelte'
+  import VersionBadge from './VersionBadge.svelte'
   import { VERSION } from '~/constants'
   import weighted from 'weighted'
 
@@ -17,56 +19,34 @@
 </script>
 
 <!-- MARKUP -->
-<div class="brand">
-  <a href="/">
-    <slot>
-      <div class="main">
-        <span>it<strike>t</strike>y<small>.sh</small></span>
-        <strong class="alpha">
-          alpha
-          {#if showVersion}
-          <span class="version">
-            v{VERSION}
-          </span>
-        {/if}
-        </strong>
+<a class="brand" href="/">
+  <Logo />
+  <span><VersionBadge type="alpha" /></span>
+  <div class="tagline">{tagline}</div>
+</a>
 
-      </div>
-      <div class="secondary">{tagline}</div>
-    </slot>
-  </a>
-</div>
-
+<!-- STYLES -->
 <!-- STYLES -->
 <style lang="scss">
   .brand {
     align-self: center;
     padding: 0.15rem 0 0.6rem;
-    font-size: clamp(0.6rem, 1vw, 0.9rem);
-  }
-
-  .main {
-    font-size: 1.5em;
-    z-index: -1;
-    position: relative;
+    font-size: clamp(1.6rem, 6vw, 2.5rem);
     display: flex;
-    align-items: baseline;
-    gap: 0.1em;
+    column-gap: 0.1em;
+    flex-flow: row wrap;
   }
 
-  .secondary {
-    font-size: 0.5em;
+  .tagline {
+    flex: 1 100%;
+    font-size: 0.33em;
     letter-spacing: -0.02em;
-    color: var(--foreground-color);
+    color: var(--foreground-75);
     margin-top: -0.25em;
+    font-weight: 400;
     z-index: 2;
+    font-family: sans-serif;
   }
-
-  // .version {
-  //   font-size: 0.3em;
-  //   letter-spacing: -0.01em;
-  //   color: var(--foreground-25);
-  // }
 
   a {
     font-size: var(--brand-size);
@@ -74,39 +54,10 @@
     transition: color 0.2s ease;
     display: inline-block;
     transform-origin: 0% 50%;
-    color: var(--brand-color);
 
     &:hover {
-      color: var(--accent-color);
       text-decoration: none;
       opacity: 0.8;
     }
-  }
-
-  small {
-    font-size: 0.7em;
-    font-size: 1em;
-    font-style: normal;
-    letter-spacing: -0.05em;
-    display: inline-block;
-    margin-left: -0.1em;
-    color: var(--foreground-75);
-  }
-
-  .alpha {
-    // font-size: 0.4em;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    // text-transform: uppercase;
-    color: var(--foreground-75);
-    font-size: 0.56em;
-
-    background-color: var(--foreground-75);
-    color: var(--background-95);
-    padding: 0.2em 0.4em;
-    font-size: 0.22em;
-    border-radius: 0.2em;
-    position: relative;
-    bottom: 0.3em;
   }
 </style>

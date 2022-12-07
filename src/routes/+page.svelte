@@ -2,6 +2,7 @@
   import { post } from '~/api/post'
   import KeyLength from '~/components/KeyLength.svelte'
   import TTL from '~/components/TTL.svelte'
+  import Disclaimer from '~/components/Disclaimer.md'
   import { keyLength, postResults, textTTL } from '~/stores'
   import { pageTitle } from '~/utils/pageTitle'
   import PostResults from './PostResults.svelte'
@@ -109,26 +110,9 @@
 
 {#if $postResults?.entries}
   <PostResults />
+{:else}
+  <Disclaimer />
 {/if}
-
-<!--
-<h2>Advanced Editor</h2>
-
-<p>
-  In the beginning, I'm allowing exactly two types of content: HTML and JSON.
-</p>
-
-<h3>HTML</h3>
-
-<p>
-  HTML content will be served back out as an HTML page.  This can be as simple or elaborate as you like (any valid HTML works)... use your imagination!
-</p>
-
-<h3>JSON</h3>
-
-<p>
-  If you write perfectly-formed JSON, you can get properly encoded JSON back out.  I'm not sure why you'd want to do this, but hey... why not?
-</p> -->
 
 <!-- STYLES -->
 <style lang="scss">

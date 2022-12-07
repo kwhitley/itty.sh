@@ -13,6 +13,14 @@
 <!-- MARKUP -->
 <footer class:sticky>
   <section class="split" class:constrained class:centered>
+    <nav>
+      <div class="copywrite">
+        &copy; {year} Itty Industries, Inc. All rights reserved.
+      </div>
+      <a href="/terms">Terms and Conditions</a>
+      <a href="/privacy">Privacy Policy</a>
+    </nav>
+
     <div class="social">
       <a href="https://twitter.com/kevinrwhitley">
         <Twitter />
@@ -25,12 +33,6 @@
       <a href="https://github.com/kwhitley">
         <GitHub />
       </a>
-    </div>
-
-    <div class="copywrite">
-      <slot>
-        &copy; {year} Itty Industries, Inc. All rights reserved.
-      </slot>
     </div>
   </section>
 </footer>
@@ -45,17 +47,31 @@
     justify-content: center;
     font-size: 0.85em;
     color: var(--foreground-75);
+    background-color: var(--foreground-5);
+    margin-top: 3rem;
+
+    nav {
+      flex: 1 100%;
+    }
+
+    section {
+      // border-top: 1px solid var(--foreground-25);
+    }
 
     &.sticky {
       position: fixed;
       bottom: 0;
       width: 100%;
-      border-top: 1px solid var(--foreground-25);
     }
   }
 
   .copywrite {
-    font-size: 0.9em;
+    text-align: left;
+    margin-right: auto;
+
+    @media screen and (max-width: 30em) {
+      flex: 0 5em;
+    }
   }
 
   .split {
@@ -107,5 +123,27 @@
         color: var(--foreground-color);
       }
     }
+  }
+
+  nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    text-align: right;
+    column-gap: 1.4em;
+    row-gap: 0.6em;
+    font-size: 0.8em;
+
+    a {
+      color: var(--foreground-color);
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    // & > * {
+    //   flex: 1 100%;
+    // }
   }
 </style>
