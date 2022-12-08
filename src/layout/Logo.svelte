@@ -22,7 +22,7 @@
   strike {
     display: inline-block;
     overflow: hidden;
-    transition: all 0.2s ease;
+    transition: max-width 0.2s ease;
     max-width: 1em;
   }
 </style>
