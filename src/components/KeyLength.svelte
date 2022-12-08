@@ -20,13 +20,20 @@
     'a needle in the universe',
   ]
 
-  let values = [$keyLength]
 
-  $: message = messaging[$keyLength-2]
+  let localValue = $keyLength
+  let values = [localValue]
+
+  $: if (localValue > 15) {
+    localValue = 15
+  }
+
+  $: $keyLength = localValue === 15 ? 256 : localValue
+  $: message = messaging[localValue-2]
   $: permutations = $keyLength < 15 ? `~${Math.pow(55, $keyLength).toLocaleString()}` : 'MANY'
   $: example = `ity.sh/${generateHash($keyLength)}`
 
-  const changeHandler = e => $keyLength = e.detail.value
+  const changeHandler = e => localValue = e.detail.value
 
   // colors
   let hue = [244]
@@ -65,6 +72,18 @@
     input {
       flex: 1 100%;
     }
+  }
+
+  dl {
+    flex-flow: row;
+  }
+
+  dt {
+    flex: 0;
+  }
+
+  dd {
+    word-break: break-all;
   }
 
   :global(.range em) {

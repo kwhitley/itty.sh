@@ -28,7 +28,7 @@
         href={fullLink}
         target="_blank"
         >
-        <span class:hideOnMobile={link.length > 20}>{DOMAIN + '/'}</span>{key}
+        <span>{DOMAIN + '/'}</span>{key}
       </a>
 
       <CopyToClipboard content={fullLink}>
@@ -48,11 +48,11 @@
     align-items: center;
     gap: 1.5em;
     margin-bottom: 1em;
-    height: clamp(10em, 100vw, 26em);
+    // height: clamp(10em, 100vw, 26em);
   }
 
   .preview-link {
-    font-size: clamp(1.3rem, 6vw, 3rem);
+    font-size: clamp(1.3rem, 6vw, 2.5rem);
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: -0.02em;
     display: flex;
@@ -60,6 +60,7 @@
     align-self: center;
     gap: 0.5em;
     margin-bottom: 0.4em;
+    word-break: break-all;
 
     a {
       color: var(--accent-color);

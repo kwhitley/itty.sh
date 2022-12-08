@@ -97,9 +97,18 @@
   }
 
   .link {
-    flex: 0;
+    flex: 2;
     justify-self: flex-end;
     font-size: 1.1em;
+    text-align: right;
+
+    @media screen and (max-width: 40em) {
+      text-align: left;
+    }
+  }
+
+  a {
+    word-break: break-all;
   }
 
   .filename {
