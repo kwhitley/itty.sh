@@ -66,7 +66,7 @@
       buttonMessage += ` as ${detectedType}`
     }
 
-    if (!value) buttonMessage = 'Put stuff in this box'
+    if (!value) buttonMessage = 'Step 1 - Put stuff in box'
 
     if (dragOver) buttonMessage = 'Drop Files to Upload'
     if (submitting) buttonMessage = 'Sending...'
@@ -111,6 +111,8 @@
 {#if $postResults?.entries}
   <PostResults />
 {:else}
+  <div class="step-2">Step 2 - Get a link to your stuff</div>
+
   <Disclaimer />
 {/if}
 
@@ -128,6 +130,13 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom: 0;
+  }
+
+  .step-2 {
+    font-size: 1.1rem;
+    color: var(--foreground-25);
+    text-align: center;
+    margin: 1em 0 3em;
   }
 
   button {

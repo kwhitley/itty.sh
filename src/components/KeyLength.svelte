@@ -84,6 +84,7 @@
 
   dd {
     word-break: break-all;
+    line-height: 1em;
   }
 
   :global(.range em) {
@@ -110,7 +111,7 @@
 
   @media screen and (max-width: 35em) {
     span {
-    flex: 1 100%;
+      flex: 1 100%;
     }
   }
 
