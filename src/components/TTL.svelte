@@ -24,9 +24,7 @@
   const ttlLookup = [
     '10 seconds',
     '1 minute',
-    '2 minutes',
     '5 minutes',
-    '10 minutes',
     '30 minutes',
     '1 hour',
     '1 day',

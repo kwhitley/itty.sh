@@ -5,18 +5,18 @@
 
   const messaging = [
     'just asking to be discovered', //<em>requires subscription</em>',
-    'very unsafe', //<em>requires subscription</em>',
-    'pretty unsafe',// <em>requires subscription</em>',
-    'moderately safe',// <em>requires subscription</em>',
-    'balanced',
+    'extremely discoverable', //<em>requires subscription</em>',
+    'very unsafe',// <em>requires subscription</em>',
+    'getting better',// <em>requires subscription</em>',
+    'kinda safe',
+    'safe "enough"',
     'very safe',
+    'very very safe',
+    'very very very safe',
     'overkill',
-    'overkill',
-    'overkill',
-    'overkill',
-    'overkill',
-    'overkill',
+    'still overkill',
     'extreme overkill',
+    'keep going, why not?',
     'a needle in the universe',
   ]
 
