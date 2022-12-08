@@ -6,6 +6,7 @@
   span {
     color: var(--accent-color);
     letter-spacing: -0.03em;
+    display: flex;
   }
 
   small {
@@ -16,5 +17,12 @@
     display: inline-block;
     margin-left: -0.1em;
     color: var(--foreground-75);
+  }
+
+  strike {
+    display: inline-block;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    max-width: 1em;
   }
 </style>

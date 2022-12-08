@@ -37,6 +37,10 @@
     flex-flow: row wrap;
   }
 
+  :global(.brand:hover strike) {
+    max-width: 0;
+  }
+
   .tagline {
     flex: 1 100%;
     font-size: 0.33em;
