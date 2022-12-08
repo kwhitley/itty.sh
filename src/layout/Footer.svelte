@@ -41,7 +41,7 @@
 <style lang="scss">
   footer {
     position: relative;
-    padding: 2.5rem var(--page-inset) 2.5rem;
+    padding: 2rem var(--page-inset) 2rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -86,7 +86,7 @@
     align-items:flex-end;
     justify-content: space-between;
     // background-color: cyan;
-    row-gap: 1.5em;
+    row-gap: 0.8em;
     column-gap: 2em;
 
     & > * {

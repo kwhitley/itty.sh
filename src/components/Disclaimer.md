@@ -1,7 +1,7 @@
 
 <section class="disclaimer">
 
-  ### Disclaimer: Early-Access
+  ### Early-Access Disclaimer
 
   We are in an early alpha, and as such, the service is still undergoing active development and testing. By using itty.sh, you acknowledge and agree to our [Terms and Conditions](/terms), which includes the possibility that your content may be periodically erased during this time.  As defined in our [Privacy Policy](/privacy), _we track and share no data_... ever.
 
