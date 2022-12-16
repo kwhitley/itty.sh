@@ -6,7 +6,7 @@
     and testing. By using itty.sh, you acknowledge and agree to our
     <a href="/terms">Terms and Conditions</a>, which includes the possibility
     that your content may be periodically erased during this time.
-    As defined in our <a href="/privacy">Privacy Policy</a>, _we track and share no data_... ever.
+    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no data</em>... ever.
   </p>
 
   <p>

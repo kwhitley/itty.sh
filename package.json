@@ -1,6 +1,6 @@
 {
   "name": "itty-sh-client",
-  "version": "0.20.9",
+  "version": "0.20.10",
   "private": true,
   "scripts": {
     "dev": "vite dev",
