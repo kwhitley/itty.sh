@@ -1,1 +1,3 @@
-# Kevin's SvelteKit Template
+# Home of itty.sh
+
+Docs to follow someday...
