@@ -2,7 +2,7 @@
   import { post } from '~/api/post'
   import KeyLength from '~/components/KeyLength.svelte'
   import TTL from '~/components/TTL.svelte'
-  import Disclaimer from '~/components/Disclaimer.md'
+  import Disclaimer from '~/components/Disclaimer.svelte'
   import { keyLength, postResults, textTTL } from '~/stores'
   import { pageTitle } from '~/utils/pageTitle'
   import PostResults from './PostResults.svelte'

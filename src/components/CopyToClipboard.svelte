@@ -1,6 +1,5 @@
 <script>
   import Copy from '~/components/icons/Copy.svelte'
-  import SvelteTooltip from 'svelte-tooltip'
   import { tooltip } from '~/actions/tooltip'
   import { toast } from '~/services/toast'
 
