@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte'
   import { fade, fly } from 'svelte/transition'
   import { PATH } from '~/api'
   import EntryList from '~/components/EntryList.svelte'
@@ -7,6 +8,7 @@
   import Preview from './Preview.svelte'
 
   let expandedIndex = undefined
+  let anchor
 
   $: entries = $postResults?.entries || []
   $: singleEntry = entries.length === 1 ? entries[0] : false
@@ -18,12 +20,17 @@
     if (expired || submitting) {
       expandedIndex = undefined
     }
+
+    if (completed) {
+      setTimeout(() => anchor.scrollIntoView({ behavior: 'smooth' }), 100)
+    }
   }
 
   const toggleExpanded = (index) => () => { expandedIndex = (expandedIndex === index) ? undefined : index }
 </script>
 
 <!-- MARKUP -->
+<div bind:this={anchor}></div>
 {#if singleEntry}
   {#key singleEntry.key}
     <Preview
