@@ -90,6 +90,7 @@
       font-weight: 600;
       color: var(--foreground-50);
       font-size: 0.9em;
+      padding: 1rem;
     }
   }
 </style>

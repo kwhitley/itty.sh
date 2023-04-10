@@ -58,6 +58,7 @@
     transition: color 0.2s ease;
     display: inline-block;
     transform-origin: 0% 50%;
+    white-space: pre;
 
     &:hover {
       text-decoration: none;

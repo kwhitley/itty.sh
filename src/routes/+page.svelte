@@ -7,6 +7,7 @@
   import { pageTitle } from '~/utils/pageTitle'
   import PostResults from './PostResults.svelte'
   import Editor from './Editor.svelte'
+  import ManualUploadButton from './ManualUploadButton.svelte'
   import { draggable } from '~/actions/draggable'
 
   const PLACEHOLDER_SHUFFLE_SPEED = 2000
@@ -39,7 +40,7 @@
     value = ''
     dragOver = false
 
-    console.log('payload', payload)
+    // console.log('payload', payload)
 
     // auto-detect type if not explicity passed
     if (!as) {
@@ -66,7 +67,7 @@
       buttonMessage += ` as ${detectedType}`
     }
 
-    if (!value) buttonMessage = 'Step 1 - Put stuff in box'
+    if (!value) buttonMessage = 'Step 1 - Drag/type stuff into the box'
 
     if (dragOver) buttonMessage = 'Drop Files to Upload'
     if (submitting) buttonMessage = 'Sending...'
@@ -102,9 +103,15 @@
         />
     {/key}
 
-    <button type="submit" disabled={(disabled || submitting) && !dragOver} on:click={() => save(value)}>
-      {buttonMessage}
-    </button>
+    <div class="button-group">
+      <button type="submit" disabled={(disabled || submitting) && !dragOver} on:click={() => save(value)}>
+        {buttonMessage}
+      </button>
+
+      {#if !dragOver}
+        <ManualUploadButton on:files={e => save(e.detail)} />
+      {/if}
+    </div>
   </div>
 </section>
 
@@ -140,9 +147,7 @@
   }
 
   button {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    font-size: 1.2rem;
+    border-radius: 0;
   }
 
   .editor-and-submit {
@@ -182,5 +187,26 @@
 
   :global(.editor-and-submit.over button) {
     background-color: var(--accent-color);
+  }
+
+
+  @media screen and (max-width: 20em) {
+    .editor-and-submit {
+      margin-left: calc(-1 * var(--page-gutter));
+      margin-right: calc(-1 * var(--page-gutter));
+    }
+
+    .button-group {
+      border-radius: 0;
+    }
+
+    :global(.editor-and-submit textarea) {
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      background-color: var(--foreground-5);
+      box-shadow: inset 0 2em 1em -2em rgba(0,0,0,0.4);
+      border-color: var(--foreground-50);
+    }
   }
 </style>

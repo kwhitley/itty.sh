@@ -26,6 +26,7 @@
 
 <main>
   <Nav version horizontal constrained>
+    <a href="/stats" use:navlink>Stats</a>
     <a href="/about" use:navlink>About</a>
     <!-- <a href="/create" use:navlink>Create</a>
     <a href="/advanced" use:navlink>Editor</a> -->

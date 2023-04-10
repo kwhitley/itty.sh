@@ -26,3 +26,12 @@
   font-size: 0.8em;
   padding-right: 0.5rem;
 }
+
+.hidden {
+  display: none;
+}
+
+.full-bleed {
+  margin-left: calc(-1 * var(--page-gutter));
+  margin-right: calc(-1 * var(--page-gutter));
+}

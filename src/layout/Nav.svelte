@@ -19,7 +19,9 @@
 <header class:sticky>
   <section class:constrained>
     {#if brand}
-      <Brand showVersion={version} />
+      <div class="brand">
+        <Brand showVersion={version} />
+      </div>
     {/if}
 
     <div class="menu" class:open={true}>
@@ -51,18 +53,22 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
-    column-gap: 1em;
-    row-gap: 1em;
+    align-items: stretch;
+    column-gap: 2em;
+    row-gap: 0.5em;
 
     &.constrained {
       max-width: var(--max-page-width);
     }
   }
 
+  div.brand {
+    // background-color: pink;
+    flex: 0;
+  }
+
   div.menu {
-    flex: 1;
-    min-height: 3em;
+    // background-color: cyan;
     display: flex;
     align-items: center;
 

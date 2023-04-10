@@ -28,7 +28,7 @@
         href={fullLink}
         target="_blank"
         >
-        <span>{DOMAIN + '/'}</span>{key}
+        <span>https://{DOMAIN + '/'}</span>{key}
       </a>
 
       <CopyToClipboard content={fullLink}>

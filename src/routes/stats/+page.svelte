@@ -11,13 +11,7 @@
   let loaded = false
 
   onMount(async () => {
-    [
-      waitlistUsers,
-      stats,
-    ] = await Promise.all([
-      api.get('/stats/waitlist'),
-      api.get('/stats'),
-    ])
+    stats = await api.get('/stats')
 
     loaded = true
   })
@@ -25,7 +19,7 @@
 
 <svelte:head>
   <title>{pageTitle('stats')}</title>
-  <meta name="description" content="Snapshot stats for the itty engine." />
+  <meta name="description" content="Overall health status and snapshot stats for the itty engine." />
 </svelte:head>
 
 <!-- MARKUP -->
@@ -33,12 +27,6 @@
 
 {#if loaded}
   <section in:fade={{ duration: 400 }}>
-    <h3>Users</h3>
-    <dl>
-      <dt>Waitlist Users</dt>
-      <dd><em>{waitlistUsers}</em></dd>
-    </dl>
-
     <h3>Current Volume</h3>
     <dl>
       <dt>total</dt>

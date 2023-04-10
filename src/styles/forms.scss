@@ -48,6 +48,7 @@ input[type=checkbox] {
 textarea {
   width: auto;
   resize: none;
+  width: 100%;
 }
 
 label {
@@ -95,6 +96,19 @@ button {
     opacity: 0.25;
     pointer-events: none;
     cursor: default;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  font-size: 1.2rem;
+  overflow: hidden;
+
+  & > * {
+    flex: 1 10em;
   }
 }
 
