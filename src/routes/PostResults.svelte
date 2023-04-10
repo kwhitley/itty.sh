@@ -1,7 +1,5 @@
 <script>
-  import { onMount } from 'svelte'
   import { fade, fly } from 'svelte/transition'
-  import { PATH } from '~/api'
   import EntryList from '~/components/EntryList.svelte'
   import Progress from '~/components/Progress.svelte'
   import { postResults } from '~/stores'
