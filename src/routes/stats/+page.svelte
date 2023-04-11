@@ -10,6 +10,10 @@
   let stats = ''
   let loaded = false
 
+  // formats number to locale (e.g. commas)
+  const formatNumber = number => number.toLocaleString()
+
+  // temporary
   onMount(async () => {
     stats = await api.get('/stats')
 
@@ -30,23 +34,23 @@
     <h3>Current Volume</h3>
     <dl>
       <dt>total</dt>
-      <dd><em>{round(stats.current.GB, 4)}<small>GB</small></em> in {stats.current.entries} entries</dd>
+      <dd><em>{round(stats.current.GB, 4)}<small>GB</small></em> in {formatNumber(stats.current.entries)} entries</dd>
     </dl>
 
     <h3>Lifetime</h3>
     <dl>
       <dt>created</dt>
-      <dd><em>{round(stats.lifetime.stored.GB, 4)}<small>GB</small></em> in {stats.lifetime.stored.entries} entries</dd>
+      <dd><em>{round(stats.lifetime.stored.GB, 4)}<small>GB</small></em> in {formatNumber(stats.lifetime.stored.entries)} entries</dd>
 
       <dt>served</dt>
       <dd>
         <em>{round(stats.lifetime.served.GB, 4)}<small>GB</small></em>
-        in {stats.lifetime.served.entries} entries
+        in {formatNumber(stats.lifetime.served.entries)} entries
       </dd>
 
       <dt>qr served</dt>
       <dd>
-        <em>{stats.lifetime.served.qrCodes}</em> codes
+        <em>{formatNumber(stats.lifetime.served.qrCodes)}</em> codes
       </dd>
     </dl>
   </section>
