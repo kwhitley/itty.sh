@@ -63,20 +63,15 @@
   }
 
   div.brand {
-    // background-color: pink;
     flex: 0;
   }
 
   div.menu {
-    // background-color: cyan;
     display: flex;
     align-items: center;
 
-    // padding: 0.8em 0;
-
     &.open {
       @media (max-width: 400px) {
-        // flex: 1 100%;
         padding-top: 0;
       }
     }

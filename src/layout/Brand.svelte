@@ -1,8 +1,7 @@
 <script>
+  import weighted from 'weighted'
   import Logo from './Logo.svelte'
   import VersionBadge from './VersionBadge.svelte'
-  import { VERSION } from '~/constants'
-  import weighted from 'weighted'
 
   export let showVersion = false
 
@@ -26,23 +25,15 @@
 </a>
 
 <!-- STYLES -->
-<!-- STYLES -->
 <style lang="scss">
   .brand {
     align-self: center;
     padding: 0.15rem 0 0.6rem;
-    font-size: clamp(1.6rem, 6vw, 2.5rem);
-    display: flex;
-    column-gap: 0.1em;
-    flex-flow: row wrap;
-  }
-
-  :global(.brand:hover strike) {
-    max-width: 0;
+    font-size: 2.5rem;
+    white-space: nowrap;
   }
 
   .tagline {
-    flex: 1 100%;
     font-size: 0.33em;
     letter-spacing: -0.02em;
     color: var(--foreground-75);
@@ -58,7 +49,6 @@
     transition: color 0.2s ease;
     display: inline-block;
     transform-origin: 0% 50%;
-    white-space: pre;
 
     &:hover {
       text-decoration: none;

@@ -37,9 +37,7 @@
     flex-flow: row wrap;
     justify-content: flex-end;
 
-
     &.horizontal {
-      // flex-flow: row wrap;
       row-gap: 0.8em;
     }
   }

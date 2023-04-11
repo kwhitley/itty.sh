@@ -15,25 +15,28 @@
   <section class="split" class:constrained class:centered>
     <nav>
       <div class="copywrite">
-        &copy; {year} Itty Industries, Inc. All rights reserved.
+        &copy; {year} Itty Industries. All rights reserved.
       </div>
-      <a href="/terms">Terms and Conditions</a>
-      <a href="/privacy">Privacy Policy</a>
+
+      <div class="links">
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/privacy">Privacy Policy</a>
+
+        <div class="social">
+          <a href="https://twitter.com/kevinrwhitley">
+            <Twitter />
+          </a>
+
+          <a href="https://discord.gg/aTunhByeNY">
+            <Discord />
+          </a>
+
+          <a href="https://github.com/kwhitley">
+            <GitHub />
+          </a>
+        </div>
+      </div>
     </nav>
-
-    <div class="social">
-      <a href="https://twitter.com/kevinrwhitley">
-        <Twitter />
-      </a>
-
-      <a href="https://discord.gg/aTunhByeNY">
-        <Discord />
-      </a>
-
-      <a href="https://github.com/kwhitley">
-        <GitHub />
-      </a>
-    </div>
   </section>
 </footer>
 
@@ -50,8 +53,14 @@
     background-color: var(--foreground-5);
     margin-top: 3rem;
 
-    nav {
-      flex: 1 100%;
+    .links {
+      display: flex;
+      flex-flow: row wrap;
+      row-gap: 0.4rem;
+      column-gap: 1rem;
+      align-items: flex-end;
+      justify-content: flex-end;
+      text-align: right;
     }
 
     section {
@@ -65,15 +74,6 @@
     }
   }
 
-  .copywrite {
-    text-align: left;
-    margin-right: auto;
-
-    @media screen and (max-width: 30em) {
-      flex: 0 5em;
-    }
-  }
-
   .split {
     flex-flow: row-reverse wrap;
   }
@@ -83,7 +83,7 @@
     display: flex;
     flex-flow: row wrap;
     // align-items: space-between;
-    align-items:flex-end;
+    align-items: flex-end;
     justify-content: space-between;
     // background-color: cyan;
     row-gap: 0.8em;
@@ -105,12 +105,14 @@
   }
 
   .social {
-    flex: 0;
+    flex: 1 100%;
     display: flex;
     flex-flow: row;
     align-items: center;
+    justify-content: flex-end;
     gap: 1em;
     font-size: 0.8rem;
+    margin-top: 0.5rem;
 
     > * {
       color: var(--foreground-75);
@@ -127,12 +129,15 @@
 
   nav {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    text-align: right;
-    column-gap: 1.4em;
-    row-gap: 0.6em;
+    flex-flow: row;
+    justify-content: space-between;
+    column-gap: 2rem;
     font-size: 0.8em;
+    line-height: 1em;
+
+    & > * {
+      flex: 1;
+    }
 
     a {
       color: var(--foreground-color);
