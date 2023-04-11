@@ -51,7 +51,7 @@ Today, we:
 
 1. That's it!  You get a share link and a QR code in exchange.  
 
-  This link takes you **straight** to the file/content/redirect/whatever.  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  
+  This link takes you **straight** to the file content (or other page, in the case of a redirect).  No ad-filled pages with questionable download links.  Just the content that was placed in storage.  
 
   **For Developers:** This means you can use it like a lightweight Amazon S3, right from your browser.  Fetch statements in one line?  Yes please.
 
@@ -64,7 +64,7 @@ Today, we:
 <!-- STYLES -->
 <style lang="scss">
   #earth {
-    max-width: clamp(15em, 70vw, 40em);
+    max-width: clamp(25rem, 70vw, 40em);
     margin-right: -5em;
     margin-left: 0;
     margin-bottom: 0;
@@ -75,26 +75,6 @@ Today, we:
     }
   }
 
-  @media screen and (max-width: 35em) {
-    main {
-      margin-top: 27em;
-      margin-top: 93vw;
-    }
-
-    #earth {
-      position: absolute;
-      max-width: inherit;
-      left: -3em;
-      right: -21em;
-      top: 0;
-      z-index: -1;
-      opacity: 0.95;
-
-      img {
-        /* filter: contrast(110%); */
-      }
-    }
-  }
 
   @media (prefers-color-scheme: dark) {
     main {
