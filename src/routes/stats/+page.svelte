@@ -90,6 +90,7 @@
     padding-right: 0;
     line-height: 0em;
     white-space: nowrap;
+    min-width: 5rem;
   }
 
   dd {
