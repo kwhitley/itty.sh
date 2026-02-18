@@ -72,6 +72,7 @@
     placeholder={placeholder}
     rows={rows}
     disabled={disabled}
+    autofocus
     on:paste={onPaste(dispatch)}
     on:drop={dropped}
     />

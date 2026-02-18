@@ -1,17 +1,16 @@
 <section class="disclaimer">
-  <h3>Early-Access Disclaimer</h3>
+  <h3>Disclaimer</h3>
 
   <p>
-    We are in an early alpha, and as such, the service is still undergoing active development
-    and testing. By using itty.sh, you acknowledge and agree to our
-    <a href="/terms">Terms and Conditions</a>, which includes the possibility
-    that your content may be periodically erased during this time.
-    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no data</em>... ever.
+    By using this service, you agree to our <a href="/terms">Terms and Conditions</a>,
+    which includes the extremely unlikely possibility that your content may be erased before expiration.
+    We encourage everyone to use aggressive time limits to prevent clutter on the service, but we really don't care that much either way.
   </p>
 
+  <h3>Privacy</h3>
   <p>
-    We encourage anyone interested in discussing features, issues, or suggestions for the alpha
-    to join <a href="https://discord.gg/aTunhByeNY">our Discord channel</a>.
+    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no data</em>... ever.
+    We also include no content moderation, aside from simple safety checks (file types) to prevent malicious activity.
   </p>
 </section>
 

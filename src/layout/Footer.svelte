@@ -15,7 +15,7 @@
   <section class="split" class:constrained class:centered>
     <nav>
       <div class="copywrite">
-        &copy; {year} Itty Industries. All rights reserved.
+        &copy; {year} Itty. All rights reserved.
       </div>
 
       <div class="links">

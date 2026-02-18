@@ -1,10 +1,13 @@
 import { sveltekit } from '@sveltejs/kit/vite'
-import { resolve } from 'path'
-import * as pkg from './package.json'
+import { defineConfig } from 'vite'
+import { readFileSync } from 'fs'
+import { fileURLToPath } from 'url'
+import { dirname, resolve } from 'path'
 
-console.log('process.env', process.env.LOGGING)
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'))
 
-export default {
+export default defineConfig({
   plugins: [sveltekit()],
   server: {
     port: 3000,
@@ -17,4 +20,4 @@ export default {
   define: {
     __VERSION__: `"${pkg.version}"`,
   }
-}
+})

@@ -31,7 +31,6 @@
     '1 week',
     '1 month',
     '1 year',
-    'until I unsubscribe',
   ]
 
   const additionalMessaging = {
@@ -50,14 +49,7 @@
     }
   }
 
-  $: {
-    let expires = ttlLookup[$ttl-1]
-    if (expires === 'until I unsubscribe') {
-      expires = '30 years'
-    }
-
-    $textTTL = expires
-  }
+  $: $textTTL = ttlLookup[$ttl-1]
 
   $: additionalMessage = additionalMessaging[$textTTL] || ''
 
