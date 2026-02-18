@@ -20,7 +20,7 @@
 <!-- MARKUP -->
 <a class="brand" href="/">
   <Logo />
-  <span><VersionBadge type="alpha" /></span>
+  <span><VersionBadge /></span>
   <div class="tagline">{tagline}</div>
 </a>
 

@@ -15,7 +15,7 @@
   <section class="split" class:constrained class:centered>
     <nav>
       <div class="copywrite">
-        &copy; {year} Itty. All rights reserved.
+        &copy; {year} <a href="https://itty.dev">itty</a>. All rights reserved.
       </div>
 
       <div class="links">
@@ -61,10 +61,6 @@
       align-items: flex-end;
       justify-content: flex-end;
       text-align: right;
-    }
-
-    section {
-      // border-top: 1px solid var(--foreground-25);
     }
 
     &.sticky {
@@ -150,5 +146,11 @@
     // & > * {
     //   flex: 1 100%;
     // }
+  }
+
+  .copywrite {
+    a {
+      color: var(--accent-color);
+    }
   }
 </style>
