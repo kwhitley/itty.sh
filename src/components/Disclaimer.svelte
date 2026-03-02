@@ -9,8 +9,12 @@
 
   <h3>Privacy</h3>
   <p>
-    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no data</em>... ever.
-    We also include no content moderation, aside from simple safety checks (file types) to prevent malicious activity.
+    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no user data</em>... period.
+    Nor do we maintain lists of files on the system (anywhere), meaning there's no easy way to scan for content except through brute force.
+  </p>
+
+  <p>
+    Want to prevent discovery?  Use a longer key.
   </p>
 </section>
 
