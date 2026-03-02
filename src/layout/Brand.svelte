@@ -6,11 +6,12 @@
   export let showVersion = false
 
   const taglines = {
-    // 'flash drive for Planet Earth': 200,
-    [`Planet Earth's new flash drive`]: 200,
-    'single-step file-sharing': 20,
-    'a burner phone meets Dropbox': 10,
-    'the way Kevin goes rapidly bankrupt': 1,
+    'from the creator of itty.dev': 100,
+    'single-step file-sharing': 60,
+    'Dropbox, without the login': 20,
+    'If bit.ly and Dropbox had a baby...': 20,
+    'a place to store only marginally useful stuff': 10,
+    'as seen on Shark Tank (2029)': 1,
     'just another excuse to use magenta': 1,
   }
 

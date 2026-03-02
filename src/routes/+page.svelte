@@ -3,7 +3,7 @@
   import KeyLength from '~/components/KeyLength.svelte'
   import TTL from '~/components/TTL.svelte'
   import Disclaimer from '~/components/Disclaimer.svelte'
-  import ConfirmDialog from '~/components/ConfirmDialog.svelte'
+  import LargeFileConfirmation from '~/components/LargeFileConfirmation.svelte'
   import { keyLength, postResults, textTTL, ttl } from '~/stores'
   import { pageTitle } from '~/utils/pageTitle'
   import PostResults from './PostResults.svelte'
@@ -33,10 +33,8 @@
   let pendingLimit = null
   $: submitting = $postResults?.submitting
 
-  // Computed confirmation dialog message
-  $: confirmDialogMessage = pendingPayload && pendingLimit ?
-    `The file you're uploading is <span class="highlight">${formatFileSize(Math.max(...pendingPayload.map(f => f.size)))}</span>, which is ${pendingLimit.description}.<br><br>To manage storage efficiently, the availability period will be reduced from <span class="highlight">${ttlLookup[originalTTL-1]}</span> to <span class="highlight">${ttlLookup[adjustedTTL-1]}</span>.<br><br>Would you like to continue with the shorter availability period?`
-    : ''
+  // Computed values for confirmation dialog
+  $: maxFileSize = pendingPayload ? Math.max(...pendingPayload.map(f => f.size)) : 0
 
   // REACTIVE BITS
   $: disabled = submitting || !value
@@ -64,11 +62,6 @@
     return ttlLookup.indexOf(ttlString) + 1
   }
 
-  const formatFileSize = (bytes) => {
-    const mb = bytes / (1024 * 1024)
-    return mb.toFixed(1) + ' MB'
-  }
-
   const checkFileSizeLimit = (payload) => {
     const files = Array.isArray(payload) ? payload : [payload]
     let maxSize = 0
@@ -90,11 +83,11 @@
   }
 
   // SAVE PAYLOAD
-  const save = async (payload, as = '') => {
+  const save = async (payload, as = '', skipSizeCheck = false) => {
     const isArrayOfFiles = Array.isArray(payload) && payload[0] instanceof File
 
-    // Check file size limits
-    if (isArrayOfFiles) {
+    // Check file size limits (unless we're coming from confirmation)
+    if (isArrayOfFiles && !skipSizeCheck) {
       const sizeLimit = checkFileSizeLimit(payload)
 
       if (sizeLimit) {
@@ -136,18 +129,21 @@
   }
 
   const handleConfirm = () => {
-    // Update TTL to the adjusted value
+    // Update TTL to the adjusted value (this will update the slider)
     $ttl = adjustedTTL
 
-    // Proceed with the upload
-    save(pendingPayload, pendingAs)
+    // Wait for the store update to propagate
+    setTimeout(() => {
+      // Proceed with the upload (skip size check this time)
+      save(pendingPayload, pendingAs, true)
 
-    // Clean up
-    pendingPayload = null
-    pendingAs = ''
-    adjustedTTL = null
-    originalTTL = null
-    pendingLimit = null
+      // Clean up
+      pendingPayload = null
+      pendingAs = ''
+      adjustedTTL = null
+      originalTTL = null
+      pendingLimit = null
+    }, 10)
   }
 
   const handleCancel = () => {
@@ -226,12 +222,12 @@
   <Disclaimer />
 {/if}
 
-<ConfirmDialog
+<LargeFileConfirmation
   bind:isOpen={confirmDialogOpen}
-  title="Large File Storage Limit"
-  message={confirmDialogMessage}
-  confirmText="Upload with shorter availability"
-  cancelText="Cancel upload"
+  fileSize={maxFileSize}
+  fileDescription={pendingLimit?.description || ''}
+  originalTTL={originalTTL ? ttlLookup[originalTTL-1] : ''}
+  adjustedTTL={adjustedTTL ? ttlLookup[adjustedTTL-1] : ''}
   on:confirm={handleConfirm}
   on:cancel={handleCancel}
 />

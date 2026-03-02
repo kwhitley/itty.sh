@@ -15,7 +15,7 @@
   <section class="split" class:constrained class:centered>
     <nav>
       <div class="copywrite">
-        &copy; {year} <a href="https://itty.dev">itty</a>. All rights reserved.
+        &copy; {year} <a href="https://itty.dev">itty.dev</a>. All rights reserved.
       </div>
 
       <div class="links">

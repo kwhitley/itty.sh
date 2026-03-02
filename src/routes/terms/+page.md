@@ -5,14 +5,14 @@
 <!-- HEAD -->
 <svelte:head>
   <title>{pageTitle('Privacy Policy')}</title>
-  <meta name="description" content="Privacy Policy for itty.sh, by Itty Industries, Inc." />
+  <meta name="description" content="Privacy Policy for itty.sh, by itty.dev" />
 </svelte:head>
 
 <article class="legal">
   <small>Last Updated: December 07, 2022</small>
 
   ## Terms and Conditions
-  These terms and conditions (the "Terms") are a legal agreement between you and Itty Industries, Inc. ("itty.sh", "we", "us", or "our") governing your use of the itty.sh file-sharing app (the "Service"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Service.
+  These terms and conditions (the "Terms") are a legal agreement between you and [itty.dev](https://itty.dev) ("itty.sh", "we", "us", or "our") governing your use of the itty.sh file-sharing app (the "Service"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Service.
 
   Please read these Terms carefully, as they contain important information about your rights and obligations, as well as limitations and exclusions that may apply to you.
 

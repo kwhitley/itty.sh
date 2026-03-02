@@ -3,18 +3,26 @@
 
   <p>
     By using this service, you agree to our <a href="/terms">Terms and Conditions</a>,
-    which includes the extremely unlikely possibility that your content may be erased before expiration.
-    We encourage everyone to use aggressive time limits to prevent clutter on the service, but we really don't care that much either way.
+    which includes the unlikely possibility that your content may be erased before expiration.
   </p>
 
   <h3>Privacy</h3>
   <p>
     As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no user data</em>... period.
-    Nor do we maintain lists of files on the system (anywhere), meaning there's no easy way to scan for content except through brute force.
+    We do not even maintain lists of files on the system, meaning there's no easy way to scan for content except through brute force.
   </p>
-
   <p>
     Want to prevent discovery?  Use a longer key.
+  </p>
+
+  <h3>Courtesy</h3>
+
+  <p>
+    This is a privately-funded free service, with no monetization at all.
+  </p>
+  <p>
+    We encourage using short expirations (just long enough to get the job done) to prevent clutter on the service
+    and keep it running strong for everyone else.
   </p>
 </section>
 

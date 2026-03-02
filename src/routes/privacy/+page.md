@@ -5,14 +5,14 @@
 <!-- HEAD -->
 <svelte:head>
   <title>{pageTitle('Privacy Policy')}</title>
-  <meta name="description" content="Privacy Policy for itty.sh, by Itty Industries, Inc." />
+  <meta name="description" content="Privacy Policy for itty.sh, by itty.dev" />
 </svelte:head>
 
 <article class="legal">
   <small>Effective Date: December 07, 2022</small>
 
   ## Privacy Policy
-  At Itty Industries, Inc., we value your privacy and are committed to protecting it. This Privacy Policy applies to all users of our file-sharing app, itty.sh, and explains how <strong class="accent">we do not collect, use, or disclose your information</strong>.
+  At [itty.dev](https://itty.dev), we value your privacy and are committed to protecting it. This Privacy Policy applies to all users of our file-sharing app, itty.sh, and explains how <strong class="accent">we do not collect, use, or disclose your information</strong>.
 
   ### Collection of Information
   We do not collect any personal information from our users. We do not track or collect any data or information about your use of our app or the content you share through it.
@@ -33,9 +33,4 @@
 
   ### Changes to This Privacy Policy
   We may update this Privacy Policy from time to time. We will notify you of any changes by posting the updated Privacy Policy on our website and app.
-
-  ### Contact Us
-  If you have any questions or concerns about this Privacy Policy, please contact us at [ittyindustries@gmail.com](mailto:ittyindustries@gmail.com).
-
-  Thank you for choosing itty.sh. We appreciate your trust and are committed to protecting your privacy!
 </article>

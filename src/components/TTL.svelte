@@ -5,7 +5,6 @@
   import RangeSlider from 'svelte-range-slider-pips'
 
   let message
-  let localTTL = undefined
 
   $: {
     message = ''
@@ -19,7 +18,7 @@
     }
   }
 
-  let values = [$ttl]
+  $: values = [$ttl]
 
   const ttlLookup = [
     '10 seconds',
@@ -41,19 +40,13 @@
     // '30 years': '*requires subscription',
   }
 
-  $: {
-    if (!localTTL) {
-      localTTL = $ttl
-    } else {
-      $ttl = localTTL
-    }
-  }
-
   $: $textTTL = ttlLookup[$ttl-1]
 
   $: additionalMessage = additionalMessaging[$textTTL] || ''
 
-  const changeHandler = e => localTTL = e.detail.value
+  const changeHandler = e => {
+    $ttl = e.detail.value
+  }
 </script>
 
 <!-- MARKUP -->
