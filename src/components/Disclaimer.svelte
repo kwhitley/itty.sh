@@ -8,7 +8,7 @@
 
   <h3>Privacy</h3>
   <p>
-    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no user data</em>... period.
+    As defined in our <a href="/privacy">Privacy Policy</a>, <em>we track and share no data</em>... period.
     We do not even maintain lists of files on the system, meaning there's no easy way to scan for content except through brute force.
   </p>
   <p>
@@ -19,8 +19,6 @@
 
   <p>
     This is a privately-funded free service, with no monetization at all.
-  </p>
-  <p>
     We encourage using short expirations (just long enough to get the job done) to prevent clutter on the service
     and keep it running strong for everyone else.
   </p>
