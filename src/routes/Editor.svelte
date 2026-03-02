@@ -56,7 +56,11 @@
       }, 'image/png')
     } else {
       // we assume files were dropped
-      dispatch('files', items.map(i => i.getAsFile()))
+      const files = items.map(i => i.getAsFile()).filter(Boolean)
+
+      if (files.length > 0) {
+        dispatch('files', files)
+      }
     }
   }
 </script>

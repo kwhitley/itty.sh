@@ -59,9 +59,9 @@ export const post = (payloads: any[], config: PostConfig = {}) => {
   const promises = entries.map((item, index) => {
     const extra = { headers: {} }
 
-    // add filename to headers
+    // add filename to headers (encoded to avoid non-ISO-8859-1 characters)
     if (item.isFile) {
-      extra.headers.filename = item.filename
+      extra.headers.filename = encodeURIComponent(item.filename)
     }
 
     return api.post(`?length=${length}&ttl=${ttl.replace(/\s/,'')}${as}`, item.content, extra)

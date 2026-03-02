@@ -40,8 +40,6 @@
     value = ''
     dragOver = false
 
-    // console.log('payload', payload)
-
     // auto-detect type if not explicity passed
     if (!as) {
       as = detectType(payload)
